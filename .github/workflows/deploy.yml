@@ -58,7 +58,18 @@ jobs:
           echo "Da build xong:"
           du -sh dist
 
+      - name: Kiem tra da khai bao thong tin FTP chua
+        id: ftp
+        run: |
+          if [ -z "${{ secrets.FTP_SERVER }}" ]; then
+            echo "san_sang=false" >> $GITHUB_OUTPUT
+            echo "::warning::Chua khai bao FTP_SERVER, FTP_USERNAME, FTP_PASSWORD trong Settings > Secrets and variables > Actions. Buoc build da chay xong, chi bo qua buoc dua len Hostinger."
+          else
+            echo "san_sang=true" >> $GITHUB_OUTPUT
+          fi
+
       - name: Chep len Hostinger qua FTP
+        if: steps.ftp.outputs.san_sang == 'true'
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}

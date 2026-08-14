@@ -19,9 +19,13 @@
   --color-mist: #a9b1c1;
   --color-dim: #7a8497;
 
-  /* Nhan */
+  /* Nhan.
+     Ba muc do dam khac nhau, chon sao cho chu luon doc duoc:
+       ember-deep + chu trang  = 4.85:1
+       ember      + chu den    = 5.38:1
+       ember-soft tren nen den = 8.05:1  */
   --color-ember: #e8532b;
-  --color-ember-deep: #d6421c;
+  --color-ember-deep: #cf3d18;
   --color-ember-soft: #f4885f;
 
   /* Duong ke */
@@ -264,6 +268,8 @@
     transform: translateY(1px);
   }
 
+  /* Khi ro chuot len, nen sang len thi chu doi sang mau den.
+     Neu giu chu trang tren nen sang thi chu se kho doc. */
   .btn-primary {
     background: var(--color-ember-deep);
     color: #fff;
@@ -271,6 +277,7 @@
 
   .btn-primary:hover {
     background: var(--color-ember);
+    color: var(--color-ink);
   }
 
   .btn-ghost {
