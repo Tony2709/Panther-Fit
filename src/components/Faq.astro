@@ -1,0 +1,39 @@
+---
+import Icon from './Icon.astro';
+
+interface Props {
+  items: { q: string; a: string }[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="divide-y divide-hair border-y border-hair">
+  {
+    items.map((item, index) => (
+      <details class="faq-item group reveal" data-delay={index * 40} name="faq">
+        <summary
+          class="flex cursor-pointer list-none items-start justify-between gap-6 py-6 text-left"
+        >
+          <span class="display-sm max-w-[52ch] text-cream transition-colors duration-200 group-hover:text-ember-soft">
+            {item.q}
+          </span>
+          <span
+            class="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-hair text-mist transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-open:rotate-180"
+          >
+            <Icon name="chevronDown" size={16} />
+          </span>
+        </summary>
+        <div class="pb-7 pr-12">
+          <p class="prose-pf">{item.a}</p>
+        </div>
+      </details>
+    ))
+  }
+</div>
+
+<style>
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

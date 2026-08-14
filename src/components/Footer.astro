@@ -1,0 +1,115 @@
+---
+import Icon from './Icon.astro';
+import { SITE, CONTACT, NAV } from '../data/site.js';
+
+const year = new Date().getFullYear();
+const socials = [
+  { label: 'Facebook', href: CONTACT.facebook, icon: 'facebook' as const },
+  { label: 'Zalo', href: CONTACT.zalo, icon: 'message' as const },
+].filter((s) => s.href);
+---
+
+<footer class="border-t border-hair bg-night">
+  <div class="shell">
+    <div class="grid gap-12 py-16 md:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr] lg:gap-16 lg:py-20">
+      <div>
+        <img
+          src="/logo-panther-fit.png"
+          alt="Panther Fit"
+          width="190"
+          height="110"
+          class="h-11 w-auto"
+          loading="lazy"
+          decoding="async"
+        />
+        <p class="mt-6 max-w-sm text-[0.9375rem] leading-relaxed text-mist">
+          Phòng tập ở {CONTACT.address.city}. Lớp tập nhóm và PT 1 kèm 1, cho người đi làm bận rộn và
+          người lâu rồi chưa tập lại.
+        </p>
+
+        {
+          socials.length > 0 && (
+            <div class="mt-7 flex items-center gap-3">
+              {socials.map((s) => (
+                <a
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="flex h-11 w-11 items-center justify-center rounded-sm border border-hair text-mist transition-colors duration-200 hover:border-hair-strong hover:text-cream"
+                >
+                  <span class="sr-only-pf">{s.label}</span>
+                  <Icon name={s.icon} size={18} />
+                </a>
+              ))}
+            </div>
+          )
+        }
+      </div>
+
+      <div>
+        <h2 class="text-[0.6875rem] font-semibold uppercase tracking-[0.18em] text-dim">
+          Xem thêm
+        </h2>
+        <ul class="mt-5 flex flex-col gap-1">
+          {
+            NAV.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  class="inline-flex min-h-[2.5rem] items-center text-[0.9375rem] text-mist transition-colors duration-200 hover:text-cream"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-[0.6875rem] font-semibold uppercase tracking-[0.18em] text-dim">Ghé chơi</h2>
+        <ul class="mt-5 flex flex-col gap-4 text-[0.9375rem]">
+          <li class="flex gap-3">
+            <Icon name="pin" size={18} class="mt-0.5 shrink-0 text-ember" />
+            <a
+              href={CONTACT.address.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-mist transition-colors duration-200 hover:text-cream"
+            >
+              {CONTACT.address.street}<br />{CONTACT.address.city}
+            </a>
+          </li>
+          <li class="flex gap-3">
+            <Icon name="phone" size={18} class="mt-0.5 shrink-0 text-ember" />
+            <a
+              href={`tel:${CONTACT.phoneRaw}`}
+              class="text-mist transition-colors duration-200 hover:text-cream"
+            >
+              {CONTACT.phoneDisplay}
+            </a>
+          </li>
+          <li class="flex gap-3">
+            <Icon name="clock" size={18} class="mt-0.5 shrink-0 text-ember" />
+            <div class="text-mist">
+              {
+                CONTACT.hours.map((h) => (
+                  <div>
+                    {h.days}: {h.time}
+                  </div>
+                ))
+              }
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class="flex flex-col gap-3 border-t border-hair py-7 text-sm text-dim sm:flex-row sm:items-center sm:justify-between"
+    >
+      <p>© {year} {SITE.legalName}. Est. {SITE.established}.</p>
+      <p>Phòng tập gym và huấn luyện cá nhân tại {CONTACT.address.city}.</p>
+    </div>
+  </div>
+</footer>

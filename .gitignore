@@ -1,0 +1,24 @@
+# Thu vien
+node_modules/
+
+# Ket qua build
+dist/
+.astro/
+
+# He dieu hanh
+.DS_Store
+Thumbs.db
+
+# Trinh soan thao
+.vscode/
+.idea/
+*.swp
+
+# Bien moi truong, khong bao gio day len GitHub
+.env
+.env.*
+!.env.example
+
+# Nhat ky
+*.log
+npm-debug.log*

@@ -1,0 +1,391 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import TrainerCard from '../components/TrainerCard.astro';
+import Faq from '../components/Faq.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { SITE, CONTACT, FACTS } from '../data/site.js';
+import { SERVICES, FIRST_VISIT, FAQ } from '../data/content.js';
+import { TRAINERS } from '../data/trainers.js';
+
+import heroRoom from '../assets/hero-room.jpg';
+import coaching01 from '../assets/coaching-01.jpg';
+import class01 from '../assets/class-01.jpg';
+import coaching03 from '../assets/coaching-03.jpg';
+import room01 from '../assets/room-01.jpg';
+import room02 from '../assets/room-02.jpg';
+import room03 from '../assets/room-03.jpg';
+import room05 from '../assets/room-05.jpg';
+import room07 from '../assets/room-07.jpg';
+import teamFull from '../assets/team-full.jpg';
+
+const featured = TRAINERS.slice(0, 3);
+
+const gallery = [
+  { src: room07, alt: 'Khu vực tạ tự do của Panther Fit vào buổi tối' },
+  { src: room01, alt: 'Dàn máy tập và ghế đẩy ngực trong phòng tập Panther Fit' },
+  { src: room02, alt: 'Hội viên đang tập trong phòng tập Panther Fit' },
+  { src: room03, alt: 'Góc tập tạ đơn với gương lớn tại Panther Fit' },
+  { src: room05, alt: 'Khu vực cardio nhìn ra cửa sổ tại Panther Fit' },
+];
+
+const facts = [
+  { label: 'Mở cửa từ', value: String(SITE.established) },
+  { label: 'Ở tại', value: CONTACT.address.city },
+  { label: 'Hai cách tập', value: 'Nhóm và 1 kèm 1' },
+  { label: 'Một buổi', value: FACTS.sessionLength.replace('khoảng ', '~') },
+];
+---
+
+<Base
+  title={SITE.name}
+  description={SITE.description}
+  overlayHeader
+>
+  <!-- ============ ANH BIA ============ -->
+  <section class="relative flex min-h-[92svh] items-end overflow-hidden pt-24 lg:min-h-[100svh]">
+    <div class="absolute inset-0">
+      <Image
+        src={heroRoom}
+        alt="Buổi tối ở Panther Fit, hội viên đang tập rải rác khắp phòng"
+        widths={[900, 1400, 2000, 2600]}
+        sizes="100vw"
+        class="img-cover"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="absolute inset-0 bg-ink/35"></div>
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-transparent"
+        aria-hidden="true"
+      >
+      </div>
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-ink/80 via-transparent to-transparent"
+        aria-hidden="true"
+      >
+      </div>
+    </div>
+
+    <div class="shell relative w-full pb-14 md:pb-20">
+      <p class="eyebrow reveal">
+        Phòng tập tại {CONTACT.address.city} · Est. {SITE.established}
+      </p>
+
+      <h1 class="display-xl reveal mt-6 max-w-[19ch]" data-delay="80">
+        Một căn phòng mà bạn không ngại bước vào
+      </h1>
+
+      <p class="reveal mt-7 max-w-xl text-lg leading-relaxed text-mist md:text-xl" data-delay="160">
+        Panther Fit là chỗ tập của dân đi làm bận rộn, của người lâu rồi chưa tập lại, và của cả
+        những người lần đầu bước chân vào phòng gym. Không ai nhìn bạn đâu. Ai cũng đang bận với set
+        của mình.
+      </p>
+
+      <div class="reveal mt-9 flex flex-col gap-3 sm:flex-row" data-delay="240">
+        <a href="/lien-he" class="btn btn-primary">
+          Ghé thử một buổi
+          <Icon name="arrowRight" size={17} />
+        </a>
+        <a href="#phong-tap" class="btn btn-ghost">Xem thử căn phòng</a>
+      </div>
+
+      <p class="reveal mt-6 text-sm text-dim" data-delay="300">
+        Buổi đầu tiên luôn có người đi cùng bạn từ lúc bước vào cửa.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ DAI THONG TIN NHANH ============ -->
+  <section class="border-y border-hair bg-night">
+    <div class="shell">
+      <dl class="grid grid-cols-2 divide-x divide-y divide-hair sm:grid-cols-4 sm:divide-y-0">
+        {
+          facts.map((fact, index) => (
+            <div class="reveal px-1 py-7 sm:px-6 sm:first:pl-0 sm:last:pr-0" data-delay={index * 60}>
+              <dt class="text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-dim">
+                {fact.label}
+              </dt>
+              <dd class="display-sm mt-2 text-cream">{fact.value}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </section>
+
+  <!-- ============ NOI LO THAT SU ============ -->
+  <section class="section">
+    <div class="shell">
+      <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+        <div class="reveal">
+          <div class="frame aspect-[4/5] sm:aspect-[5/4] lg:aspect-[4/5]">
+            <Image
+              src={coaching01}
+              alt="Huấn luyện viên Panther Fit đứng cạnh hướng dẫn một hội viên nâng tạ đòn"
+              widths={[600, 900, 1400]}
+              sizes="(min-width: 1024px) 46vw, 92vw"
+              class="img-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div>
+          <p class="eyebrow reveal">Chuyện ít ai nói ra</p>
+          <h2 class="display-lg reveal mt-5" data-delay="60">
+            Nỗi lo lớn nhất chưa bao giờ là mấy cục tạ
+          </h2>
+
+          <div class="prose-pf reveal mt-7" data-delay="120">
+            <p>
+              Người nhắn tin cho bên mình gần như đều hỏi cùng một câu, chỉ khác cách nói: vào đó có
+              bị lạc lõng không, có bị nhìn không, người ta quen nhau hết rồi thì mình đứng đâu.
+            </p>
+            <p>
+              Câu hỏi đó hợp lý. Nhiều người từng trả tiền cho một phòng tập rồi bỏ đó, không phải
+              vì bài tập khó, mà vì bước vào thấy mình thừa.
+            </p>
+            <p>
+              Nên bên mình không đi hứa <strong>đây là phòng tập thân thiện nhất khu này</strong>.
+              Ai chẳng nói vậy. Bên mình cho bạn xem thẳng căn phòng, những người đang tập trong đó,
+              và buổi đầu tiên diễn ra chính xác ra sao. Rồi bạn tự quyết.
+            </p>
+          </div>
+
+          <a href="/ve-tui-minh" class="link-arrow reveal mt-8" data-delay="180">
+            Về tụi mình
+            <Icon name="arrowRight" size={16} />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BUOI DAU TIEN ============ -->
+  <section class="section border-t border-hair bg-night">
+    <div class="shell">
+      <SectionHeading
+        eyebrow="Buổi đầu tiên"
+        title="Bốn việc sẽ xảy ra trong lần đầu bạn tới"
+        lede="Biết trước chuyện gì đang chờ mình thì bớt hồi hộp hẳn. Đây là toàn bộ những gì diễn ra."
+      />
+
+      <ol class="mt-14 grid gap-px overflow-hidden border border-hair bg-hair sm:grid-cols-2">
+        {
+          FIRST_VISIT.map((step, index) => (
+            <li class="reveal bg-night p-8 lg:p-10" data-delay={(index % 2) * 80}>
+              <span class="ordinal">{step.ordinal}</span>
+              <h3 class="display-sm mt-4 max-w-[22ch]">{step.title}</h3>
+              <p class="mt-4 text-[0.9375rem] leading-relaxed text-mist">{step.body}</p>
+            </li>
+          ))
+        }
+      </ol>
+
+      <p class="reveal mt-10 text-sm text-dim">{FACTS.firstSession}</p>
+    </div>
+  </section>
+
+  <!-- ============ HAI CACH TAP ============ -->
+  <section class="section">
+    <div class="shell">
+      <SectionHeading
+        eyebrow="Hai cách tập"
+        title="Bạn chọn kiểu nào cũng có người đi cùng"
+        lede="Không có gói membership để bạn mua rồi tự bơi. Cả hai cách tập ở đây đều có huấn luyện viên trên sàn."
+      />
+
+      <div class="mt-14 grid gap-6 lg:grid-cols-2 lg:gap-8">
+        {
+          SERVICES.map((service, index) => (
+            <article class="card card-hover reveal flex flex-col overflow-hidden" data-delay={index * 90}>
+              <div class="frame frame-zoom aspect-[16/10]">
+                <Image
+                  src={index === 0 ? class01 : coaching03}
+                  alt={
+                    index === 0
+                      ? 'Một lớp tập nhóm tại Panther Fit, cả nhóm cùng tập trên thảm'
+                      : 'Huấn luyện viên kèm riêng một hội viên đang đẩy tạ tại Panther Fit'
+                  }
+                  widths={[600, 900, 1300]}
+                  sizes="(min-width: 1024px) 46vw, 92vw"
+                  class="img-cover"
+                  loading="lazy"
+                />
+              </div>
+
+              <div class="flex flex-1 flex-col p-8 lg:p-10">
+                <span class="ordinal">{service.ordinal}</span>
+                <h3 class="display-md mt-4">{service.name}</h3>
+                <p class="mt-2 font-medium text-ember-soft">{service.short}</p>
+                <p class="mt-5 text-[0.9375rem] leading-relaxed text-mist">{service.summary}</p>
+
+                <ul class="mt-7 flex flex-col gap-3">
+                  {service.points.map((point) => (
+                    <li class="flex gap-3 text-[0.9375rem] text-mist">
+                      <Icon name="check" size={17} class="mt-1 shrink-0 text-ember" />
+                      <span>{point.title}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <a href={`/dich-vu#${service.slug}`} class="link-arrow mt-8 self-start">
+                  Xem chi tiết
+                  <Icon name="arrowRight" size={16} />
+                </a>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PHONG TAP ============ -->
+  <section id="phong-tap" class="section border-t border-hair bg-night">
+    <div class="shell">
+      <SectionHeading
+        eyebrow="Căn phòng"
+        title="Đây là phòng tập thật, không phải ảnh minh hoạ"
+        lede="Chụp vào đúng những khung giờ bạn sẽ đi tập. Không dàn dựng, không mượn ảnh ở đâu."
+      />
+    </div>
+
+    <div class="mt-14">
+      <div class="shell">
+        <div class="grid gap-4 md:grid-cols-3">
+          <div class="frame frame-zoom reveal aspect-[4/3] md:col-span-2 md:aspect-[16/10]">
+            <Image
+              src={gallery[0].src}
+              alt={gallery[0].alt}
+              widths={[700, 1100, 1600]}
+              sizes="(min-width: 768px) 62vw, 92vw"
+              class="img-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="frame frame-zoom reveal aspect-[4/3] md:aspect-auto" data-delay="80">
+            <Image
+              src={gallery[1].src}
+              alt={gallery[1].alt}
+              widths={[500, 800, 1100]}
+              sizes="(min-width: 768px) 31vw, 92vw"
+              class="img-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
+        <div class="mt-4 grid gap-4 md:grid-cols-3">
+          {
+            gallery.slice(2).map((item, index) => (
+              <div class="frame frame-zoom reveal aspect-[4/3]" data-delay={index * 80}>
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  widths={[500, 800, 1100]}
+                  sizes="(min-width: 768px) 31vw, 92vw"
+                  class="img-cover"
+                  loading="lazy"
+                />
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DOI NGU ============ -->
+  <section class="section">
+    <div class="shell">
+      <div class="flex flex-wrap items-end justify-between gap-6">
+        <SectionHeading
+          eyebrow="Người bạn sẽ gặp"
+          title="Huấn luyện viên có mặt trên sàn, không ngồi phòng riêng"
+          lede="Bạn sẽ nhớ mặt họ sau vài buổi, và họ cũng vậy."
+          class="flex-1"
+        />
+        <a href="/huan-luyen-vien" class="link-arrow reveal shrink-0 pb-2">
+          Xem cả đội ngũ
+          <Icon name="arrowRight" size={16} />
+        </a>
+      </div>
+
+      <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {featured.map((trainer, index) => <TrainerCard trainer={trainer} index={index} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RU BAN DI CUNG ============ -->
+  <section class="section border-t border-hair bg-night">
+    <div class="shell">
+      <div class="grid items-center gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
+        <div>
+          <p class="eyebrow reveal">Đi hai người</p>
+          <h2 class="display-lg reveal mt-5" data-delay="60">
+            Có đứa bạn nào cứ hẹn mai mốt tập không
+          </h2>
+
+          <div class="prose-pf reveal mt-7" data-delay="120">
+            <p>
+              Gần như ai bước vào đây lần đầu cũng là do một người quen rủ. Không phải vì quảng cáo,
+              mà vì thấy bạn mình đi đều rồi tự thấy muốn đi theo.
+            </p>
+            <p>
+              Nên nếu bạn đang ngại đi một mình, rủ thêm một người. Hai người đứng cạnh nhau cả buổi
+              cũng không sao, và bạn bạn có thể núp sau lưng bạn suốt buổi đầu cũng được.
+            </p>
+          </div>
+
+          <div class="reveal mt-9 flex flex-col gap-3 sm:flex-row" data-delay="180">
+            <a href={CONTACT.zalo} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              <Icon name="message" size={17} />
+              Nhắn tin hẹn buổi cho hai người
+            </a>
+          </div>
+        </div>
+
+        <div class="frame reveal aspect-[5/4]" data-delay="100">
+          <Image
+            src={teamFull}
+            alt="Đội ngũ Panther Fit chụp chung tại phòng tập"
+            widths={[700, 1100, 1600]}
+            sizes="(min-width: 1024px) 52vw, 92vw"
+            class="img-cover"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CAU HOI HAY GAP ============ -->
+  <section class="section">
+    <div class="shell">
+      <div class="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+        <div>
+          <SectionHeading
+            eyebrow="Hỏi đáp"
+            title="Những câu người ta hay hỏi trước khi tới"
+          />
+          <p class="reveal mt-6 text-[0.9375rem] text-mist">
+            Còn thắc mắc gì khác thì cứ nhắn, bên mình trả lời thẳng.
+          </p>
+          <a href="/lien-he" class="link-arrow reveal mt-5">
+            Hỏi bên mình
+            <Icon name="arrowRight" size={16} />
+          </a>
+        </div>
+
+        <Faq items={FAQ.slice(0, 5)} />
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>

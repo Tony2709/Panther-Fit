@@ -1,0 +1,226 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { SITE, CONTACT } from '../data/site.js';
+
+import teamFive from '../assets/team-five.jpg';
+import teamFull from '../assets/team-full.jpg';
+import reception from '../assets/reception.jpg';
+import room06 from '../assets/room-06.jpg';
+import member01 from '../assets/member-01.jpg';
+import coaching02 from '../assets/coaching-02.jpg';
+
+const values = [
+  {
+    ordinal: '01',
+    title: 'Nhớ mặt nhau',
+    body: 'Vắng một tuần là có người hỏi. Với nhiều hội viên bên mình, đó mới là lý do họ quay lại đều, chứ không phải giáo án.',
+    icon: 'users' as const,
+  },
+  {
+    ordinal: '02',
+    title: 'Bài tập chỉnh theo người',
+    body: 'Không có một giáo án chung cho tất cả. Đau vai thì né bài vai, hôm nay mệt thì hạ xuống. Huấn luyện viên nhìn người mà xếp bài.',
+    icon: 'dumbbell' as const,
+  },
+  {
+    ordinal: '03',
+    title: 'Nói thẳng, kể cả chuyện giá',
+    body: 'Bạn hỏi giá thì bên mình nói con số, không có gói nào phải ngồi giải mã và không có ai chốt sale ép bạn.',
+    icon: 'shield' as const,
+  },
+  {
+    ordinal: '04',
+    title: 'Không ai bị soi',
+    body: 'Không before và after, không đếm calo, không ai bình phẩm cơ thể ai. Bạn tới đây để khoẻ hơn, không phải để bị chấm điểm.',
+    icon: 'heart' as const,
+  },
+];
+---
+
+<Base
+  title="Về tụi mình"
+  description={`Panther Fit mở cửa từ ${SITE.established} tại ${CONTACT.address.city}. Một phòng tập nhỏ, huấn luyện viên có mặt trên sàn, và một nhóm người nhớ mặt nhau.`}
+>
+  <PageHero
+    eyebrow="Về tụi mình"
+    title="Một phòng tập nhỏ, và một đám người nhớ mặt nhau"
+    lede={`Panther Fit mở cửa năm ${SITE.established} ở ${CONTACT.address.city}. Từ đó tới giờ, gần như ai tới đây lần đầu cũng là do một người quen rủ.`}
+    image={teamFive}
+    alt="Đội ngũ huấn luyện viên Panther Fit chụp chung tại phòng tập"
+  />
+
+  <!-- ============ CHUYEN CUA PHONG TAP ============ -->
+  <section class="section">
+    <div class="shell">
+      <div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
+        <div>
+          <p class="eyebrow reveal">Chuyện ở đây</p>
+          <h2 class="display-lg reveal mt-5" data-delay="60">
+            Bên mình không bán buổi tập, bên mình mở một căn phòng
+          </h2>
+
+          <div class="prose-pf reveal mt-8" data-delay="120">
+            <p>
+              Panther Fit bắt đầu khá đơn giản: một chỗ tập tử tế ở {CONTACT.address.city}, đủ máy
+              móc để tập cho ra hồn, và quan trọng hơn, đủ ấm để người lần đầu bước vào không thấy
+              mình lạc.
+            </p>
+            <p>
+              Cái phần thứ hai mới là phần khó. Phòng tập nào cũng nói mình có cộng đồng. Nói thì dễ.
+              Nên bên mình chọn cách khác: không hứa, mà mời bạn tới xem.
+            </p>
+            <p>
+              Tới giờ, phần lớn người mới tới đây là do bạn bè rủ. Không phải nhờ quảng cáo, mà vì
+              một người quen đi đều rồi rủ thêm một người nữa. Đó vừa là điều bên mình tự hào, vừa là
+              thứ bên mình phải giữ mỗi ngày, vì <strong>một căn phòng ấm là việc phải làm lại mỗi
+              buổi, không phải một câu khẩu hiệu treo trên tường</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <div class="frame reveal aspect-[4/3]" data-delay="80">
+            <Image
+              src={reception}
+              alt="Khu vực quầy lễ tân và bàn tư vấn của Panther Fit"
+              widths={[600, 900, 1300]}
+              sizes="(min-width: 1024px) 40vw, 92vw"
+              class="img-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="frame reveal aspect-[4/3]" data-delay="140">
+            <Image
+              src={room06}
+              alt="Toàn cảnh sàn tập Panther Fit vào buổi tối"
+              widths={[600, 900, 1300]}
+              sizes="(min-width: 1024px) 40vw, 92vw"
+              class="img-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BON DIEU GIU NGUYEN ============ -->
+  <section class="section border-t border-hair bg-night">
+    <div class="shell">
+      <SectionHeading
+        eyebrow="Bốn điều không đổi"
+        title="Những thứ bên mình cố giữ, kể cả khi đông khách"
+      />
+
+      <div class="mt-14 grid gap-px overflow-hidden border border-hair bg-hair sm:grid-cols-2">
+        {
+          values.map((value, index) => (
+            <div class="reveal bg-night p-8 lg:p-10" data-delay={(index % 2) * 80}>
+              <div class="flex items-center gap-4">
+                <Icon name={value.icon} size={22} class="text-ember" />
+                <span class="ordinal">{value.ordinal}</span>
+              </div>
+              <h3 class="display-sm mt-5">{value.title}</h3>
+              <p class="mt-4 text-[0.9375rem] leading-relaxed text-mist">{value.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ NGUOI O DAY ============ -->
+  <section class="section">
+    <div class="shell">
+      <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+        <div class="frame reveal aspect-[5/4]">
+          <Image
+            src={teamFull}
+            alt="Cả đội ngũ Panther Fit gồm huấn luyện viên và lễ tân chụp chung tại phòng tập"
+            widths={[700, 1100, 1600]}
+            sizes="(min-width: 1024px) 48vw, 92vw"
+            class="img-cover"
+            loading="lazy"
+          />
+        </div>
+
+        <div>
+          <p class="eyebrow reveal">Người ở đây</p>
+          <h2 class="display-lg reveal mt-5" data-delay="60">
+            Huấn luyện viên đứng trên sàn, không ngồi trong phòng riêng
+          </h2>
+
+          <div class="prose-pf reveal mt-7" data-delay="120">
+            <p>
+              Bên mình cố tình giữ đội ngũ đủ nhỏ để nhớ được tên từng người tới tập. Bạn sẽ gặp lại
+              cùng những gương mặt đó mỗi tuần, và sau vài buổi thì không cần giới thiệu lại nữa.
+            </p>
+            <p>
+              Nếu bạn tới một mình và chưa quen ai, cứ nói với người ở quầy. Sẽ có người dẫn bạn vào
+              nhóm.
+            </p>
+          </div>
+
+          <a href="/huan-luyen-vien" class="link-arrow reveal mt-8" data-delay="180">
+            Gặp đội ngũ huấn luyện viên
+            <Icon name="arrowRight" size={16} />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AI HAY TAP O DAY ============ -->
+  <section class="section border-t border-hair bg-night">
+    <div class="shell">
+      <div class="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+        <div>
+          <SectionHeading eyebrow="Ai hay tập ở đây" title="Nhiều khả năng bạn sẽ thấy quen" />
+          <div class="prose-pf reveal mt-7" data-delay="100">
+            <p>
+              Phần đông hội viên bên mình khoảng ngoài ba mươi tới ngoài bốn mươi. Đi làm cả ngày, có
+              gia đình, và phần lớn đều từng tập rồi bỏ ít nhất một lần.
+            </p>
+            <p>
+              Không mấy ai tới đây để thi đấu. Người ta tới để đỡ đau lưng, để leo cầu thang không
+              thở dốc, để tối ngủ ngon hơn, và để có một chỗ ra khỏi nhà vài buổi mỗi tuần.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid gap-4 sm:grid-cols-2">
+          <div class="frame reveal aspect-[4/5]" data-delay="80">
+            <Image
+              src={member01}
+              alt="Hội viên đang tập tại phòng tập Panther Fit"
+              widths={[500, 800, 1100]}
+              sizes="(min-width: 1024px) 27vw, 45vw"
+              class="img-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="frame reveal aspect-[4/5] sm:mt-10" data-delay="140">
+            <Image
+              src={coaching02}
+              alt="Huấn luyện viên đứng cạnh hỗ trợ hội viên đẩy tạ tay tại Panther Fit"
+              widths={[500, 800, 1100]}
+              sizes="(min-width: 1024px) 27vw, 45vw"
+              class="img-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand
+    title="Ghé xem có đúng như bên mình kể không"
+    body="Cách nhanh nhất để biết một phòng tập có hợp với mình hay không là đứng trong đó mười lăm phút. Nhắn cho bên mình một câu để hẹn giờ."
+  />
+</Base>

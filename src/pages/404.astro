@@ -1,0 +1,50 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import { NAV, CONTACT } from '../data/site.js';
+
+const links = NAV.filter((item) => item.href !== '/');
+---
+
+<Base
+  title="Không tìm thấy trang"
+  description="Trang bạn tìm không còn ở đây nữa."
+  noindex
+>
+  <section class="section flex min-h-[70svh] items-center pt-32">
+    <div class="shell">
+      <div class="max-w-2xl">
+        <p class="eyebrow">Lỗi 404</p>
+        <h1 class="display-lg mt-5">Trang này không còn ở đây nữa</h1>
+        <p class="lede mt-6">
+          Có thể đường dẫn bị gõ nhầm, hoặc bên mình đã dọn nó đi. Cứ quay lại trang chủ, hoặc chọn
+          một trong mấy chỗ dưới đây.
+        </p>
+
+        <div class="mt-9 flex flex-col gap-3 sm:flex-row">
+          <a href="/" class="btn btn-primary">
+            Về trang chủ
+            <Icon name="arrowRight" size={17} />
+          </a>
+          <a href={`tel:${CONTACT.phoneRaw}`} class="btn btn-ghost">
+            <Icon name="phone" size={17} />
+            {CONTACT.phoneDisplay}
+          </a>
+        </div>
+
+        <ul class="mt-12 flex flex-wrap gap-x-6 gap-y-3">
+          {
+            links.map((item) => (
+              <li>
+                <a href={item.href} class="link-arrow">
+                  {item.label}
+                  <Icon name="arrowUpRight" size={15} />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+</Base>

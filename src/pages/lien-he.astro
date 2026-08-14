@@ -1,0 +1,485 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import PageHero from '../components/PageHero.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Faq from '../components/Faq.astro';
+import { CONTACT, FACTS } from '../data/site.js';
+import { FAQ } from '../data/content.js';
+
+import room02 from '../assets/room-02.jpg';
+
+const sent = Astro.url.searchParams.get('trang-thai') === 'da-gui';
+
+const channels = [
+  {
+    icon: 'message' as const,
+    label: 'Nhắn Zalo',
+    value: 'Cách nhanh nhất, thường trả lời trong ngày',
+    href: CONTACT.zalo,
+    external: true,
+  },
+  {
+    icon: 'phone' as const,
+    label: CONTACT.phoneDisplay,
+    value: 'Gọi trong giờ mở cửa',
+    href: `tel:${CONTACT.phoneRaw}`,
+    external: false,
+  },
+  {
+    icon: 'facebook' as const,
+    label: 'Facebook',
+    value: 'Nhắn tin cho trang của phòng tập',
+    href: CONTACT.facebook,
+    external: true,
+  },
+].filter((channel) => channel.href);
+---
+
+<Base
+  title="Liên hệ"
+  description={`Ghé Panther Fit tại ${CONTACT.address.city}. Nhắn Zalo hoặc gọi ${CONTACT.phoneDisplay} để hẹn buổi đầu tiên, bên mình xếp giờ nào bạn tiện.`}
+>
+  <PageHero
+    eyebrow="Liên hệ"
+    title="Nhắn một câu thôi, bên mình lo phần còn lại"
+    lede="Bạn không cần chuẩn bị gì trước. Chỉ cần nói bạn rảnh giờ nào, còn lại để bên mình xếp."
+    image={room02}
+    alt="Hội viên đang tập trong phòng tập Panther Fit"
+  />
+
+  <!-- ============ CACH LIEN HE ============ -->
+  <section class="section">
+    <div class="shell">
+      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          channels.map((channel, index) => (
+            <a
+              href={channel.href}
+              target={channel.external ? '_blank' : undefined}
+              rel={channel.external ? 'noopener noreferrer' : undefined}
+              class="card card-hover reveal flex items-start gap-4 p-7"
+              data-delay={index * 70}
+            >
+              <span class="mt-0.5 flex h-11 w-11 shrink-0 items-center justify-center rounded-sm border border-hair text-ember">
+                <Icon name={channel.icon} size={19} />
+              </span>
+              <span>
+                <span class="display-sm block">{channel.label}</span>
+                <span class="mt-1.5 block text-[0.9375rem] text-mist">{channel.value}</span>
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FORM VA THONG TIN ============ -->
+  <section class="section border-t border-hair bg-night pt-0 lg:pt-0">
+    <div class="shell pt-16 lg:pt-20">
+      <div class="grid gap-14 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
+        <!-- Form -->
+        <div>
+          <SectionHeading
+            eyebrow="Để lại lời nhắn"
+            title="Hoặc điền vài dòng, bên mình gọi lại"
+            lede="Không cần điền hết. Tên và số điện thoại là đủ để bên mình liên lạc."
+          />
+
+          {
+            sent && (
+              <div
+                class="card reveal mt-9 border-ember/40 bg-carbon p-6"
+                role="status"
+                aria-live="polite"
+              >
+                <div class="flex gap-3">
+                  <Icon name="check" size={20} class="mt-0.5 shrink-0 text-ember" />
+                  <div>
+                    <p class="font-semibold text-cream">Bên mình nhận được rồi nhé.</p>
+                    <p class="mt-1.5 text-[0.9375rem] text-mist">
+                      Sẽ có người liên lạc lại với bạn trong giờ mở cửa. Nếu gấp thì cứ gọi thẳng{' '}
+                      {CONTACT.phoneDisplay}.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )
+          }
+
+          <form
+            id="contact-form"
+            class="reveal mt-9"
+            method="POST"
+            action="/gui-lien-he.php"
+            novalidate
+          >
+            <!-- Bay bat robot, nguoi that khong nhin thay o nay -->
+            <div class="absolute -left-[9999px]" aria-hidden="true">
+              <label for="cf-website">Đừng điền ô này</label>
+              <input id="cf-website" type="text" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <div class="grid gap-6 sm:grid-cols-2">
+              <div class="field">
+                <label for="cf-name">
+                  Tên bạn <span class="text-ember" aria-hidden="true">*</span>
+                </label>
+                <input
+                  id="cf-name"
+                  name="ten"
+                  type="text"
+                  required
+                  autocomplete="name"
+                  placeholder="Nguyễn Văn A"
+                />
+                <p class="error" data-error-for="cf-name" aria-live="polite"></p>
+              </div>
+
+              <div class="field">
+                <label for="cf-phone">
+                  Số điện thoại <span class="text-ember" aria-hidden="true">*</span>
+                </label>
+                <input
+                  id="cf-phone"
+                  name="dien_thoai"
+                  type="tel"
+                  required
+                  inputmode="tel"
+                  autocomplete="tel"
+                  placeholder="09xx xxx xxx"
+                />
+                <p class="hint">Bên mình gọi hoặc nhắn Zalo vào số này.</p>
+                <p class="error" data-error-for="cf-phone" aria-live="polite"></p>
+              </div>
+
+              <div class="field">
+                <label for="cf-goal">Bạn muốn tập kiểu nào</label>
+                <select id="cf-goal" name="hinh_thuc">
+                  <option value="Chưa biết">Chưa biết, nhờ tư vấn</option>
+                  <option value="Tập nhóm">Tập nhóm</option>
+                  <option value="PT 1 kèm 1">PT 1 kèm 1</option>
+                  <option value="Cả hai">Cả hai, để xem thử</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="cf-time">Khung giờ bạn tiện</label>
+                <select id="cf-time" name="khung_gio">
+                  <option value="Chưa chắc">Chưa chắc</option>
+                  <option value="Sáng sớm">Sáng sớm, trước giờ làm</option>
+                  <option value="Buổi trưa">Buổi trưa</option>
+                  <option value="Chiều tối">Chiều tối, sau giờ làm</option>
+                  <option value="Cuối tuần">Cuối tuần</option>
+                </select>
+              </div>
+
+              <div class="field sm:col-span-2">
+                <label for="cf-note">Bạn muốn nói gì thêm không</label>
+                <textarea
+                  id="cf-note"
+                  name="loi_nhan"
+                  rows="4"
+                  placeholder="Ví dụ: lâu rồi chưa tập lại, vai phải hay đau, muốn đi cùng một người bạn."
+                ></textarea>
+                <p class="hint">Nói trước chuyện gì cũng được, để bên mình xếp bài cho đúng.</p>
+              </div>
+            </div>
+
+            <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <button type="submit" class="btn btn-primary">
+                <Icon name="send" size={17} />
+                Gửi cho bên mình
+              </button>
+              <p class="text-sm text-dim">
+                Bên mình chỉ dùng số này để liên lạc với bạn, không gửi cho ai khác.
+              </p>
+            </div>
+
+            <p
+              id="form-status"
+              class="mt-5 hidden text-[0.9375rem]"
+              role="status"
+              aria-live="polite"
+            >
+            </p>
+          </form>
+        </div>
+
+        <!-- Thong tin -->
+        <div class="flex flex-col gap-8">
+          <div class="card reveal p-8">
+            <h2 class="display-sm">Ghé chơi</h2>
+
+            <ul class="mt-7 flex flex-col gap-6">
+              <li class="flex gap-4">
+                <Icon name="pin" size={19} class="mt-0.5 shrink-0 text-ember" />
+                <div>
+                  <p class="text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-dim">
+                    Địa chỉ
+                  </p>
+                  <p class="mt-1.5 text-[0.9375rem] text-cream">
+                    {CONTACT.address.street}<br />{CONTACT.address.city}
+                  </p>
+                  <a
+                    href={CONTACT.address.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link-arrow mt-3 text-sm"
+                  >
+                    Mở Google Maps
+                    <Icon name="arrowUpRight" size={15} />
+                  </a>
+                </div>
+              </li>
+
+              <li class="flex gap-4">
+                <Icon name="clock" size={19} class="mt-0.5 shrink-0 text-ember" />
+                <div>
+                  <p class="text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-dim">
+                    Giờ mở cửa
+                  </p>
+                  <div class="mt-1.5 flex flex-col gap-1 text-[0.9375rem] text-cream">
+                    {
+                      CONTACT.hours.map((h) => (
+                        <div class="flex flex-wrap gap-x-2">
+                          <span class="text-mist">{h.days}</span>
+                          <span>{h.time}</span>
+                        </div>
+                      ))
+                    }
+                  </div>
+                </div>
+              </li>
+
+              <li class="flex gap-4">
+                <Icon name="calendar" size={19} class="mt-0.5 shrink-0 text-ember" />
+                <div>
+                  <p class="text-[0.6875rem] font-semibold uppercase tracking-[0.16em] text-dim">
+                    Buổi đầu tiên
+                  </p>
+                  <p class="mt-1.5 text-[0.9375rem] text-cream">{FACTS.firstSession}</p>
+                  <p class="mt-1 text-[0.9375rem] text-mist">
+                    Mang quần áo thoải mái, một đôi giày thể thao và một chai nước là đủ.
+                  </p>
+                </div>
+              </li>
+            </ul>
+
+            <hr class="rule my-7" />
+            <p class="text-[0.9375rem] text-mist">{CONTACT.parking}</p>
+          </div>
+
+          <div class="frame reveal aspect-[4/3] border border-hair" data-delay="80">
+            <iframe
+              src={CONTACT.address.mapsEmbedUrl}
+              title={`Bản đồ tới Panther Fit tại ${CONTACT.address.city}`}
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              class="h-full w-full border-0"
+              style="filter: grayscale(0.6) invert(0.92) hue-rotate(180deg) contrast(0.9)"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HOI DAP ============ -->
+  <section class="section border-t border-hair">
+    <div class="shell">
+      <div class="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+        <SectionHeading eyebrow="Hỏi đáp" title="Trước khi bạn nhắn, có thể câu trả lời ở đây rồi" />
+        <Faq items={FAQ} />
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .field label {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-cream);
+    margin-bottom: 0.5rem;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    min-height: 3rem;
+    padding: 0.75rem 1rem;
+    font-family: inherit;
+    font-size: 1rem;
+    color: var(--color-cream);
+    background: var(--color-carbon);
+    border: 1px solid var(--color-hair);
+    border-radius: 2px;
+    transition:
+      border-color 200ms var(--ease-out-expo),
+      background-color 200ms var(--ease-out-expo);
+  }
+
+  .field textarea {
+    resize: vertical;
+    line-height: 1.6;
+  }
+
+  .field select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23a9b1c1' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.75rem;
+    cursor: pointer;
+  }
+
+  .field input::placeholder,
+  .field textarea::placeholder {
+    color: var(--color-dim);
+  }
+
+  .field input:hover,
+  .field select:hover,
+  .field textarea:hover {
+    border-color: var(--color-hair-strong);
+  }
+
+  .field input:focus,
+  .field select:focus,
+  .field textarea:focus {
+    border-color: var(--color-ember);
+    background: var(--color-slate);
+  }
+
+  .field .hint {
+    margin-top: 0.5rem;
+    font-size: 0.8125rem;
+    color: var(--color-dim);
+  }
+
+  .field .error {
+    margin-top: 0.5rem;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-ember-soft);
+  }
+
+  .field .error:empty {
+    display: none;
+  }
+
+  .field[data-invalid] input,
+  .field[data-invalid] select {
+    border-color: var(--color-ember);
+  }
+</style>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+
+  if (form) {
+    const status = document.getElementById('form-status');
+
+    const RULES: Record<string, (value: string) => string> = {
+      'cf-name': (value) =>
+        value.trim().length >= 2 ? '' : 'Cho bên mình xin tên bạn với, chỉ cần tên gọi thôi.',
+      'cf-phone': (value) => {
+        const digits = value.replace(/\D/g, '');
+        if (!digits) return 'Bên mình cần số điện thoại để liên lạc lại.';
+        return digits.length >= 9 && digits.length <= 12
+          ? ''
+          : 'Số này trông chưa đúng, bạn kiểm tra lại giúp nhé.';
+      },
+    };
+
+    /** Kiem tra mot o, tra ve true neu hop le */
+    const validate = (input: HTMLInputElement) => {
+      const rule = RULES[input.id];
+      if (!rule) return true;
+
+      const message = rule(input.value);
+      const field = input.closest('.field');
+      const slot = form.querySelector(`[data-error-for="${input.id}"]`);
+
+      if (slot) slot.textContent = message;
+      if (field) field.toggleAttribute('data-invalid', Boolean(message));
+      input.setAttribute('aria-invalid', message ? 'true' : 'false');
+
+      return !message;
+    };
+
+    // Chi bao loi khi nguoi dung roi khoi o, khong bao ngay tung chu
+    Object.keys(RULES).forEach((id) => {
+      const input = document.getElementById(id) as HTMLInputElement | null;
+      if (!input) return;
+
+      input.addEventListener('blur', () => validate(input));
+      input.addEventListener('input', () => {
+        if (input.getAttribute('aria-invalid') === 'true') validate(input);
+      });
+    });
+
+    form.addEventListener('submit', async (event) => {
+      const inputs = Object.keys(RULES)
+        .map((id) => document.getElementById(id) as HTMLInputElement | null)
+        .filter((el): el is HTMLInputElement => Boolean(el));
+
+      // Kiem tra het moi o truoc, de nguoi dung thay tat ca cho can sua
+      // trong mot lan chu khong phai sua tung cai mot
+      const results = inputs.map((input) => ({ input, ok: validate(input) }));
+      const firstInvalid = results.find((result) => !result.ok)?.input;
+
+      if (firstInvalid) {
+        event.preventDefault();
+        firstInvalid.focus();
+        firstInvalid.scrollIntoView({ block: 'center', behavior: 'smooth' });
+        return;
+      }
+
+      // Gui ngam de nguoi dung khong bi nhay trang.
+      // Neu trinh duyet chan fetch thi form van gui theo cach thuong.
+      event.preventDefault();
+
+      const button = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      const original = button.innerHTML;
+      button.disabled = true;
+      button.style.opacity = '0.6';
+      button.textContent = 'Đang gửi...';
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+
+        if (!response.ok) throw new Error('Gửi không thành công');
+
+        form.reset();
+        if (status) {
+          status.className = 'mt-5 text-[0.9375rem] text-ember-soft';
+          status.textContent =
+            'Bên mình nhận được rồi nhé. Sẽ có người liên lạc lại với bạn trong giờ mở cửa.';
+        }
+        button.innerHTML = original;
+      } catch {
+        if (status) {
+          status.className = 'mt-5 text-[0.9375rem] text-ember-soft';
+          status.textContent =
+            'Chưa gửi được, mạng có vẻ trục trặc. Bạn gọi hoặc nhắn Zalo giúp bên mình nhé.';
+        }
+        button.innerHTML = original;
+      } finally {
+        button.disabled = false;
+        button.style.opacity = '';
+      }
+    });
+  }
+</script>

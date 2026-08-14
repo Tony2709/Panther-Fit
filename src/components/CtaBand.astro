@@ -1,0 +1,57 @@
+---
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import { CONTACT, FACTS } from '../data/site.js';
+import cover from '../assets/room-06.jpg';
+
+interface Props {
+  title?: string;
+  body?: string;
+}
+
+const {
+  title = 'Cứ ghé xem thử một buổi đã',
+  body = 'Chưa cần quyết gì hết. Nhắn cho bên mình một câu, hẹn giờ nào bạn tiện, rồi tới xem căn phòng và những người trong đó có hợp với bạn không.',
+} = Astro.props;
+---
+
+<section class="relative overflow-hidden border-y border-hair">
+  <div class="absolute inset-0">
+    <Image
+      src={cover}
+      alt=""
+      widths={[900, 1400, 2000]}
+      sizes="100vw"
+      class="img-cover"
+      loading="lazy"
+      aria-hidden="true"
+    />
+    <div class="absolute inset-0 bg-ink/85"></div>
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-transparent"
+      aria-hidden="true"
+    >
+    </div>
+  </div>
+
+  <div class="shell relative">
+    <div class="max-w-2xl py-20 md:py-28">
+      <p class="eyebrow reveal">Bước tiếp theo</p>
+      <h2 class="display-lg reveal mt-5" data-delay="60">{title}</h2>
+      <p class="lede reveal mt-6" data-delay="120">{body}</p>
+
+      <div class="reveal mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap" data-delay="180">
+        <a href="/lien-he" class="btn btn-primary">
+          Đặt buổi đầu tiên
+          <Icon name="arrowRight" size={17} />
+        </a>
+        <a href={`tel:${CONTACT.phoneRaw}`} class="btn btn-ghost">
+          <Icon name="phone" size={17} />
+          {CONTACT.phoneDisplay}
+        </a>
+      </div>
+
+      <p class="reveal mt-6 text-sm text-dim" data-delay="220">{FACTS.firstSession}</p>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,42 @@
+---
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  lede?: string;
+  image: ImageMetadata;
+  alt: string;
+}
+
+const { eyebrow, title, lede, image, alt } = Astro.props;
+---
+
+<section class="relative overflow-hidden bg-night pt-[4.5rem] lg:pt-20">
+  <div class="absolute inset-0">
+    <Image
+      src={image}
+      alt={alt}
+      widths={[900, 1400, 2200]}
+      sizes="100vw"
+      class="img-cover"
+      loading="eager"
+      fetchpriority="high"
+    />
+    <div class="absolute inset-0 bg-ink/80"></div>
+    <div
+      class="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/30"
+      aria-hidden="true"
+    >
+    </div>
+  </div>
+
+  <div class="shell relative">
+    <div class="max-w-3xl py-16 md:py-24 lg:py-28">
+      <p class="eyebrow reveal">{eyebrow}</p>
+      <h1 class="display-lg reveal mt-5" data-delay="60">{title}</h1>
+      {lede && <p class="lede reveal mt-6 max-w-2xl" data-delay="120">{lede}</p>}
+    </div>
+  </div>
+</section>

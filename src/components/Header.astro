@@ -1,0 +1,228 @@
+---
+import Icon from './Icon.astro';
+import { NAV, CONTACT } from '../data/site.js';
+
+interface Props {
+  /** Header trong suot de nam de len anh bia cua trang chu */
+  overlay?: boolean;
+}
+
+const { overlay = false } = Astro.props;
+const path = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
+---
+
+<header
+  id="site-header"
+  data-overlay={overlay ? 'true' : 'false'}
+  class:list={[
+    'fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300',
+    'border-b',
+    overlay ? 'border-transparent bg-transparent' : 'border-hair bg-ink/95 backdrop-blur-md',
+  ]}
+>
+  <div class="shell">
+    <div class="flex h-[4.5rem] items-center justify-between gap-6 lg:h-20">
+      <a
+        href="/"
+        class="flex shrink-0 items-center gap-3 py-2"
+        aria-label="Panther Fit, về trang chủ"
+      >
+        <img
+          src="/logo-panther-fit.png"
+          alt=""
+          width="150"
+          height="87"
+          class="h-9 w-auto lg:h-10"
+          loading="eager"
+          decoding="async"
+        />
+        <span class="sr-only-pf">Panther Fit</span>
+      </a>
+
+      <nav aria-label="Điều hướng chính" class="hidden lg:block">
+        <ul class="flex items-center gap-1">
+          {
+            NAV.map((item) => (
+              <li>
+                <a
+                  href={item.href}
+                  aria-current={isCurrent(item.href) ? 'page' : undefined}
+                  class:list={[
+                    'relative block rounded-sm px-3 py-2 text-[0.9375rem] font-medium transition-colors duration-200',
+                    isCurrent(item.href)
+                      ? 'text-cream'
+                      : 'text-mist hover:text-cream',
+                  ]}
+                >
+                  {item.label}
+                  {isCurrent(item.href) && (
+                    <span class="absolute inset-x-3 -bottom-0.5 h-px bg-ember" aria-hidden="true" />
+                  )}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <div class="hidden items-center gap-4 lg:flex">
+        <a
+          href={`tel:${CONTACT.phoneRaw}`}
+          class="flex items-center gap-2 text-[0.9375rem] font-semibold text-cream transition-colors duration-200 hover:text-ember-soft"
+        >
+          <Icon name="phone" size={17} class="text-ember" />
+          {CONTACT.phoneDisplay}
+        </a>
+        <a href="/lien-he" class="btn btn-primary">Ghé thử một buổi</a>
+      </div>
+
+      <button
+        type="button"
+        id="nav-toggle"
+        class="-mr-2 flex h-12 w-12 items-center justify-center rounded-sm text-cream lg:hidden"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+      >
+        <span class="sr-only-pf">Mở menu</span>
+        <Icon name="menu" size={24} />
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Menu tren dien thoai -->
+<div
+  id="mobile-nav"
+  class="fixed inset-0 z-[60] hidden lg:hidden"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Menu"
+>
+  <div id="nav-scrim" class="absolute inset-0 bg-ink/80 backdrop-blur-sm"></div>
+
+  <div
+    id="nav-panel"
+    class="absolute inset-y-0 right-0 flex w-full max-w-sm translate-x-full flex-col border-l border-hair bg-night transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
+  >
+    <div class="flex h-[4.5rem] items-center justify-between border-b border-hair px-5">
+      <img src="/logo-panther-fit.png" alt="Panther Fit" width="130" height="75" class="h-8 w-auto" />
+      <button
+        type="button"
+        id="nav-close"
+        class="-mr-2 flex h-12 w-12 items-center justify-center rounded-sm text-cream"
+      >
+        <span class="sr-only-pf">Đóng menu</span>
+        <Icon name="close" size={24} />
+      </button>
+    </div>
+
+    <nav aria-label="Điều hướng trên điện thoại" class="flex-1 overflow-y-auto px-5 py-6">
+      <ul class="flex flex-col">
+        {
+          NAV.map((item) => (
+            <li class="border-b border-hair">
+              <a
+                href={item.href}
+                aria-current={isCurrent(item.href) ? 'page' : undefined}
+                class:list={[
+                  'flex min-h-[3.5rem] items-center justify-between py-3 font-display text-2xl transition-colors duration-200',
+                  isCurrent(item.href) ? 'text-ember-soft' : 'text-cream',
+                ]}
+              >
+                {item.label}
+                <Icon name="arrowUpRight" size={18} class="text-dim" />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="mt-8 flex flex-col gap-3">
+        <a href="/lien-he" class="btn btn-primary w-full">Ghé thử một buổi</a>
+        <a href={`tel:${CONTACT.phoneRaw}`} class="btn btn-ghost w-full">
+          <Icon name="phone" size={17} />
+          {CONTACT.phoneDisplay}
+        </a>
+      </div>
+    </nav>
+  </div>
+</div>
+
+<script>
+  const header = document.getElementById('site-header');
+  const toggle = document.getElementById('nav-toggle');
+  const closeBtn = document.getElementById('nav-close');
+  const scrim = document.getElementById('nav-scrim');
+  const wrap = document.getElementById('mobile-nav');
+  const panel = document.getElementById('nav-panel');
+
+  // Header doi nen khi cuon xuong
+  if (header) {
+    const isOverlay = header.dataset.overlay === 'true';
+    const solid = ['bg-ink/95', 'backdrop-blur-md', 'border-hair'];
+
+    const onScroll = () => {
+      const scrolled = window.scrollY > 24;
+      if (isOverlay) {
+        header.classList.toggle('border-transparent', !scrolled);
+        solid.forEach((c) => header.classList.toggle(c, scrolled));
+      } else {
+        header.classList.toggle('shadow-[0_1px_0_rgba(255,255,255,0.06)]', scrolled);
+      }
+    };
+
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  // Mo va dong menu tren dien thoai
+  if (toggle && wrap && panel) {
+    let lastFocused: HTMLElement | null = null;
+
+    const open = () => {
+      lastFocused = document.activeElement as HTMLElement;
+      wrap.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+      toggle.setAttribute('aria-expanded', 'true');
+      requestAnimationFrame(() => panel.classList.remove('translate-x-full'));
+      panel.querySelector<HTMLElement>('a, button')?.focus();
+    };
+
+    const close = () => {
+      panel.classList.add('translate-x-full');
+      toggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      const done = () => {
+        wrap.classList.add('hidden');
+        panel.removeEventListener('transitionend', done);
+      };
+      panel.addEventListener('transitionend', done);
+      lastFocused?.focus();
+    };
+
+    toggle.addEventListener('click', open);
+    closeBtn?.addEventListener('click', close);
+    scrim?.addEventListener('click', close);
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && !wrap.classList.contains('hidden')) close();
+    });
+
+    // Giu tieu diem ban phim ben trong menu khi dang mo
+    wrap.addEventListener('keydown', (event) => {
+      if (event.key !== 'Tab') return;
+      const items = panel.querySelectorAll<HTMLElement>('a[href], button:not([disabled])');
+      if (!items.length) return;
+      const first = items[0];
+      const last = items[items.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+  }
+</script>

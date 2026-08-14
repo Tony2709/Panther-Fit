@@ -1,0 +1,147 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MobileCallBar from '../components/MobileCallBar.astro';
+import { SITE, CONTACT } from '../data/site.js';
+
+interface Props {
+  title: string;
+  description: string;
+  /** Header trong suot, dung cho trang co anh bia lon */
+  overlayHeader?: boolean;
+  /** Bo qua trang nay khi Google lap chi muc */
+  noindex?: boolean;
+}
+
+const { title, description, overlayHeader = false, noindex = false } = Astro.props;
+
+const canonical = new URL(Astro.url.pathname, Astro.site ?? SITE.url).href.replace(/\/$/, '') || SITE.url;
+const ogImage = new URL('/og-image.jpg', Astro.site ?? SITE.url).href;
+const fullTitle = title === SITE.name ? title : `${title} | ${SITE.name}`;
+
+/** Du lieu co cau truc de Google hieu day la mot phong tap co dia chi that. */
+const businessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HealthClub',
+  '@id': `${SITE.url}#gym`,
+  name: SITE.name,
+  description: SITE.description,
+  url: SITE.url,
+  telephone: CONTACT.phoneRaw,
+  email: CONTACT.email,
+  image: ogImage,
+  logo: new URL('/icon-512.png', SITE.url).href,
+  foundingDate: String(SITE.established),
+  priceRange: '$$',
+  currenciesAccepted: 'VND',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: CONTACT.address.street,
+    addressLocality: CONTACT.address.city,
+    addressRegion: CONTACT.address.region,
+    addressCountry: CONTACT.address.country,
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: CONTACT.address.latitude,
+    longitude: CONTACT.address.longitude,
+  },
+  openingHoursSpecification: CONTACT.hoursSchema.map((slot) => ({
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: slot.days,
+    opens: slot.opens,
+    closes: slot.closes,
+  })),
+  sameAs: [CONTACT.facebook, CONTACT.instagram, CONTACT.tiktok].filter(Boolean),
+};
+---
+
+<!doctype html>
+<html lang="vi" class="scroll-smooth">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <meta name="theme-color" content="#080a0f" />
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Be+Vietnam+Pro:wght@400;500;600&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Be+Vietnam+Pro:wght@400;500;600&display=swap"
+    />
+
+    <script type="application/ld+json" set:html={JSON.stringify(businessSchema)} is:inline />
+    <slot name="head" />
+  </head>
+
+  <body>
+    <a
+      href="#main"
+      class="sr-only-pf focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-sm focus:bg-cream focus:px-4 focus:py-3 focus:font-semibold focus:text-ink"
+    >
+      Bỏ qua phần đầu, vào thẳng nội dung
+    </a>
+
+    <Header overlay={overlayHeader} />
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <Footer />
+    <MobileCallBar />
+
+    <script>
+      /**
+       * Hieu ung hien dan khi cuon toi.
+       * Tu tat neu nguoi dung bat che do giam chuyen dong trong he dieu hanh.
+       */
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const items = document.querySelectorAll<HTMLElement>('.reveal');
+
+      if (reduced || !('IntersectionObserver' in window)) {
+        items.forEach((el) => el.classList.add('reveal-in'));
+      } else {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              const el = entry.target as HTMLElement;
+              const delay = Number(el.dataset.delay ?? 0);
+              window.setTimeout(() => el.classList.add('reveal-in'), delay);
+              observer.unobserve(el);
+            });
+          },
+          { rootMargin: '0px 0px -12% 0px', threshold: 0.08 }
+        );
+
+        items.forEach((el) => observer.observe(el));
+      }
+    </script>
+  </body>
+</html>

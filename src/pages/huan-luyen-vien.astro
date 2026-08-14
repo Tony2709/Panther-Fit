@@ -1,0 +1,55 @@
+---
+import Base from '../layouts/Base.astro';
+import Icon from '../components/Icon.astro';
+import PageHero from '../components/PageHero.astro';
+import TrainerCard from '../components/TrainerCard.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { TRAINERS } from '../data/trainers.js';
+
+import teamTrainers from '../assets/team-trainers.jpg';
+---
+
+<Base
+  title="Huấn luyện viên"
+  description="Đội ngũ huấn luyện viên của Panther Fit. Người sẽ đi cùng bạn buổi đầu tiên, nhớ mặt bạn từ buổi thứ hai, và chỉnh bài theo đúng sức bạn hôm đó."
+>
+  <PageHero
+    eyebrow="Huấn luyện viên"
+    title="Người sẽ đi cùng bạn buổi đầu tiên"
+    lede="Bạn chọn được người mình thấy hợp, không bị xếp ngẫu nhiên. Nếu chưa biết chọn ai thì cứ nói, bên mình gợi ý theo lịch và theo thứ bạn muốn tập."
+    image={teamTrainers}
+    alt="Bốn huấn luyện viên Panther Fit trong đồng phục, chụp tại phòng tập"
+  />
+
+  <section class="section">
+    <div class="shell">
+      <div class="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+        {TRAINERS.map((trainer, index) => <TrainerCard trainer={trainer} index={index} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section border-t border-hair bg-night">
+    <div class="shell">
+      <div class="mx-auto max-w-2xl text-center">
+        <p class="eyebrow reveal justify-center">Chưa biết chọn ai</p>
+        <h2 class="display-md reveal mt-5" data-delay="60">
+          Nói bên mình nghe lịch của bạn, rồi bên mình gợi ý
+        </h2>
+        <p class="lede reveal mx-auto mt-6" data-delay="120">
+          Bạn tập được khung giờ nào, muốn tập nhóm hay tập riêng, có chỗ nào đau cũ cần né không.
+          Chừng đó là đủ để bên mình xếp bạn với người hợp nhất.
+        </p>
+        <div class="reveal mt-9 flex flex-col justify-center gap-3 sm:flex-row" data-delay="180">
+          <a href="/lien-he" class="btn btn-primary">
+            Nhắn cho bên mình
+            <Icon name="arrowRight" size={17} />
+          </a>
+          <a href="/dich-vu" class="btn btn-ghost">Xem hai cách tập</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CtaBand />
+</Base>

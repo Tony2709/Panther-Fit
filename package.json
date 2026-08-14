@@ -1,0 +1,28 @@
+{
+  "name": "panther-fit-web",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Website chinh thuc cua Panther Fit",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "assets": "node scripts/prepare-assets.mjs"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.2.1",
+    "@tailwindcss/vite": "^4.0.0",
+    "astro": "^5.1.1",
+    "sharp": "^0.33.5",
+    "tailwindcss": "^4.0.0"
+  },
+  "allowScripts": {
+    "sharp@0.34.5": true,
+    "sharp@0.33.5": true,
+    "esbuild@0.25.12": true,
+    "esbuild@0.27.7": true
+  }
+}

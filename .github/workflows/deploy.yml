@@ -1,0 +1,75 @@
+# ============================================================
+#  TU DONG DUA WEBSITE LEN HOSTINGER
+# ============================================================
+#
+#  Moi lan day code len nhanh main, GitHub se:
+#    1. Cai thu vien
+#    2. Build website thanh file tinh
+#    3. Chep file len Hostinger qua FTP
+#
+#  CAN LAM MOT LAN TRUOC KHI DUNG:
+#  Vao GitHub > Settings > Secrets and variables > Actions
+#  va them ba muc sau (lay tu hPanel > Files > FTP Accounts):
+#
+#    FTP_SERVER    vi du: ftp.pantherfit.vn  hoac dia chi IP
+#    FTP_USERNAME  ten dang nhap FTP
+#    FTP_PASSWORD  mat khau FTP
+#
+#  Neu ten mien chinh nam o public_html thi giu nguyen server-dir
+#  ben duoi. Neu website nam trong mot thu muc con thi sua lai.
+
+name: Deploy len Hostinger
+
+on:
+  push:
+    branches: [main]
+  # Cho phep bam chay tay tu tab Actions
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-hostinger
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    name: Build va deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Lay code ve
+        uses: actions/checkout@v4
+
+      - name: Cai Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Cai thu vien
+        run: npm ci
+
+      - name: Build website
+        run: npm run build
+
+      - name: Kiem tra ket qua build
+        run: |
+          test -f dist/index.html || (echo "Khong thay dist/index.html, build that bai" && exit 1)
+          test -f dist/.htaccess || echo "Canh bao: khong thay .htaccess trong dist"
+          echo "Da build xong:"
+          du -sh dist
+
+      - name: Chep len Hostinger qua FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: ./public_html/
+          # Giu lai nhat ky lien he va file cua Hostinger tren may chu
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/*.log
+            default.php

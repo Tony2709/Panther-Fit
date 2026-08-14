@@ -1,0 +1,434 @@
+@import 'tailwindcss';
+
+/* ============================================================
+   PANTHER FIT — HE THONG THIET KE
+   Mau lay tu logo (den trang) va dong phuc doi ngu (xanh navy).
+   Mau nhan la cam gach, du am de moi goi, du ro de bam vao.
+   ============================================================ */
+
+@theme {
+  /* Nen va be mat */
+  --color-ink: #080a0f;
+  --color-night: #0c1017;
+  --color-carbon: #121824;
+  --color-slate: #1a2030;
+  --color-navy: #1e2a47;
+
+  /* Chu */
+  --color-cream: #f4f2ed;
+  --color-mist: #a9b1c1;
+  --color-dim: #7a8497;
+
+  /* Nhan */
+  --color-ember: #e8532b;
+  --color-ember-deep: #d6421c;
+  --color-ember-soft: #f4885f;
+
+  /* Duong ke */
+  --color-hair: rgba(255, 255, 255, 0.09);
+  --color-hair-strong: rgba(255, 255, 255, 0.16);
+
+  /* Chu viet */
+  --font-display: 'Barlow Condensed', 'Be Vietnam Pro', system-ui, sans-serif;
+  --font-body: 'Be Vietnam Pro', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Nhip nhang khong gian */
+  --spacing-section: 6rem;
+
+  /* Chuyen dong */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :root {
+      scroll-behavior: auto;
+    }
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-ink);
+    color: var(--color-cream);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.04;
+    letter-spacing: -0.005em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Vien focus ro rang cho nguoi dung ban phim, khong bao gio xoa */
+  :focus-visible {
+    outline: 2px solid var(--color-ember-soft);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: var(--color-ember);
+    color: #fff;
+  }
+
+  img,
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+@layer components {
+  /* --------------------------------------------------------
+     Khung noi dung
+     -------------------------------------------------------- */
+  .shell {
+    width: 100%;
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .shell {
+      padding-inline: 2rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .shell {
+      padding-inline: 2.5rem;
+    }
+  }
+
+  .shell-narrow {
+    width: 100%;
+    max-width: 46rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .shell-narrow {
+      padding-inline: 2rem;
+    }
+  }
+
+  .section {
+    padding-block: 4.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .section {
+      padding-block: 6.5rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .section {
+      padding-block: 8rem;
+    }
+  }
+
+  /* --------------------------------------------------------
+     Nhan nho dau moi phan
+     -------------------------------------------------------- */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-family: var(--font-body);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-ember-soft);
+  }
+
+  .eyebrow::before {
+    content: '';
+    width: 1.75rem;
+    height: 1px;
+    background: var(--color-ember);
+    flex: none;
+    /* Giu vach ke nam ngang dong chu dau khi chu xuong hai dong */
+    align-self: flex-start;
+    margin-top: 0.6em;
+  }
+
+  /* --------------------------------------------------------
+     Co chu
+     -------------------------------------------------------- */
+  .display-xl {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2.75rem, 8.5vw, 5.75rem);
+    line-height: 0.98;
+    letter-spacing: -0.015em;
+  }
+
+  .display-lg {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(2.25rem, 6vw, 4rem);
+    line-height: 1.02;
+    letter-spacing: -0.012em;
+  }
+
+  .display-md {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    line-height: 1.08;
+  }
+
+  .display-sm {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.375rem, 2.6vw, 1.75rem);
+    line-height: 1.15;
+  }
+
+  .lede {
+    font-size: clamp(1.0625rem, 1.6vw, 1.25rem);
+    line-height: 1.7;
+    color: var(--color-mist);
+    max-width: 46ch;
+  }
+
+  .prose-pf {
+    color: var(--color-mist);
+    line-height: 1.75;
+    max-width: 66ch;
+  }
+
+  .prose-pf p + p {
+    margin-top: 1.15rem;
+  }
+
+  .prose-pf strong {
+    color: var(--color-cream);
+    font-weight: 600;
+  }
+
+  /* --------------------------------------------------------
+     Nut bam
+     -------------------------------------------------------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    min-height: 3rem;
+    padding: 0.8125rem 1.625rem;
+    font-family: var(--font-body);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    border-radius: 2px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    text-align: center;
+    transition:
+      background-color 200ms var(--ease-out-expo),
+      border-color 200ms var(--ease-out-expo),
+      color 200ms var(--ease-out-expo),
+      transform 200ms var(--ease-out-expo);
+  }
+
+  .btn:active {
+    transform: translateY(1px);
+  }
+
+  .btn-primary {
+    background: var(--color-ember-deep);
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    background: var(--color-ember);
+  }
+
+  .btn-ghost {
+    border-color: var(--color-hair-strong);
+    color: var(--color-cream);
+    background: transparent;
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--color-cream);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .btn-light {
+    background: var(--color-cream);
+    color: var(--color-ink);
+  }
+
+  .btn-light:hover {
+    background: #fff;
+  }
+
+  /* Lien ket dang mui ten */
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: var(--color-ember-soft);
+    transition: gap 200ms var(--ease-out-expo);
+  }
+
+  .link-arrow:hover {
+    gap: 0.875rem;
+  }
+
+  /* --------------------------------------------------------
+     The
+     -------------------------------------------------------- */
+  .card {
+    position: relative;
+    background: var(--color-carbon);
+    border: 1px solid var(--color-hair);
+    border-radius: 3px;
+    transition:
+      border-color 250ms var(--ease-out-expo),
+      background-color 250ms var(--ease-out-expo),
+      transform 250ms var(--ease-out-expo);
+  }
+
+  .card-hover:hover {
+    border-color: var(--color-hair-strong);
+    background: var(--color-slate);
+    transform: translateY(-3px);
+  }
+
+  .rule {
+    height: 1px;
+    background: var(--color-hair);
+    border: 0;
+  }
+
+  /* Chu so thu tu 01, 02, 03 */
+  .ordinal {
+    font-family: var(--font-display);
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--color-ember);
+  }
+
+  /* --------------------------------------------------------
+     Hieu ung anh
+     -------------------------------------------------------- */
+  .img-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .frame {
+    position: relative;
+    overflow: hidden;
+    background: var(--color-carbon);
+    border-radius: 3px;
+  }
+
+  .frame img {
+    transition: transform 700ms var(--ease-out-expo);
+  }
+
+  .frame-zoom:hover img {
+    transform: scale(1.04);
+  }
+
+  /* Lop phu giup chu doc duoc tren anh */
+  .scrim-bottom::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(8, 10, 15, 0.92) 0%,
+      rgba(8, 10, 15, 0.55) 38%,
+      rgba(8, 10, 15, 0.05) 75%
+    );
+    pointer-events: none;
+  }
+
+  /* --------------------------------------------------------
+     Chuyen dong khi cuon toi
+     -------------------------------------------------------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 620ms var(--ease-out-expo),
+      transform 620ms var(--ease-out-expo);
+  }
+
+  .reveal.reveal-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal,
+    .reveal.reveal-in {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    .frame img,
+    .btn,
+    .card {
+      transition: none !important;
+    }
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Chi hien voi trinh doc man hinh */
+  .sr-only-pf {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}

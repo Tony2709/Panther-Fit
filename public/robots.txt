@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /gui-lien-he.php
+Disallow: /*.log$
+
+Sitemap: https://pantherfit.vn/sitemap-index.xml

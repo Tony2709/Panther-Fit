@@ -1,0 +1,42 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  lede?: string;
+  align?: 'left' | 'center';
+  /** The cua tieu de trong cay noi dung, mac dinh h2 */
+  as?: 'h1' | 'h2' | 'h3';
+  size?: 'lg' | 'md';
+  class?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  lede,
+  align = 'left',
+  as: Tag = 'h2',
+  size = 'lg',
+  class: className = '',
+} = Astro.props;
+---
+
+<div
+  class:list={[
+    'reveal',
+    align === 'center' ? 'mx-auto max-w-3xl text-center' : 'max-w-3xl',
+    className,
+  ]}
+>
+  {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+  <Tag class:list={[size === 'lg' ? 'display-lg' : 'display-md', eyebrow ? 'mt-5' : '']}>
+    {title}
+  </Tag>
+  {
+    lede && (
+      <p class:list={['lede mt-5', align === 'center' ? 'mx-auto' : '']}>
+        {lede}
+      </p>
+    )
+  }
+</div>
