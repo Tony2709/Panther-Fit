@@ -88,8 +88,6 @@ export const NAV = [
   { label: 'Trang chủ', href: '/' },
   { label: 'Về chúng tôi', href: '/ve-chung-toi' },
   { label: 'Dịch vụ', href: '/dich-vu' },
-  { label: 'Huấn luyện viên', href: '/huan-luyen-vien' },
-  { label: 'Bảng giá', href: '/bang-gia' },
   { label: 'Liên hệ', href: '/lien-he' },
 ];
 

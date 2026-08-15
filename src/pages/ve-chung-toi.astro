@@ -4,8 +4,10 @@ import Base from '../layouts/Base.astro';
 import Icon from '../components/Icon.astro';
 import PageHero from '../components/PageHero.astro';
 import SectionHeading from '../components/SectionHeading.astro';
+import TrainerCard from '../components/TrainerCard.astro';
 import CtaBand from '../components/CtaBand.astro';
 import { SITE, CONTACT } from '../data/site.js';
+import { TRAINERS } from '../data/trainers.js';
 
 import teamFive from '../assets/team-five.jpg';
 import teamFull from '../assets/team-full.jpg';
@@ -109,33 +111,8 @@ const values = [
     </div>
   </section>
 
-  <!-- ============ BON DIEU GIU NGUYEN ============ -->
-  <section class="section border-t border-hair bg-night">
-    <div class="shell">
-      <SectionHeading
-        eyebrow="Bốn điều không đổi"
-        title="Những thứ chúng tôi cố giữ, kể cả khi đông khách"
-      />
-
-      <div class="mt-14 grid gap-px overflow-hidden border border-hair bg-hair sm:grid-cols-2">
-        {
-          values.map((value, index) => (
-            <div class="reveal bg-night p-8 lg:p-10" data-delay={(index % 2) * 80}>
-              <div class="flex items-center gap-4">
-                <Icon name={value.icon} size={22} class="text-ember" />
-                <span class="ordinal">{value.ordinal}</span>
-              </div>
-              <h3 class="display-sm mt-5">{value.title}</h3>
-              <p class="mt-4 text-[0.9375rem] leading-relaxed text-mist">{value.body}</p>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ NGUOI O DAY ============ -->
-  <section class="section">
+  <!-- ============ NGUOI O DAY VA DOI NGU HUAN LUYEN VIEN ============ -->
+  <section id="huan-luyen-vien" class="section scroll-mt-24 border-t border-hair bg-night">
     <div class="shell">
       <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
         <div class="frame reveal aspect-[5/4]">
@@ -161,16 +138,56 @@ const values = [
               cùng những gương mặt đó mỗi tuần, và sau vài buổi thì không cần giới thiệu lại nữa.
             </p>
             <p>
-              Nếu bạn tới một mình và chưa quen ai, cứ nói với người ở quầy. Sẽ có người dẫn bạn vào
-              nhóm.
+              Bạn chọn được người bạn thấy hợp, không bị xếp ngẫu nhiên. Nếu tới một mình và chưa
+              quen ai, cứ nói với người ở quầy. Sẽ có người dẫn bạn vào nhóm.
             </p>
           </div>
+        </div>
+      </div>
 
-          <a href="/huan-luyen-vien" class="link-arrow reveal mt-8" data-delay="180">
-            Gặp đội ngũ huấn luyện viên
-            <Icon name="arrowRight" size={16} />
+      <div class="mt-16 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+        {TRAINERS.map((trainer, index) => <TrainerCard trainer={trainer} index={index} />)}
+      </div>
+
+      <div class="card reveal mt-12 p-8 md:p-10">
+        <div class="grid items-center gap-8 md:grid-cols-[1.3fr_auto]">
+          <div>
+            <h3 class="display-sm">Chưa biết chọn ai thì cứ nói</h3>
+            <p class="mt-3 max-w-2xl text-[0.9375rem] leading-relaxed text-mist">
+              Bạn tập được khung giờ nào, muốn tập nhóm hay tập riêng, có chỗ nào đau cũ cần né
+              không. Chừng đó là đủ để chúng tôi xếp bạn với người hợp nhất.
+            </p>
+          </div>
+          <a href="/lien-he" class="btn btn-primary shrink-0">
+            Nhắn cho chúng tôi
+            <Icon name="arrowRight" size={17} />
           </a>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BON DIEU GIU NGUYEN ============ -->
+  <section class="section border-t border-hair">
+    <div class="shell">
+      <SectionHeading
+        eyebrow="Bốn điều không đổi"
+        title="Những thứ chúng tôi cố giữ, kể cả khi đông khách"
+      />
+
+      <div class="mt-14 grid gap-px overflow-hidden border border-hair bg-hair sm:grid-cols-2">
+        {
+          values.map((value, index) => (
+            <div class="reveal bg-ink p-8 lg:p-10" data-delay={(index % 2) * 80}>
+              <div class="flex items-center gap-4">
+                <Icon name={value.icon} size={22} class="text-ember" />
+                <span class="ordinal">{value.ordinal}</span>
+              </div>
+              <h3 class="display-sm mt-5">{value.title}</h3>
+              <p class="mt-4 text-[0.9375rem] leading-relaxed text-mist">{value.body}</p>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>

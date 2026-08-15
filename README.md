@@ -66,10 +66,8 @@ website/
 │   │   └── Base.astro       Khung chung, phần SEO và dữ liệu cho Google
 │   ├── pages/               Mỗi file là một trang
 │   │   ├── index.astro          → /
-│   │   ├── ve-chung-toi.astro    → /ve-chung-toi
+│   │   ├── ve-chung-toi.astro   → /ve-chung-toi (kèm phần huấn luyện viên)
 │   │   ├── dich-vu.astro        → /dich-vu
-│   │   ├── huan-luyen-vien.astro→ /huan-luyen-vien
-│   │   ├── bang-gia.astro       → /bang-gia
 │   │   ├── lien-he.astro        → /lien-he
 │   │   └── 404.astro            → trang báo lỗi
 │   └── styles/

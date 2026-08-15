@@ -58,25 +58,14 @@ website đổi theo.
 ### 2.2 Một buổi tập kéo dài bao lâu, lớp nhóm bao nhiêu người
 **File:** `src/data/site.js` → `FACTS.sessionLength`, `FACTS.groupClassSize`
 
-Đang để `khoảng 60 phút` và `10 đến 14 người`. Hai con số này hiện trong phần dịch vụ,
-bảng giá và hỏi đáp.
+Đang để `khoảng 60 phút` và `10 đến 14 người`. Hai con số này hiện trong phần dịch vụ
+và phần hỏi đáp.
 
 ### 2.3 Chỗ để xe
 **File:** `src/data/site.js` → `CONTACT.parking`
 
 Đang để `Có chỗ để xe máy ngay trước cửa, không mất phí.`
 Đây là chi tiết nhỏ nhưng đúng thứ khách hay lo, nên viết cho đúng thực tế.
-
-### 2.4 Ba lời cam kết ở trang bảng giá
-**File:** `src/pages/bang-gia.astro` → mảng `promises`
-
-Ba câu đang viết:
-- Không có gói nào phải giải mã
-- Không ai chốt sale ép bạn
-- Không mua trước rồi mới được xem
-
-Đây là cam kết mình soạn dựa trên tinh thần thương hiệu. Cần xác nhận phòng tập
-làm đúng như vậy, hoặc sửa lại cho khớp cách làm thật.
 
 ---
 
@@ -119,32 +108,25 @@ Lời thật của từng người bao giờ cũng đáng tin hơn văn quảng 
 
 ### 3.4 Ảnh
 
-**Việc cần làm ngay: ảnh chân dung mới của Nguyễn Hải Đăng.**
-
-Ảnh đó đang nằm trong đoạn chat chứ chưa có trên máy, nên mình chưa lắp vào được.
-Cách làm:
-
-1. Lưu ảnh vào đúng đường dẫn này, đúng tên file:
-   `Panther Fit/Photos/Our team/Nguyễn Hải Đăng/hai-dang-chan-dung.jpg`
-2. Chạy `npm run assets`
-3. Chạy `npm run build`
-
-Script đã chờ sẵn file đó. Chưa có file thì nó báo một dòng rồi vẫn dùng ảnh cũ,
-nên chạy lúc nào cũng không sợ hỏng.
-
-Một lưu ý về ảnh đó: góc trên bên phải có chữ **HAI DANG NGUYEN / HLV | SALER /
-PANTHER FIT** in sẵn trên ảnh. Thẻ huấn luyện viên trên web đã hiện tên và vai trò
-ngay bên dưới ảnh rồi, nên phần chữ này sẽ bị lặp. Nếu có file gốc chưa có chữ thì
-dùng file đó tốt hơn. Không có thì báo mình, mình cắt bỏ phần chữ đi.
-
 **Tình trạng ảnh hiện tại của cả đội:**
-- Sơn Thái: ảnh chụp trong đồng phục Panther Fit, đẹp và đúng nhận diện
-- Katun và Liên Hồng Ngọc: ảnh trong thư mục riêng, nhưng mặc đồ thương hiệu
-  **SpartaFit**, không phải Panther Fit
-- Hà Quyết: ảnh đang kèm khách, không phải ảnh chân dung
 
-Nếu chụp được một buổi ảnh chân dung cho cả đội, cùng đồng phục navy, cùng nền,
-thì phần này sẽ lên hẳn một bậc.
+| Người | Ảnh đang dùng | Ghi chú |
+|---|---|---|
+| Katun | Ảnh trong thư mục riêng | Mặc đồ **SpartaFit**, không phải Panther Fit |
+| Sơn Thái | Ảnh chụp trong đồng phục Panther Fit | Đẹp và đúng nhận diện |
+| Hà Quyết | Ảnh đang kèm khách | Không phải ảnh chân dung |
+| Liên Hồng Ngọc | Ảnh trong thư mục riêng | Mặc đồ **SpartaFit**, không phải Panther Fit |
+| Nguyễn Hải Đăng | Ảnh chân dung trong đồng phục Panther Fit | Có chữ in sẵn trên ảnh, xem bên dưới |
+
+**Về ảnh của Nguyễn Hải Đăng:** góc trên bên phải có chữ **HAI DANG NGUYEN /
+HLV | SALER / PANTHER FIT** in sẵn lên ảnh. Thẻ huấn luyện viên trên web đã hiện
+tên và vai trò ngay dưới ảnh, nên tên anh ấy xuất hiện hai lần trong cùng một khung.
+Nếu tìm được file gốc chưa gắn chữ thì thay vào là gọn.
+
+**Đề xuất đáng làm nhất:** chụp một buổi ảnh chân dung cho cả năm người, cùng đồng
+phục navy, cùng nền, cùng ánh sáng. Hiện tại năm tấm ảnh đến từ năm nguồn khác nhau
+nên nhìn thiếu đồng bộ, và hai tấm còn mặc áo thương hiệu khác. Đây là phần dễ thấy
+nhất trên trang Về chúng tôi.
 
 ---
 
@@ -163,21 +145,6 @@ thành `true`.
 
 Với tệp khách của Panther Fit, một câu vụng về nhưng thật có sức nặng hơn hẳn
 một câu bóng bẩy.
-
-### 4.2 Bảng giá bằng số
-**File:** `src/pages/bang-gia.astro`
-
-Theo yêu cầu, trang bảng giá đang không in con số nào, chỉ giải thích ba yếu tố
-quyết định giá rồi mời khách nhắn tin.
-
-Có một điểm mình muốn nói thẳng: tài liệu thương hiệu ghi rõ nguyên tắc
-*"nói thẳng chính xác bạn nhận được gì và chi phí bao nhiêu, không có gói nào phải giải mã"*,
-và trong chân dung khách hàng, giá là rào cản nhỏ nhất. Giấu giá thường làm nhóm khách
-ngại quyết định phải thêm một bước mới biết được thông tin.
-
-Nên trang này đã dựng sẵn chỗ để thêm giá sau: chỉ cần thêm một dòng giá vào mỗi thẻ
-trong phần "Ba thứ quyết định con số". Nếu sau này muốn hiện giá, báo mình một câu,
-sửa mất khoảng mười phút.
 
 ---
 
