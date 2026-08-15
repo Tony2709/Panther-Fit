@@ -21,7 +21,12 @@ const SOURCE = resolve(ROOT, '..'); // thu muc "Panther Fit"
 const ASSETS = resolve(ROOT, 'src/assets');
 const PUBLIC = resolve(ROOT, 'public');
 
-/** Anh noi dung: [file goc, ten dich, chieu rong toi da] */
+/**
+ * Anh noi dung: [file goc, ten dich, chieu rong toi da, tuy chon]
+ *
+ * Phan tuy chon co the co:
+ *   crop: { left, top, width, height }  cat mot vung truoc khi thu nho
+ */
 const PHOTOS = [
   // Khong gian phong tap
   ['Photos/Phòng/Phòng đông người/DSC09607.jpg', 'hero-room.jpg', 2600],
@@ -36,6 +41,10 @@ const PHOTOS = [
   // Lop nhom
   ['Photos/Phòng/Nhóm 13/DSC01827 copy.jpg', 'class-01.jpg', 2200],
   ['Photos/Phòng/Nhóm 13/DSC01840 copy.jpg', 'class-02.jpg', 1800],
+
+  // Anh dung rieng cho tung phan tren trang chu
+  ['Đi hai người.jpeg', 'di-hai-nguoi.jpg', 1600],
+  ['Photos/Bonus/690749403_958209720420931_2662429359562491628_n.jpg', 'service-pt.jpg', 1800],
 
   // HLV dang kem hoi vien
   ['Photos/Our team/Group photo/DSC09331.jpg', 'coaching-01.jpg', 2200],
@@ -62,13 +71,16 @@ const PHOTOS = [
   ['Photos/Our team/Anh Quyết/DSC04766.jpg', 'pt-quyet.jpg', 1400],
   ['Photos/Our team/Katun/768529195_3157630224422845_2941734452001614977_n.jpg', 'pt-katun.jpg', 1400],
   ['Photos/Our team/Liên Hồng Ngọc/710827425_3083018445217357_4759825505894130802_n.jpg', 'pt-hong-ngoc.jpg', 1400],
-  ['Photos/Our team/Nguyễn Hải Đăng/774362637_3161570054028862_8908508061931278382_n.jpg', 'pt-hai-dang.jpg', 1400],
-
-  // Anh chan dung moi cua Hai Dang.
-  // Dong nay nam sau dong o tren nen neu file ton tai thi no se ghi de,
-  // con neu chua co file thi script bao qua va van dung anh cu.
-  // Luu anh moi vao dung duong dan duoi day roi chay: npm run assets
-  ['Photos/Our team/Nguyễn Hải Đăng/hai-dang-chan-dung.jpg', 'pt-hai-dang.jpg', 1400],
+  // Anh chan dung cua Hai Dang.
+  // Anh goc co in san dong chu ten va chuc danh o goc tren ben phai,
+  // ma the HLV tren web da hien ten roi nen se bi lap.
+  // Vung cat duoi day bo phan chu do di, giu dung ty le 4:5 cua the.
+  [
+    'Photos/Our team/Nguyễn Hải Đăng/download.jpeg',
+    'pt-hai-dang.jpg',
+    1400,
+    { crop: { left: 0, top: 190, width: 830, height: 1038 } },
+  ],
 ];
 
 const LOGO_SOURCE = 'Photos/Bonus/LOGO.png';
@@ -84,14 +96,16 @@ async function exists(path) {
 
 async function buildPhotos() {
   let done = 0;
-  for (const [from, to, width] of PHOTOS) {
+  for (const [from, to, width, options = {}] of PHOTOS) {
     const src = resolve(SOURCE, from);
     if (!(await exists(src))) {
       console.warn(`  bo qua (khong tim thay): ${from}`);
       continue;
     }
-    await sharp(src)
-      .rotate()
+    let pipeline = sharp(src).rotate();
+    if (options.crop) pipeline = pipeline.extract(options.crop);
+
+    await pipeline
       .resize({ width, withoutEnlargement: true })
       .jpeg({ quality: 86, mozjpeg: true, chromaSubsampling: '4:4:4' })
       .toFile(resolve(ASSETS, to));

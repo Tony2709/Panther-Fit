@@ -43,7 +43,15 @@ const serviceImages = {
         >
           <div class="shell">
             <div class="grid items-start gap-12 lg:grid-cols-2 lg:gap-20">
-              <div class:list={['flex flex-col gap-4', flip && 'lg:order-2']}>
+              <!-- Cot anh dinh theo man hinh khi cuon, vi cot chu ben canh
+                   dai hon nhieu. Neu de anh dung yen thi phan duoi cua
+                   section bi trong mot mang lon. -->
+              <div
+                class:list={[
+                  'flex flex-col gap-5 lg:sticky lg:top-28 lg:self-start',
+                  flip && 'lg:order-2',
+                ]}
+              >
                 <div class="frame reveal aspect-[4/3]">
                   <Image
                     src={images.main}
@@ -54,12 +62,12 @@ const serviceImages = {
                     loading="lazy"
                   />
                 </div>
-                <div class="frame reveal aspect-[16/9] w-3/4" data-delay="90">
+                <div class="frame reveal aspect-[4/3]" data-delay="90">
                   <Image
                     src={images.sub}
                     alt={images.altSub}
-                    widths={[450, 700, 1000]}
-                    sizes="(min-width: 1024px) 34vw, 70vw"
+                    widths={[600, 900, 1400]}
+                    sizes="(min-width: 1024px) 46vw, 92vw"
                     class="img-cover"
                     loading="lazy"
                   />

@@ -13,13 +13,13 @@ import { TRAINERS } from '../data/trainers.js';
 import heroRoom from '../assets/hero-room.jpg';
 import coaching01 from '../assets/coaching-01.jpg';
 import class01 from '../assets/class-01.jpg';
-import coaching03 from '../assets/coaching-03.jpg';
 import room01 from '../assets/room-01.jpg';
 import room02 from '../assets/room-02.jpg';
 import room03 from '../assets/room-03.jpg';
 import room05 from '../assets/room-05.jpg';
 import room07 from '../assets/room-07.jpg';
-import teamFull from '../assets/team-full.jpg';
+import diHaiNguoi from '../assets/di-hai-nguoi.jpg';
+import servicePt from '../assets/service-pt.jpg';
 
 const featured = TRAINERS.slice(0, 3);
 
@@ -73,21 +73,34 @@ const facts = [
     </div>
 
     <div class="shell relative w-full pb-14 md:pb-20">
-      <p class="eyebrow reveal">
+      <img
+        src="/logo-panther-fit.png"
+        alt="Panther Fit"
+        width="420"
+        height="243"
+        class="reveal h-14 w-auto sm:h-16 md:h-20 lg:h-28"
+        loading="eager"
+        decoding="async"
+      />
+
+      <p class="eyebrow reveal mt-5 md:mt-7" data-delay="60">
         Phòng tập tại {CONTACT.address.city} · Est. {SITE.established}
       </p>
 
-      <h1 class="display-xl reveal mt-6 max-w-[22ch]" data-delay="80">
+      <h1 class="display-xl reveal mt-4 max-w-[22ch] md:mt-5" data-delay="120">
         Nơi sức khoẻ được đề cao và cộng đồng được xây dựng
       </h1>
 
-      <p class="reveal mt-7 max-w-xl text-lg leading-relaxed text-mist md:text-xl" data-delay="160">
+      <p
+        class="reveal mt-5 max-w-xl text-lg leading-relaxed text-mist md:mt-7 md:text-xl"
+        data-delay="200"
+      >
         Panther Fit là chỗ tập của dân đi làm bận rộn, của người lâu rồi chưa tập lại, và của cả
         những người lần đầu bước chân vào phòng gym. Không ai nhìn bạn đâu. Ai cũng đang bận với set
         của mình.
       </p>
 
-      <div class="reveal mt-9 flex flex-col gap-3 sm:flex-row" data-delay="240">
+      <div class="reveal mt-7 flex flex-col gap-3 sm:flex-row md:mt-9" data-delay="280">
         <a href="/lien-he" class="btn btn-primary">
           Ghé thử một buổi
           <Icon name="arrowRight" size={17} />
@@ -97,7 +110,7 @@ const facts = [
 
       <!-- Dung mau sang hon mau chu phu thong thuong, vi dong nay nam truc
            tiep tren anh chu khong phai tren nen den dac -->
-      <p class="reveal mt-6 text-sm text-mist" data-delay="300">
+      <p class="reveal mt-6 text-sm text-mist" data-delay="340">
         Buổi đầu tiên luôn có người đi cùng bạn từ lúc bước vào cửa.
       </p>
     </div>
@@ -209,11 +222,11 @@ const facts = [
             <article class="card card-hover reveal flex flex-col overflow-hidden" data-delay={index * 90}>
               <div class="frame frame-zoom aspect-[16/10]">
                 <Image
-                  src={index === 0 ? class01 : coaching03}
+                  src={index === 0 ? class01 : servicePt}
                   alt={
                     index === 0
                       ? 'Một lớp tập nhóm tại Panther Fit, cả nhóm cùng tập trên thảm'
-                      : 'Huấn luyện viên kèm riêng một hội viên đang đẩy tạ tại Panther Fit'
+                      : 'Huấn luyện viên đứng cạnh đỡ tạ cho hội viên đang đẩy ngực tại Panther Fit'
                   }
                   widths={[600, 900, 1300]}
                   sizes="(min-width: 1024px) 46vw, 92vw"
@@ -254,7 +267,7 @@ const facts = [
     <div class="shell">
       <SectionHeading
         eyebrow="Căn phòng"
-        title="Đây là phòng tập thật, không phải ảnh minh hoạ"
+        title="Những gì đang diễn ra tại đây"
         lede="Chụp vào đúng những khung giờ bạn sẽ đi tập. Không dàn dựng, không mượn ảnh ở đâu."
       />
     </div>
@@ -355,11 +368,11 @@ const facts = [
           </div>
         </div>
 
-        <div class="frame reveal aspect-[5/4]" data-delay="100">
+        <div class="frame reveal aspect-[4/5] sm:aspect-[5/4] lg:aspect-[4/5]" data-delay="100">
           <Image
-            src={teamFull}
-            alt="Đội ngũ Panther Fit chụp chung tại phòng tập"
-            widths={[700, 1100, 1600]}
+            src={diHaiNguoi}
+            alt="Hai hội viên nữ ngồi cạnh nhau trò chuyện tại Panther Fit"
+            widths={[600, 900, 1400]}
             sizes="(min-width: 1024px) 52vw, 92vw"
             class="img-cover"
             loading="lazy"
