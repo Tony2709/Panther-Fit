@@ -83,12 +83,12 @@ export const FACTS = {
   // CAN DIEN: so nguoi toi da mot lop nhom
   groupClassSize: '10 đến 14 người',
   // CAN DIEN: buoi dau tien co mien phi khong. Neu khong, sua lai cau nay.
-  firstSession: 'Buổi đầu tiên bên mình mời.',
+  firstSession: 'Buổi đầu tiên chúng tôi mời bạn.',
 };
 
 export const NAV = [
   { label: 'Trang chủ', href: '/' },
-  { label: 'Về tụi mình', href: '/ve-tui-minh' },
+  { label: 'Về chúng tôi', href: '/ve-chung-toi' },
   { label: 'Dịch vụ', href: '/dich-vu' },
   { label: 'Huấn luyện viên', href: '/huan-luyen-vien' },
   { label: 'Bảng giá', href: '/bang-gia' },

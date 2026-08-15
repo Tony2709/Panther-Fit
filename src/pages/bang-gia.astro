@@ -27,12 +27,12 @@ const factors = [
   {
     ordinal: '02',
     title: 'Một tuần bạn tập mấy buổi',
-    body: 'Hai buổi một tuần đã đủ để thấy khác trong người. Ba tới bốn buổi thì nhanh hơn. Bên mình không khuyên bạn mua nhiều hơn mức bạn đi được, vì mua rồi bỏ đó là chuyện bên mình muốn tránh nhất.',
+    body: 'Hai buổi một tuần đã đủ để thấy khác trong người. Ba tới bốn buổi thì nhanh hơn. Chúng tôi không khuyên bạn mua nhiều hơn mức bạn đi được, vì mua rồi bỏ đó là chuyện chúng tôi muốn tránh nhất.',
   },
   {
     ordinal: '03',
     title: 'Bạn đi trong bao lâu',
-    body: 'Gói dài thì đơn giá mỗi buổi rẻ hơn, đó là chuyện thường. Nhưng nếu bạn mới quay lại tập sau nhiều năm, bên mình sẽ nói bạn bắt đầu bằng gói ngắn trước.',
+    body: 'Gói dài thì đơn giá mỗi buổi rẻ hơn, đó là chuyện thường. Nhưng nếu bạn mới quay lại tập sau nhiều năm, chúng tôi sẽ nói bạn bắt đầu bằng gói ngắn trước.',
   },
 ];
 
@@ -48,7 +48,7 @@ const included = [
 const promises = [
   {
     title: 'Không có gói nào phải giải mã',
-    body: 'Bạn hỏi giá, bên mình trả lời bằng một con số và những gì đi kèm con số đó. Hết.',
+    body: 'Bạn hỏi giá, chúng tôi trả lời bằng một con số và những gì đi kèm con số đó. Hết.',
   },
   {
     title: 'Không ai chốt sale ép bạn',
@@ -63,15 +63,15 @@ const promises = [
 const priceFaq = [
   {
     q: 'Sao trang này không ghi luôn con số?',
-    a: 'Vì con số chỉ đúng khi biết bạn tập nhóm hay tập riêng, một tuần mấy buổi và đi trong bao lâu. Ghi một mức chung lên đây thì hoặc là sai với bạn, hoặc là phải kèm một rừng chú thích. Bên mình chọn cách nhắn cho bạn con số đúng với trường hợp của bạn, thường là trong ngày.',
+    a: 'Vì con số chỉ đúng khi biết bạn tập nhóm hay tập riêng, một tuần mấy buổi và đi trong bao lâu. Ghi một mức chung lên đây thì hoặc là sai với bạn, hoặc là phải kèm một rừng chú thích. Chúng tôi chọn cách nhắn cho bạn con số đúng với trường hợp của bạn, thường là trong ngày.',
   },
   {
-    q: 'Mức giá bên mình nằm ở đâu so với chỗ khác?',
+    q: 'Mức giá của chúng tôi nằm ở đâu so với chỗ khác?',
     a: 'Tầm trung. Không phải chỗ rẻ nhất khu này, cũng không phải chỗ đắt nhất. Bạn trả cho phần huấn luyện viên đứng cạnh bạn, đó là phần các phòng tập tự tập không có.',
   },
   {
     q: 'Có phải đóng trước cả năm không?',
-    a: 'Không. Nếu bạn lâu rồi chưa tập lại, bên mình còn khuyên bạn bắt đầu bằng gói ngắn để xem có đi đều được không đã.',
+    a: 'Không. Nếu bạn lâu rồi chưa tập lại, chúng tôi còn khuyên bạn bắt đầu bằng gói ngắn để xem có đi đều được không đã.',
   },
   {
     q: 'Hỏi giá thì bao lâu có trả lời?',
@@ -86,8 +86,8 @@ const priceFaq = [
 >
   <PageHero
     eyebrow="Bảng giá"
-    title="Bên mình nói thẳng con số, chỉ là nói riêng với bạn"
-    lede="Không có gói nào phải ngồi giải mã, không có phí nào giấu ở cuối trang. Nhắn một câu là bên mình báo giá đúng với cách tập của bạn, thường là trong ngày."
+    title="Chúng tôi nói thẳng con số, chỉ là nói riêng với bạn"
+    lede="Không có gói nào phải ngồi giải mã, không có phí nào giấu ở cuối trang. Nhắn một câu là chúng tôi báo giá đúng với cách tập của bạn, thường là trong ngày."
     image={room04}
     alt="Khu vực tập tạ của phòng tập Panther Fit"
   />
@@ -98,7 +98,7 @@ const priceFaq = [
       <SectionHeading
         eyebrow="Cách tính"
         title="Ba thứ quyết định con số của bạn"
-        lede="Biết ba thứ này là bên mình báo được giá ngay, không cần bạn tới tận nơi."
+        lede="Biết ba thứ này là chúng tôi báo được giá ngay, không cần bạn tới tận nơi."
       />
 
       <div class="mt-14 grid gap-px overflow-hidden border border-hair bg-hair lg:grid-cols-3">
@@ -152,7 +152,7 @@ const priceFaq = [
         </div>
 
         <div>
-          <SectionHeading eyebrow="Cam kết" title="Và những thứ bên mình không làm" />
+          <SectionHeading eyebrow="Cam kết" title="Và những thứ chúng tôi không làm" />
           <div class="mt-9 flex flex-col gap-px overflow-hidden border border-hair bg-hair">
             {
               promises.map((promise, index) => (
@@ -180,6 +180,6 @@ const priceFaq = [
 
   <CtaBand
     title="Hỏi giá thì cứ hỏi thẳng"
-    body="Bạn nói bên mình nghe bạn muốn tập nhóm hay tập riêng, một tuần đi được mấy buổi. Bên mình báo lại con số cụ thể, không vòng vo."
+    body="Bạn cho chúng tôi biết bạn muốn tập nhóm hay tập riêng, một tuần đi được mấy buổi. Chúng tôi báo lại con số cụ thể, không vòng vo."
   />
 </Base>

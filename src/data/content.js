@@ -24,7 +24,7 @@ export const SERVICES = [
       },
       {
         title: 'Có người nhớ mặt bạn',
-        body: 'Nhóm cố định nên vắng một tuần là có người hỏi. Với nhiều hội viên bên mình, đó mới là lý do họ quay lại đều.',
+        body: 'Nhóm cố định nên vắng một tuần là có người hỏi. Với nhiều hội viên của chúng tôi, đó mới là lý do họ quay lại đều.',
       },
       {
         title: 'Rủ bạn đi cùng được',
@@ -63,7 +63,7 @@ export const SERVICES = [
     detail: [
       `Một buổi kéo dài ${FACTS.sessionLength}, riêng bạn và huấn luyện viên.`,
       'Buổi đầu dành phần lớn thời gian để hỏi han và thử vài động tác cơ bản, chưa vội tập nặng.',
-      'Bạn chọn được huấn luyện viên mình thấy hợp, không bị xếp ngẫu nhiên.',
+      'Bạn chọn được huấn luyện viên bạn thấy hợp, không bị xếp ngẫu nhiên.',
     ],
     forWho:
       'Hợp với người lâu rồi chưa tập lại, người có chỗ đau cũ cần né, và người muốn đi nhanh hơn trong thời gian ngắn.',
@@ -74,8 +74,8 @@ export const SERVICES = [
 export const FIRST_VISIT = [
   {
     ordinal: '01',
-    title: 'Bạn nhắn trước, tụi mình hẹn giờ vắng người',
-    body: 'Nếu bạn ngại chỗ đông, cứ nói thẳng. Bên mình xếp bạn vào khung giờ thoáng nhất trong ngày để buổi đầu bạn có chỗ mà thở.',
+    title: 'Bạn nhắn trước, chúng tôi hẹn giờ vắng người',
+    body: 'Nếu bạn ngại chỗ đông, cứ nói thẳng. Chúng tôi xếp bạn vào khung giờ thoáng nhất trong ngày để buổi đầu bạn có chỗ mà thở.',
   },
   {
     ordinal: '02',
@@ -90,7 +90,7 @@ export const FIRST_VISIT = [
   {
     ordinal: '04',
     title: 'Rồi bạn về, không ai chốt gì cả',
-    body: 'Muốn nghĩ thêm vài hôm cũng được. Muốn hỏi giá thì bên mình nói thẳng con số, không có gói nào phải ngồi giải mã.',
+    body: 'Muốn nghĩ thêm vài hôm cũng được. Muốn hỏi giá thì chúng tôi nói thẳng con số, không có gói nào phải ngồi giải mã.',
   },
 ];
 
@@ -110,11 +110,11 @@ export const FAQ = [
   },
   {
     q: 'Giá thế nào?',
-    a: 'Câu hỏi hợp lý. Bên mình nói thẳng con số khi bạn hỏi, không có gói nào phải giải mã. Mức giá tuỳ vào bạn tập nhóm hay PT 1 kèm 1 và tập bao nhiêu buổi một tuần, nên cứ nhắn tin hoặc gọi, sẽ có người báo cụ thể trong ngày.',
+    a: 'Câu hỏi hợp lý. Chúng tôi nói thẳng con số khi bạn hỏi, không có gói nào phải giải mã. Mức giá tuỳ vào bạn tập nhóm hay PT 1 kèm 1 và tập bao nhiêu buổi một tuần, nên cứ nhắn tin hoặc gọi, sẽ có người báo cụ thể trong ngày.',
   },
   {
     q: 'Cần mang theo gì cho buổi đầu?',
-    a: 'Quần áo thoải mái, một đôi giày thể thao và một chai nước. Vậy là đủ. Khăn và chỗ thay đồ bên mình có sẵn.',
+    a: 'Quần áo thoải mái, một đôi giày thể thao và một chai nước. Vậy là đủ. Khăn và chỗ thay đồ tại phòng tập đã có sẵn.',
   },
   {
     q: 'Để xe ở đâu?',
@@ -122,7 +122,7 @@ export const FAQ = [
   },
   {
     q: 'Em muốn rủ bạn đi cùng có được không?',
-    a: 'Được, và bên mình còn thích như vậy. Phần lớn hội viên hiện tại đến đây lần đầu là do một người bạn rủ. Cứ đi hai người, đứng cạnh nhau cả buổi cũng không sao.',
+    a: 'Được, và chúng tôi luôn khuyến khích điều đó. Phần lớn hội viên hiện tại đến đây lần đầu là do một người bạn rủ. Bạn đi hai người, đứng cạnh nhau cả buổi cũng không sao.',
   },
 ];
 

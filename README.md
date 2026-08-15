@@ -66,7 +66,7 @@ website/
 │   │   └── Base.astro       Khung chung, phần SEO và dữ liệu cho Google
 │   ├── pages/               Mỗi file là một trang
 │   │   ├── index.astro          → /
-│   │   ├── ve-tui-minh.astro    → /ve-tui-minh
+│   │   ├── ve-chung-toi.astro    → /ve-chung-toi
 │   │   ├── dich-vu.astro        → /dich-vu
 │   │   ├── huan-luyen-vien.astro→ /huan-luyen-vien
 │   │   ├── bang-gia.astro       → /bang-gia

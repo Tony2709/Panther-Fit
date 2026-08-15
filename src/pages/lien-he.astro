@@ -38,12 +38,12 @@ const channels = [
 
 <Base
   title="Liên hệ"
-  description={`Ghé Panther Fit tại ${CONTACT.address.city}. Nhắn Zalo hoặc gọi ${CONTACT.phoneDisplay} để hẹn buổi đầu tiên, bên mình xếp giờ nào bạn tiện.`}
+  description={`Ghé Panther Fit tại ${CONTACT.address.city}. Nhắn Zalo hoặc gọi ${CONTACT.phoneDisplay} để hẹn buổi đầu tiên, chúng tôi xếp giờ nào bạn tiện.`}
 >
   <PageHero
     eyebrow="Liên hệ"
-    title="Nhắn một câu thôi, bên mình lo phần còn lại"
-    lede="Bạn không cần chuẩn bị gì trước. Chỉ cần nói bạn rảnh giờ nào, còn lại để bên mình xếp."
+    title="Bạn nhắn một câu, chúng tôi lo phần còn lại"
+    lede="Bạn không cần chuẩn bị gì trước. Chỉ cần nói bạn rảnh giờ nào, còn lại để chúng tôi xếp."
     image={room02}
     alt="Hội viên đang tập trong phòng tập Panther Fit"
   />
@@ -83,8 +83,8 @@ const channels = [
         <div>
           <SectionHeading
             eyebrow="Để lại lời nhắn"
-            title="Hoặc điền vài dòng, bên mình gọi lại"
-            lede="Không cần điền hết. Tên và số điện thoại là đủ để bên mình liên lạc."
+            title="Hoặc điền vài dòng, chúng tôi gọi lại"
+            lede="Không cần điền hết. Tên và số điện thoại là đủ để chúng tôi liên lạc."
           />
 
           {
@@ -97,7 +97,7 @@ const channels = [
                 <div class="flex gap-3">
                   <Icon name="check" size={20} class="mt-0.5 shrink-0 text-ember" />
                   <div>
-                    <p class="font-semibold text-cream">Bên mình nhận được rồi nhé.</p>
+                    <p class="font-semibold text-cream">Chúng tôi đã nhận được lời nhắn.</p>
                     <p class="mt-1.5 text-[0.9375rem] text-mist">
                       Sẽ có người liên lạc lại với bạn trong giờ mở cửa. Nếu gấp thì cứ gọi thẳng{' '}
                       {CONTACT.phoneDisplay}.
@@ -150,7 +150,7 @@ const channels = [
                   autocomplete="tel"
                   placeholder="09xx xxx xxx"
                 />
-                <p class="hint">Bên mình gọi hoặc nhắn Zalo vào số này.</p>
+                <p class="hint">Chúng tôi gọi hoặc nhắn Zalo vào số này.</p>
                 <p class="error" data-error-for="cf-phone" aria-live="polite"></p>
               </div>
 
@@ -183,17 +183,17 @@ const channels = [
                   rows="4"
                   placeholder="Ví dụ: lâu rồi chưa tập lại, vai phải hay đau, muốn đi cùng một người bạn."
                 ></textarea>
-                <p class="hint">Nói trước chuyện gì cũng được, để bên mình xếp bài cho đúng.</p>
+                <p class="hint">Nói trước chuyện gì cũng được, để chúng tôi xếp bài cho đúng.</p>
               </div>
             </div>
 
             <div class="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
               <button type="submit" class="btn btn-primary">
                 <Icon name="send" size={17} />
-                Gửi cho bên mình
+                Gửi cho chúng tôi
               </button>
               <p class="text-sm text-dim">
-                Bên mình chỉ dùng số này để liên lạc với bạn, không gửi cho ai khác.
+                Chúng tôi chỉ dùng số này để liên lạc với bạn, không gửi cho ai khác.
               </p>
             </div>
 
@@ -389,10 +389,10 @@ const channels = [
 
     const RULES: Record<string, (value: string) => string> = {
       'cf-name': (value) =>
-        value.trim().length >= 2 ? '' : 'Cho bên mình xin tên bạn với, chỉ cần tên gọi thôi.',
+        value.trim().length >= 2 ? '' : 'Cho chúng tôi xin tên của bạn, chỉ cần tên gọi là đủ.',
       'cf-phone': (value) => {
         const digits = value.replace(/\D/g, '');
-        if (!digits) return 'Bên mình cần số điện thoại để liên lạc lại.';
+        if (!digits) return 'Chúng tôi cần số điện thoại để liên lạc lại.';
         return digits.length >= 9 && digits.length <= 12
           ? ''
           : 'Số này trông chưa đúng, bạn kiểm tra lại giúp nhé.';
@@ -466,14 +466,14 @@ const channels = [
         if (status) {
           status.className = 'mt-5 text-[0.9375rem] text-ember-soft';
           status.textContent =
-            'Bên mình nhận được rồi nhé. Sẽ có người liên lạc lại với bạn trong giờ mở cửa.';
+            'Chúng tôi đã nhận được lời nhắn. Sẽ có người liên lạc lại với bạn trong giờ mở cửa.';
         }
         button.innerHTML = original;
       } catch {
         if (status) {
           status.className = 'mt-5 text-[0.9375rem] text-ember-soft';
           status.textContent =
-            'Chưa gửi được, mạng có vẻ trục trặc. Bạn gọi hoặc nhắn Zalo giúp bên mình nhé.';
+            'Chưa gửi được, mạng có vẻ trục trặc. Bạn gọi hoặc nhắn Zalo giúp chúng tôi.';
         }
         button.innerHTML = original;
       } finally {

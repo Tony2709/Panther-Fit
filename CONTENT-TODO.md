@@ -54,11 +54,11 @@ Tạo email trong hPanel trước, rồi điền vào. Email gửi đi phải c�
 ### 2.1 Buổi đầu tiên có miễn phí không
 **File:** `src/data/site.js` → `FACTS.firstSession`
 
-Đang viết là **"Buổi đầu tiên bên mình mời."** Câu này xuất hiện ở nhiều chỗ,
+Đang viết là **"Buổi đầu tiên chúng tôi mời bạn."** Câu này xuất hiện ở nhiều chỗ,
 kể cả nút kêu gọi cuối trang.
 
 Nếu buổi đầu **không** miễn phí thì phải sửa ngay, ví dụ:
-`'Buổi đầu bên mình tính phí lẻ, chưa cần mua gói.'`
+`'Buổi đầu tính phí lẻ, bạn chưa cần mua gói.'`
 
 Hứa sai chuyện này là mất niềm tin ngay từ buổi đầu, đúng cái điều mà tài liệu
 thương hiệu đã cảnh báo.

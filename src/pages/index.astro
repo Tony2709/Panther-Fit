@@ -57,14 +57,16 @@ const facts = [
         loading="eager"
         fetchpriority="high"
       />
-      <div class="absolute inset-0 bg-ink/35"></div>
+      <!-- Ba lop phu giup chu doc duoc ma van thay ro can phong.
+           Lop duoi da giam khoang 20% so voi ban dau cho anh sang hon. -->
+      <div class="absolute inset-0 bg-ink/28"></div>
       <div
-        class="absolute inset-0 bg-gradient-to-t from-ink via-ink/70 to-transparent"
+        class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/50 to-transparent"
         aria-hidden="true"
       >
       </div>
       <div
-        class="absolute inset-0 bg-gradient-to-r from-ink/80 via-transparent to-transparent"
+        class="absolute inset-0 bg-gradient-to-r from-ink/70 via-transparent to-transparent"
         aria-hidden="true"
       >
       </div>
@@ -75,8 +77,8 @@ const facts = [
         Phòng tập tại {CONTACT.address.city} · Est. {SITE.established}
       </p>
 
-      <h1 class="display-xl reveal mt-6 max-w-[19ch]" data-delay="80">
-        Một căn phòng mà bạn không ngại bước vào
+      <h1 class="display-xl reveal mt-6 max-w-[22ch]" data-delay="80">
+        Nơi sức khoẻ được đề cao và cộng đồng được xây dựng
       </h1>
 
       <p class="reveal mt-7 max-w-xl text-lg leading-relaxed text-mist md:text-xl" data-delay="160">
@@ -93,7 +95,9 @@ const facts = [
         <a href="#phong-tap" class="btn btn-ghost">Xem thử căn phòng</a>
       </div>
 
-      <p class="reveal mt-6 text-sm text-dim" data-delay="300">
+      <!-- Dung mau sang hon mau chu phu thong thuong, vi dong nay nam truc
+           tiep tren anh chu khong phai tren nen den dac -->
+      <p class="reveal mt-6 text-sm text-mist" data-delay="300">
         Buổi đầu tiên luôn có người đi cùng bạn từ lúc bước vào cửa.
       </p>
     </div>
@@ -142,7 +146,7 @@ const facts = [
 
           <div class="prose-pf reveal mt-7" data-delay="120">
             <p>
-              Người nhắn tin cho bên mình gần như đều hỏi cùng một câu, chỉ khác cách nói: vào đó có
+              Người nhắn tin cho chúng tôi gần như đều hỏi cùng một câu, chỉ khác cách nói: vào đó có
               bị lạc lõng không, có bị nhìn không, người ta quen nhau hết rồi thì mình đứng đâu.
             </p>
             <p>
@@ -150,14 +154,14 @@ const facts = [
               vì bài tập khó, mà vì bước vào thấy mình thừa.
             </p>
             <p>
-              Nên bên mình không đi hứa <strong>đây là phòng tập thân thiện nhất khu này</strong>.
-              Ai chẳng nói vậy. Bên mình cho bạn xem thẳng căn phòng, những người đang tập trong đó,
+              Nên chúng tôi không hứa <strong>đây là phòng tập thân thiện nhất khu này</strong>.
+              Ai chẳng nói vậy. Chúng tôi cho bạn xem thẳng căn phòng, những người đang tập trong đó,
               và buổi đầu tiên diễn ra chính xác ra sao. Rồi bạn tự quyết.
             </p>
           </div>
 
-          <a href="/ve-tui-minh" class="link-arrow reveal mt-8" data-delay="180">
-            Về tụi mình
+          <a href="/ve-chung-toi" class="link-arrow reveal mt-8" data-delay="180">
+            Về chúng tôi
             <Icon name="arrowRight" size={16} />
           </a>
         </div>
@@ -171,7 +175,7 @@ const facts = [
       <SectionHeading
         eyebrow="Buổi đầu tiên"
         title="Bốn việc sẽ xảy ra trong lần đầu bạn tới"
-        lede="Biết trước chuyện gì đang chờ mình thì bớt hồi hộp hẳn. Đây là toàn bộ những gì diễn ra."
+        lede="Biết trước chuyện gì đang chờ bạn thì bớt hồi hộp hẳn. Đây là toàn bộ những gì diễn ra."
       />
 
       <ol class="mt-14 grid gap-px overflow-hidden border border-hair bg-hair sm:grid-cols-2">
@@ -375,10 +379,10 @@ const facts = [
             title="Những câu người ta hay hỏi trước khi tới"
           />
           <p class="reveal mt-6 text-[0.9375rem] text-mist">
-            Còn thắc mắc gì khác thì cứ nhắn, bên mình trả lời thẳng.
+            Còn thắc mắc nào khác, bạn cứ nhắn, chúng tôi trả lời thẳng.
           </p>
           <a href="/lien-he" class="link-arrow reveal mt-5">
-            Hỏi bên mình
+            Hỏi chúng tôi
             <Icon name="arrowRight" size={16} />
           </a>
         </div>
