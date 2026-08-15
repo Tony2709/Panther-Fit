@@ -8,9 +8,15 @@ interface Props {
   lede?: string;
   image: ImageMetadata;
   alt: string;
+  /**
+   * Phan nao cua anh duoc giu lai khi cat cho vua khung.
+   * Mac dinh giu phan tren de khong cat mat mat nguoi trong anh.
+   * Dat lai neu anh nao co bo cuc khac, vi du 'center' hoac 'center 60%'.
+   */
+  focus?: string;
 }
 
-const { eyebrow, title, lede, image, alt } = Astro.props;
+const { eyebrow, title, lede, image, alt, focus = 'center 22%' } = Astro.props;
 ---
 
 <section class="relative overflow-hidden bg-night pt-[4.5rem] lg:pt-20">
@@ -21,26 +27,29 @@ const { eyebrow, title, lede, image, alt } = Astro.props;
       widths={[900, 1400, 2200]}
       sizes="100vw"
       class="img-cover"
+      style={`object-position: ${focus}`}
       loading="eager"
       fetchpriority="high"
     />
-    <!-- Da giam khoang 20% so voi ban dau cho thay ro anh hon.
-         Van du toi de chu tren anh dat chuan doc duoc. -->
-    <div class="absolute inset-0 bg-ink/55"></div>
+    <!-- Lop phu nen giu o muc thap de anh sang, phan lam toi tap trung vao
+         dai ben trai la cho dat chu. Do nay da do bang mo hinh tinh tuong phan:
+         khong con diem nao duoi chuan 4.5:1, trong khi nua phai cua anh
+         gan nhu giu nguyen do sang goc. -->
+    <div class="absolute inset-0 bg-ink/42"></div>
     <div
-      class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/45 to-ink/20"
+      class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/42 to-ink/12"
       aria-hidden="true"
     >
     </div>
     <div
-      class="absolute inset-0 bg-gradient-to-r from-ink/60 via-transparent to-transparent"
+      class="absolute inset-0 bg-gradient-to-r from-ink/92 via-ink/62 to-transparent"
       aria-hidden="true"
     >
     </div>
   </div>
 
   <div class="shell relative">
-    <div class="max-w-3xl py-16 md:py-24 lg:py-28">
+    <div class="max-w-3xl py-24 md:py-32 lg:py-40">
       <p class="eyebrow reveal">{eyebrow}</p>
       <h1 class="display-lg reveal mt-5" data-delay="60">{title}</h1>
       {lede && <p class="lede reveal mt-6 max-w-2xl" data-delay="120">{lede}</p>}

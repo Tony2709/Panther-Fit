@@ -71,16 +71,8 @@ const PHOTOS = [
   ['Photos/Our team/Anh Quyết/DSC04766.jpg', 'pt-quyet.jpg', 1400],
   ['Photos/Our team/Katun/768529195_3157630224422845_2941734452001614977_n.jpg', 'pt-katun.jpg', 1400],
   ['Photos/Our team/Liên Hồng Ngọc/710827425_3083018445217357_4759825505894130802_n.jpg', 'pt-hong-ngoc.jpg', 1400],
-  // Anh chan dung cua Hai Dang.
-  // Anh goc co in san dong chu ten va chuc danh o goc tren ben phai,
-  // ma the HLV tren web da hien ten roi nen se bi lap.
-  // Vung cat duoi day bo phan chu do di, giu dung ty le 4:5 cua the.
-  [
-    'Photos/Our team/Nguyễn Hải Đăng/download.jpeg',
-    'pt-hai-dang.jpg',
-    1400,
-    { crop: { left: 0, top: 190, width: 830, height: 1038 } },
-  ],
+  // Anh chan dung cua Hai Dang, dung nguyen khung goc khong cat.
+  ['Photos/Our team/Nguyễn Hải Đăng/download.jpeg', 'pt-hai-dang.jpg', 1400],
 ];
 
 const LOGO_SOURCE = 'Photos/Bonus/LOGO.png';

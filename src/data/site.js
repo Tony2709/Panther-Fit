@@ -81,8 +81,7 @@ export const FACTS = {
   sessionLength: 'khoảng 60 phút',
   // CAN DIEN: so nguoi toi da mot lop nhom
   groupClassSize: '10 đến 14 người',
-  // CAN DIEN: buoi dau tien co mien phi khong. Neu khong, sua lai cau nay.
-  firstSession: 'Buổi đầu tiên chúng tôi mời bạn.',
+  firstSession: 'Buổi đầu tiên miễn phí.',
 };
 
 export const NAV = [

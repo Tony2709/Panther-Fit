@@ -18,7 +18,9 @@ const { trainer, index = 0 } = Astro.props;
 ---
 
 <article class="card card-hover reveal overflow-hidden" data-delay={(index % 3) * 70}>
-  <div class="frame frame-zoom aspect-[4/5]">
+  <!-- Khung 2:3 dung bang ty le cua phan lon anh chan dung goc,
+       nen anh gan nhu khong bi cat mat phan nao -->
+  <div class="frame frame-zoom aspect-[2/3]">
     <Image
       src={trainer.image}
       alt={trainer.alt}

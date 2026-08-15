@@ -45,17 +45,15 @@ Tạo email trong hPanel trước, rồi điền vào. Email gửi đi phải c�
 
 ## Nhóm 2: nên sửa, ảnh hưởng tới độ tin cậy
 
-### 2.1 Buổi đầu tiên có miễn phí không
+### 2.1 Buổi đầu tiên miễn phí
 **File:** `src/data/site.js` → `FACTS.firstSession`
 
-Đang viết là **"Buổi đầu tiên chúng tôi mời bạn."** Câu này xuất hiện ở nhiều chỗ,
-kể cả nút kêu gọi cuối trang.
+Đang viết là **"Buổi đầu tiên miễn phí."** Câu này xuất hiện ở ba chỗ trên web:
+dưới phần bốn bước buổi đầu, ở nút kêu gọi cuối mỗi trang, và ở trang liên hệ.
 
-Nếu buổi đầu **không** miễn phí thì phải sửa ngay, ví dụ:
-`'Buổi đầu tính phí lẻ, bạn chưa cần mua gói.'`
-
-Hứa sai chuyện này là mất niềm tin ngay từ buổi đầu, đúng cái điều mà tài liệu
-thương hiệu đã cảnh báo.
+Cả đội ngũ ở quầy và huấn luyện viên cần nắm câu này, vì khách sẽ tới và nhắc lại
+đúng chữ đó. Nếu sau này đổi chính sách thì sửa một dòng trong `site.js` là cả
+website đổi theo.
 
 ### 2.2 Một buổi tập kéo dài bao lâu, lớp nhóm bao nhiêu người
 **File:** `src/data/site.js` → `FACTS.sessionLength`, `FACTS.groupClassSize`
