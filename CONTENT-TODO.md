@@ -7,41 +7,35 @@ Chỗ nào trong code có ghi chú `CAN DIEN` là chỗ nằm trong danh sách n
 
 ---
 
+## Đã xong
+
+- ~~Địa chỉ~~ đã điền: 66 Phan Bội Châu, Khu dân cư số 10, Phan Đình Phùng, Thái Nguyên
+- ~~Số điện thoại~~ đã điền: 0977 533 302
+- ~~Link Facebook~~ đã điền: facebook.com/pantherfit20
+- ~~Giờ mở cửa~~ đã điền: 05:00 đến 22:00 các ngày trong tuần, 08:00 đến 21:00 cuối tuần
+- ~~Danh sách huấn luyện viên~~ đã chốt năm người, đã bỏ Nghị Vũ
+
+---
+
 ## Nhóm 1: bắt buộc sửa trước khi đưa lên mạng
 
-### 1.1 Địa chỉ phòng tập
-**File:** `src/data/site.js` → `CONTACT.address`
+### 1.1 Toạ độ chính xác của phòng tập
+**File:** `src/data/site.js` → `latitude`, `longitude`
 
-Hiện đang để `"Cần cập nhật số nhà và tên đường"` và thành phố Thái Nguyên.
-Cần điền số nhà, tên đường, phường.
+Địa chỉ chữ và bản đồ nhúng đã chuẩn. Riêng hai con số toạ độ vẫn là ước lượng
+theo phường Phan Đình Phùng, chứ không phải điểm chính xác của cửa phòng tập.
+Toạ độ này nằm trong phần dữ liệu Google đọc để hiểu phòng tập ở đâu.
 
-Đây là mục quan trọng nhất. Khách tìm phòng gym gần nhà, không có địa chỉ là mất khách.
+Cách lấy đúng: mở Google Maps, bấm chuột phải ngay vào cửa phòng tập,
+dòng đầu tiên trong menu chính là toạ độ, bấm vào là sao chép được.
 
-### 1.2 Link Google Maps và toạ độ
-**File:** `src/data/site.js` → `mapsUrl`, `mapsEmbedUrl`, `latitude`, `longitude`
-
-Cách lấy: mở Google Maps, tìm phòng tập, bấm **Chia sẻ** lấy `mapsUrl`,
-bấm **Nhúng bản đồ** lấy `mapsEmbedUrl`. Toạ độ nằm ngay trên thanh địa chỉ trình duyệt.
-
-### 1.3 Giờ mở cửa
-**File:** `src/data/site.js` → `CONTACT.hours` và `CONTACT.hoursSchema`
-
-Đang để tạm 05:30 đến 21:30 các ngày trong tuần, 06:00 đến 20:00 cuối tuần.
-**Nhớ sửa cả hai danh sách**, một cái hiện trên trang, một cái cho Google đọc.
-
-### 1.4 Link Facebook
-**File:** `src/data/site.js` → `CONTACT.facebook`
-
-Đang để `facebook.com/pantherfit`, nhiều khả năng không đúng.
-Facebook là kênh chính của phòng tập nên link này cần chuẩn.
-
-### 1.5 Tên miền
+### 1.2 Tên miền
 **File:** `src/data/site.js` → `SITE.url`
 **File:** `public/robots.txt` → dòng `Sitemap:`
 
 Đang để `pantherfit.vn`. Sửa thành tên miền thật đã mua.
 
-### 1.6 Email nhận form liên hệ
+### 1.3 Email nhận form liên hệ
 **File:** `public/gui-lien-he.php` → `$NGUOI_NHAN` và `$NGUOI_GUI`
 **File:** `src/data/site.js` → `CONTACT.email`
 
@@ -92,23 +86,25 @@ làm đúng như vậy, hoặc sửa lại cho khớp cách làm thật.
 
 **File:** `src/data/trainers.js`
 
-### 3.1 Xác nhận danh sách
-Mình lấy tên từ tên thư mục trong `Photos/Our team`, gồm:
-Sơn Thái, Quyết, Katun, Liên Hồng Ngọc, Nguyễn Hải Đăng.
+### 3.1 Danh sách đã chốt
+Năm người, xếp theo thứ tự hiện trên trang. Ba người đầu cũng là ba người
+hiện ở trang chủ.
 
-Có thêm **Nghị Vũ**, tên này mình đọc được từ bảng tên trên áo trong ảnh chụp đội ngũ.
-Nếu đọc sai hoặc người này không còn làm nữa thì xoá khỏi danh sách.
+| Thứ tự | Tên | Vai trò |
+|---|---|---|
+| 1 | Katun | Chủ phòng tập và huấn luyện viên |
+| 2 | Sơn Thái | Quản lý nhân sự và huấn luyện viên |
+| 3 | Hà Quyết | Huấn luyện viên |
+| 4 | Liên Hồng Ngọc | Huấn luyện viên |
+| 5 | Nguyễn Hải Đăng | Huấn luyện viên và tư vấn |
 
 Trong ảnh đội ngũ còn có **lễ tân Quỳnh Chi** và một bạn lễ tân nữa. Nếu muốn đưa
 lễ tân lên trang thì báo mình thêm, vì người đầu tiên khách gặp ở cửa chính là lễ tân.
 
-### 3.2 Vai trò
-Hai vai trò mình đọc được từ bảng tên trong ảnh:
-- Sơn Thái: `QLNS/HLV`, mình ghi là "Quản lý nhân sự và huấn luyện viên"
-- Nghị Vũ: `HLV/Saler`, mình ghi là "Huấn luyện viên và tư vấn"
-
-Bốn người còn lại mình để chung là "Huấn luyện viên" vì không có thông tin.
-Nếu ai có chứng chỉ hoặc chuyên môn riêng thì ghi vào, phần này giúp tăng độ tin cậy.
+### 3.2 Vai trò còn để chung
+Hà Quyết và Liên Hồng Ngọc đang để chung là "Huấn luyện viên" vì chưa có thông tin
+cụ thể. Nếu ai có chứng chỉ hoặc chuyên môn riêng thì ghi vào, phần này giúp tăng
+độ tin cậy đáng kể.
 
 ### 3.3 Phần giới thiệu từng người, quan trọng
 Mấy dòng giới thiệu hiện tại **do mình viết dựa trên cách làm việc chung của phòng tập,
@@ -124,10 +120,30 @@ Lời thật của từng người bao giờ cũng đáng tin hơn văn quảng 
 "để khách và người thật nói bằng chính lời của họ" trong tài liệu giọng nói thương hiệu.
 
 ### 3.4 Ảnh
-- Sơn Thái và Nghị Vũ đang dùng ảnh chụp trong đồng phục Panther Fit, đẹp và đúng nhận diện
-- Katun, Liên Hồng Ngọc, Nguyễn Hải Đăng đang dùng ảnh trong thư mục riêng,
-  nhưng mấy ảnh đó mặc đồ thương hiệu **SpartaFit**, không phải Panther Fit
-- Quyết đang dùng ảnh đang kèm khách, không phải ảnh chân dung
+
+**Việc cần làm ngay: ảnh chân dung mới của Nguyễn Hải Đăng.**
+
+Ảnh đó đang nằm trong đoạn chat chứ chưa có trên máy, nên mình chưa lắp vào được.
+Cách làm:
+
+1. Lưu ảnh vào đúng đường dẫn này, đúng tên file:
+   `Panther Fit/Photos/Our team/Nguyễn Hải Đăng/hai-dang-chan-dung.jpg`
+2. Chạy `npm run assets`
+3. Chạy `npm run build`
+
+Script đã chờ sẵn file đó. Chưa có file thì nó báo một dòng rồi vẫn dùng ảnh cũ,
+nên chạy lúc nào cũng không sợ hỏng.
+
+Một lưu ý về ảnh đó: góc trên bên phải có chữ **HAI DANG NGUYEN / HLV | SALER /
+PANTHER FIT** in sẵn trên ảnh. Thẻ huấn luyện viên trên web đã hiện tên và vai trò
+ngay bên dưới ảnh rồi, nên phần chữ này sẽ bị lặp. Nếu có file gốc chưa có chữ thì
+dùng file đó tốt hơn. Không có thì báo mình, mình cắt bỏ phần chữ đi.
+
+**Tình trạng ảnh hiện tại của cả đội:**
+- Sơn Thái: ảnh chụp trong đồng phục Panther Fit, đẹp và đúng nhận diện
+- Katun và Liên Hồng Ngọc: ảnh trong thư mục riêng, nhưng mặc đồ thương hiệu
+  **SpartaFit**, không phải Panther Fit
+- Hà Quyết: ảnh đang kèm khách, không phải ảnh chân dung
 
 Nếu chụp được một buổi ảnh chân dung cho cả đội, cùng đồng phục navy, cùng nền,
 thì phần này sẽ lên hẳn một bậc.

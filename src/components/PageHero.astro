@@ -24,9 +24,16 @@ const { eyebrow, title, lede, image, alt } = Astro.props;
       loading="eager"
       fetchpriority="high"
     />
-    <div class="absolute inset-0 bg-ink/80"></div>
+    <!-- Da giam khoang 20% so voi ban dau cho thay ro anh hon.
+         Van du toi de chu tren anh dat chuan doc duoc. -->
+    <div class="absolute inset-0 bg-ink/55"></div>
     <div
-      class="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink/30"
+      class="absolute inset-0 bg-gradient-to-t from-ink/85 via-ink/45 to-ink/20"
+      aria-hidden="true"
+    >
+    </div>
+    <div
+      class="absolute inset-0 bg-gradient-to-r from-ink/60 via-transparent to-transparent"
       aria-hidden="true"
     >
     </div>

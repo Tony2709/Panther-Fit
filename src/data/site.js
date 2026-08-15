@@ -27,14 +27,13 @@ export const SITE = {
 };
 
 export const CONTACT = {
-  phoneDisplay: '097 753 3302',
+  phoneDisplay: '0977 533 302',
   phoneRaw: '+84977533302',
 
   // Zalo dung chung so dien thoai
   zalo: 'https://zalo.me/84977533302',
 
-  // CAN DIEN: dan link trang Facebook that cua phong tap
-  facebook: 'https://www.facebook.com/pantherfit',
+  facebook: 'https://www.facebook.com/pantherfit20/',
 
   // CAN DIEN: neu co Instagram va TikTok thi dien vao, khong co thi de trong
   instagram: '',
@@ -44,32 +43,32 @@ export const CONTACT = {
   email: 'lienhe@pantherfit.vn',
 
   address: {
-    // CAN DIEN: dia chi day du, so nha va ten duong
-    street: 'Cần cập nhật số nhà và tên đường',
-    ward: '',
+    street: '66 Phan Bội Châu, Khu dân cư số 10',
+    ward: 'Phan Đình Phùng',
     city: 'Thái Nguyên',
     region: 'Thái Nguyên',
+    postalCode: '250000',
     country: 'VN',
-    // CAN DIEN: dan link Google Maps that cua phong tap
-    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Panther+Fit+Thai+Nguyen',
-    // CAN DIEN: lay tu Google Maps, dung cho ban do nhung tren trang lien he
+    mapsUrl:
+      'https://www.google.com/maps/search/?api=1&query=66%20Phan%20B%E1%BB%99i%20Ch%C3%A2u%2C%20Phan%20%C4%90%C3%ACnh%20Ph%C3%B9ng%2C%20Th%C3%A1i%20Nguy%C3%AAn',
     mapsEmbedUrl:
-      'https://www.google.com/maps?q=Panther%20Fit%20Th%C3%A1i%20Nguy%C3%AAn&output=embed',
-    // CAN DIEN: toa do that, dung cho phan du lieu Google hieu duoc
+      'https://www.google.com/maps?q=66%20Phan%20B%E1%BB%99i%20Ch%C3%A2u%2C%20Khu%20d%C3%A2n%20c%C6%B0%20s%E1%BB%91%2010%2C%20Phan%20%C4%90%C3%ACnh%20Ph%C3%B9ng%2C%20Th%C3%A1i%20Nguy%C3%AAn&output=embed',
+    // CAN DIEN: toa do chinh xac. Mo Google Maps, bam chuot phai dung vao
+    // cua phong tap roi chon dong toa do o tren cung de sao chep.
+    // Hai so hien tai la uoc luong theo phuong Phan Dinh Phung.
     latitude: 21.5942,
     longitude: 105.8481,
   },
 
-  // CAN DIEN: gio mo cua that
   hours: [
-    { days: 'Thứ 2 đến thứ 6', time: '05:30 - 21:30' },
-    { days: 'Thứ 7 và chủ nhật', time: '06:00 - 20:00' },
+    { days: 'Thứ 2 đến thứ 6', time: '05:00 - 22:00' },
+    { days: 'Thứ 7 và chủ nhật', time: '08:00 - 21:00' },
   ],
 
   // Dung cho phan du lieu Google hieu duoc, khop voi bang gio o tren
   hoursSchema: [
-    { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '05:30', closes: '21:30' },
-    { days: ['Saturday', 'Sunday'], opens: '06:00', closes: '20:00' },
+    { days: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], opens: '05:00', closes: '22:00' },
+    { days: ['Saturday', 'Sunday'], opens: '08:00', closes: '21:00' },
   ],
 
   // CAN DIEN: mo ta cho de xe, cau nay hien tren trang lien he va phan hoi dap

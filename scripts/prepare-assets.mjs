@@ -59,11 +59,16 @@ const PHOTOS = [
 
   // Chan dung huan luyen vien
   ['Photos/Our team/Group photo/2025_11_27_20_57_IMG_5633.JPG', 'pt-son-thai.jpg', 1400],
-  ['Photos/Our team/Group photo/2025_11_27_21_03_IMG_5638.JPG', 'pt-nghi-vu.jpg', 1400],
   ['Photos/Our team/Anh Quyết/DSC04766.jpg', 'pt-quyet.jpg', 1400],
   ['Photos/Our team/Katun/768529195_3157630224422845_2941734452001614977_n.jpg', 'pt-katun.jpg', 1400],
   ['Photos/Our team/Liên Hồng Ngọc/710827425_3083018445217357_4759825505894130802_n.jpg', 'pt-hong-ngoc.jpg', 1400],
   ['Photos/Our team/Nguyễn Hải Đăng/774362637_3161570054028862_8908508061931278382_n.jpg', 'pt-hai-dang.jpg', 1400],
+
+  // Anh chan dung moi cua Hai Dang.
+  // Dong nay nam sau dong o tren nen neu file ton tai thi no se ghi de,
+  // con neu chua co file thi script bao qua va van dung anh cu.
+  // Luu anh moi vao dung duong dan duoi day roi chay: npm run assets
+  ['Photos/Our team/Nguyễn Hải Đăng/hai-dang-chan-dung.jpg', 'pt-hai-dang.jpg', 1400],
 ];
 
 const LOGO_SOURCE = 'Photos/Bonus/LOGO.png';

@@ -4,6 +4,8 @@
  * ============================================================
  *
  *  Ten va anh lay tu thu muc Photos/Our team.
+ *  Thu tu trong danh sach nay chinh la thu tu hien tren trang,
+ *  va ba nguoi dau tien la ba nguoi hien o trang chu.
  *
  *  QUAN TRONG: phan `bio` hien dang la cau chu tam, viet theo
  *  cach lam viec chung cua phong tap chu khong phai loi ke rieng
@@ -12,14 +14,22 @@
  *  Xem them file CONTENT-TODO.md.
  */
 
-import quyet from '../assets/pt-quyet.jpg';
-import sonThai from '../assets/pt-son-thai.jpg';
 import katun from '../assets/pt-katun.jpg';
+import sonThai from '../assets/pt-son-thai.jpg';
+import quyet from '../assets/pt-quyet.jpg';
 import hongNgoc from '../assets/pt-hong-ngoc.jpg';
 import haiDang from '../assets/pt-hai-dang.jpg';
-import nghiVu from '../assets/pt-nghi-vu.jpg';
 
 export const TRAINERS = [
+  {
+    slug: 'katun',
+    name: 'Katun',
+    role: 'Chủ phòng tập và huấn luyện viên',
+    image: katun,
+    alt: 'Katun, chủ phòng tập Panther Fit, tại khu vực tập luyện',
+    focus: ['PT 1 kèm 1', 'Hội viên nữ'],
+    bio: 'Người dựng nên Panther Fit và vẫn đứng lớp mỗi tuần. Nhiều hội viên nữ lần đầu vào phòng tập chọn tập cùng Katun, đơn giản vì được hỏi han kỹ trước khi bắt đầu và không bị đẩy nhanh.',
+  },
   {
     slug: 'son-thai',
     name: 'Sơn Thái',
@@ -31,22 +41,13 @@ export const TRAINERS = [
     bio: 'Buổi đầu tiên của bạn nhiều khả năng sẽ do Sơn Thái dẫn đi một vòng. Cứ nói thật là bạn lâu rồi chưa tập, bài sẽ được hạ xuống đúng mức bạn làm được hôm nay.',
   },
   {
-    slug: 'quyet',
-    name: 'Quyết',
+    slug: 'ha-quyet',
+    name: 'Hà Quyết',
     role: 'Huấn luyện viên',
     image: quyet,
-    alt: 'Huấn luyện viên Quyết đang hỗ trợ hội viên tập tạ tay tại Panther Fit',
+    alt: 'Huấn luyện viên Hà Quyết đang hỗ trợ hội viên tập tạ tay tại Panther Fit',
     focus: ['PT 1 kèm 1', 'Tập nhóm'],
     bio: 'Kiểu kèm sát từng nhịp thở, sửa tư thế ngay khi thấy lệch. Bạn sẽ không phải đoán xem mình đang tập đúng hay sai.',
-  },
-  {
-    slug: 'katun',
-    name: 'Katun',
-    role: 'Huấn luyện viên',
-    image: katun,
-    alt: 'Huấn luyện viên Katun tại phòng tập Panther Fit',
-    focus: ['PT 1 kèm 1', 'Hội viên nữ'],
-    bio: 'Nhiều hội viên nữ lần đầu vào phòng tập chọn tập cùng Katun, đơn giản vì được hỏi han kỹ trước khi bắt đầu và không bị đẩy nhanh.',
   },
   {
     slug: 'hong-ngoc',
@@ -60,20 +61,11 @@ export const TRAINERS = [
   {
     slug: 'hai-dang',
     name: 'Nguyễn Hải Đăng',
-    role: 'Huấn luyện viên',
+    // Doc duoc tu bang ten tren anh chan dung
+    role: 'Huấn luyện viên và tư vấn',
     image: haiDang,
-    alt: 'Huấn luyện viên Nguyễn Hải Đăng tại phòng tập Panther Fit',
+    alt: 'Huấn luyện viên Nguyễn Hải Đăng trong đồng phục Panther Fit tại phòng tập',
     focus: ['PT 1 kèm 1', 'Tăng sức mạnh'],
     bio: 'Hợp với ai muốn đi đường dài và thích hiểu vì sao hôm nay lại tập bài này. Hỏi gì cũng được giải thích cho tới khi bạn thấy rõ.',
-  },
-  {
-    slug: 'nghi-vu',
-    name: 'Nghị Vũ',
-    // Doc duoc tu bang ten tren dong phuc trong anh doi ngu
-    role: 'Huấn luyện viên và tư vấn',
-    image: nghiVu,
-    alt: 'Huấn luyện viên Nghị Vũ trong đồng phục Panther Fit tại phòng tập',
-    focus: ['Tập nhóm', 'Người mới bắt đầu'],
-    bio: 'Người hay bắt chuyện với hội viên mới nhất phòng. Nếu bạn đến một mình và chưa quen ai, khả năng cao sẽ được rủ vào nhóm ngay buổi đó.',
   },
 ];

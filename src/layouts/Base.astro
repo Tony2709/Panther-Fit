@@ -37,9 +37,10 @@ const businessSchema = {
   currenciesAccepted: 'VND',
   address: {
     '@type': 'PostalAddress',
-    streetAddress: CONTACT.address.street,
+    streetAddress: [CONTACT.address.street, CONTACT.address.ward].filter(Boolean).join(', '),
     addressLocality: CONTACT.address.city,
     addressRegion: CONTACT.address.region,
+    postalCode: CONTACT.address.postalCode,
     addressCountry: CONTACT.address.country,
   },
   geo: {
