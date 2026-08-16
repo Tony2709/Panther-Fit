@@ -146,6 +146,26 @@ thành `true`.
 Với tệp khách của Panther Fit, một câu vụng về nhưng thật có sức nặng hơn hẳn
 một câu bóng bẩy.
 
+**Về việc đưa review Google lên web** (đã bàn, quyết định để sau):
+
+Thứ tự cần làm là đăng ký Google Business Profile trước, gom đủ khoảng mười review
+thật, rồi mới gắn lên web. Chưa có hồ sơ thì không có gì để gắn.
+
+Khi tới lúc đó, ba cách và đánh giá nhanh:
+
+| Cách | Ưu | Nhược |
+|---|---|---|
+| Chép tay vào `TESTIMONIALS` kèm nút dẫn sang Google | Trang giữ nguyên tốc độ, tự chọn được review nào lên | Phải tự cập nhật |
+| Google Places API, lấy lúc build | Tự cập nhật, không script ngoài | Cần API key và bật thanh toán, tối đa 5 review, lưu vào file tĩnh là vùng xám về điều khoản |
+| Widget bên thứ ba (Elfsight, Trustindex) | Cắm phát chạy | Script ngoài làm chậm trang, thêm bên theo dõi khách, bản miễn phí có logo của họ |
+
+Nghiêng về cách thứ nhất.
+
+**Cảnh báo:** không được gắn schema `Review` hoặc `AggregateRating` cho review lấy
+từ Google. Quy định của Google cấm đánh dấu review từ nguồn bên thứ ba, vi phạm có
+thể bị phạt thủ công. Hiển thị review thì được, nhưng nó sẽ không làm hiện sao vàng
+trên kết quả tìm kiếm.
+
 ---
 
 ## Nhóm 5: bổ sung sau, không gấp
