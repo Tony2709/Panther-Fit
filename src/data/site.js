@@ -49,15 +49,21 @@ export const CONTACT = {
     region: 'Thái Nguyên',
     postalCode: '250000',
     country: 'VN',
-    mapsUrl:
-      'https://www.google.com/maps/search/?api=1&query=66%20Phan%20B%E1%BB%99i%20Ch%C3%A2u%2C%20Phan%20%C4%90%C3%ACnh%20Ph%C3%B9ng%2C%20Th%C3%A1i%20Nguy%C3%AAn',
+    /**
+     * Link dan thang toi ho so Google Business Profile that cua phong tap.
+     * Dung dang cid vi no tro dung mot ho so duy nhat va khong doi khi
+     * Google cap nhat ban do, khac voi link tim kiem theo dia chi.
+     * So cid lay tu link chia se: maps.app.goo.gl/3R181rzUiUGx6xtg6
+     */
+    mapsUrl: 'https://maps.google.com/?cid=3159359802337109870',
+
+    /** Ban do nhung tren trang lien he, ghim dat theo toa do that */
     mapsEmbedUrl:
-      'https://www.google.com/maps?q=66%20Phan%20B%E1%BB%99i%20Ch%C3%A2u%2C%20Khu%20d%C3%A2n%20c%C6%B0%20s%E1%BB%91%2010%2C%20Phan%20%C4%90%C3%ACnh%20Ph%C3%B9ng%2C%20Th%C3%A1i%20Nguy%C3%AAn&output=embed',
-    // CAN DIEN: toa do chinh xac. Mo Google Maps, bam chuot phai dung vao
-    // cua phong tap roi chon dong toa do o tren cung de sao chep.
-    // Hai so hien tai la uoc luong theo phuong Phan Dinh Phung.
-    latitude: 21.5942,
-    longitude: 105.8481,
+      'https://maps.google.com/maps?q=21.5919531,105.839786&z=17&hl=vi&output=embed',
+
+    // Toa do lay tu chinh ho so Google cua phong tap
+    latitude: 21.5919531,
+    longitude: 105.839786,
   },
 
   hours: [

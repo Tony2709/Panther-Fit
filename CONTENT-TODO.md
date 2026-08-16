@@ -14,28 +14,20 @@ Chỗ nào trong code có ghi chú `CAN DIEN` là chỗ nằm trong danh sách n
 - ~~Link Facebook~~ đã điền: facebook.com/pantherfit20
 - ~~Giờ mở cửa~~ đã điền: 05:00 đến 22:00 các ngày trong tuần, 08:00 đến 21:00 cuối tuần
 - ~~Danh sách huấn luyện viên~~ đã chốt năm người, đã bỏ Nghị Vũ
+- ~~Toạ độ và link Google Maps~~ đã lấy từ hồ sơ Google thật của phòng tập:
+  21.5919531, 105.839786. Số ước lượng cũ lệch gần 900 mét nên đã bỏ
 
 ---
 
 ## Nhóm 1: bắt buộc sửa trước khi đưa lên mạng
 
-### 1.1 Toạ độ chính xác của phòng tập
-**File:** `src/data/site.js` → `latitude`, `longitude`
-
-Địa chỉ chữ và bản đồ nhúng đã chuẩn. Riêng hai con số toạ độ vẫn là ước lượng
-theo phường Phan Đình Phùng, chứ không phải điểm chính xác của cửa phòng tập.
-Toạ độ này nằm trong phần dữ liệu Google đọc để hiểu phòng tập ở đâu.
-
-Cách lấy đúng: mở Google Maps, bấm chuột phải ngay vào cửa phòng tập,
-dòng đầu tiên trong menu chính là toạ độ, bấm vào là sao chép được.
-
-### 1.2 Tên miền
+### 1.1 Tên miền
 **File:** `src/data/site.js` → `SITE.url`
 **File:** `public/robots.txt` → dòng `Sitemap:`
 
 Đang để `pantherfit.vn`. Sửa thành tên miền thật đã mua.
 
-### 1.3 Email nhận form liên hệ
+### 1.2 Email nhận form liên hệ
 **File:** `public/gui-lien-he.php` → `$NGUOI_NHAN` và `$NGUOI_GUI`
 **File:** `src/data/site.js` → `CONTACT.email`
 

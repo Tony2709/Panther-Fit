@@ -48,6 +48,8 @@ const businessSchema = {
     latitude: CONTACT.address.latitude,
     longitude: CONTACT.address.longitude,
   },
+  // Noi website voi dung ho so Google Business Profile cua phong tap
+  hasMap: CONTACT.address.mapsUrl,
   openingHoursSpecification: CONTACT.hoursSchema.map((slot) => ({
     '@type': 'OpeningHoursSpecification',
     dayOfWeek: slot.days,
