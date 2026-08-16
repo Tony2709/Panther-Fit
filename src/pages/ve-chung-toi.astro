@@ -56,63 +56,8 @@ const values = [
     alt="Đội ngũ huấn luyện viên Panther Fit chụp chung tại phòng tập"
   />
 
-  <!-- ============ CHUYEN CUA PHONG TAP ============ -->
-  <section class="section">
-    <div class="shell">
-      <div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
-        <div>
-          <p class="eyebrow reveal">Chuyện ở đây</p>
-          <h2 class="display-lg reveal mt-5" data-delay="60">
-            Chúng tôi không bán buổi tập, chúng tôi mở một căn phòng
-          </h2>
-
-          <div class="prose-pf reveal mt-8" data-delay="120">
-            <p>
-              Panther Fit bắt đầu khá đơn giản: một chỗ tập tử tế ở {CONTACT.address.city}, đủ máy
-              móc để tập cho ra hồn, và quan trọng hơn, đủ ấm để người lần đầu bước vào không thấy
-              mình lạc.
-            </p>
-            <p>
-              Cái phần thứ hai mới là phần khó. Phòng tập nào cũng nói mình có cộng đồng. Nói thì dễ.
-              Nên chúng tôi chọn cách khác: không hứa, mà mời bạn tới xem.
-            </p>
-            <p>
-              Tới giờ, phần lớn người mới tới đây là do bạn bè rủ. Không phải nhờ quảng cáo, mà vì
-              một người quen đi đều rồi rủ thêm một người nữa. Đó vừa là điều chúng tôi tự hào, vừa là
-              thứ chúng tôi phải giữ mỗi ngày, vì <strong>một căn phòng ấm là việc phải làm lại mỗi
-              buổi, không phải một câu khẩu hiệu treo trên tường</strong>.
-            </p>
-          </div>
-        </div>
-
-        <div class="flex flex-col gap-4">
-          <div class="frame reveal aspect-[4/3]" data-delay="80">
-            <Image
-              src={reception}
-              alt="Khu vực quầy lễ tân và bàn tư vấn của Panther Fit"
-              widths={[600, 900, 1300]}
-              sizes="(min-width: 1024px) 40vw, 92vw"
-              class="img-cover"
-              loading="lazy"
-            />
-          </div>
-          <div class="frame reveal aspect-[4/3]" data-delay="140">
-            <Image
-              src={room06}
-              alt="Toàn cảnh sàn tập Panther Fit vào buổi tối"
-              widths={[600, 900, 1300]}
-              sizes="(min-width: 1024px) 40vw, 92vw"
-              class="img-cover"
-              loading="lazy"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- ============ NGUOI O DAY VA DOI NGU HUAN LUYEN VIEN ============ -->
-  <section id="huan-luyen-vien" class="section scroll-mt-24 border-t border-hair bg-night">
+  <section id="huan-luyen-vien" class="section scroll-mt-24">
     <div class="shell">
       <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
         <div class="frame reveal aspect-[5/4]">
@@ -167,6 +112,61 @@ const values = [
     </div>
   </section>
 
+  <!-- ============ CHUYEN CUA PHONG TAP ============ -->
+  <section class="section border-t border-hair bg-night">
+    <div class="shell">
+      <div class="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
+        <div>
+          <p class="eyebrow reveal">Chuyện ở đây</p>
+          <h2 class="display-lg reveal mt-5" data-delay="60">
+            Chúng tôi không bán buổi tập, chúng tôi mở một căn phòng
+          </h2>
+
+          <div class="prose-pf reveal mt-8" data-delay="120">
+            <p>
+              Panther Fit bắt đầu khá đơn giản: một chỗ tập tử tế ở {CONTACT.address.city}, đủ máy
+              móc để tập cho ra hồn, và quan trọng hơn, đủ ấm để người lần đầu bước vào không thấy
+              mình lạc.
+            </p>
+            <p>
+              Cái phần thứ hai mới là phần khó. Phòng tập nào cũng nói mình có cộng đồng. Nói thì dễ.
+              Nên chúng tôi chọn cách khác: không hứa, mà mời bạn tới xem.
+            </p>
+            <p>
+              Tới giờ, phần lớn người mới tới đây là do bạn bè rủ. Không phải nhờ quảng cáo, mà vì
+              một người quen đi đều rồi rủ thêm một người nữa. Đó vừa là điều chúng tôi tự hào, vừa là
+              thứ chúng tôi phải giữ mỗi ngày, vì <strong>một căn phòng ấm là việc phải làm lại mỗi
+              buổi, không phải một câu khẩu hiệu treo trên tường</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          <div class="frame reveal aspect-[4/3]" data-delay="80">
+            <Image
+              src={reception}
+              alt="Khu vực quầy lễ tân và bàn tư vấn của Panther Fit"
+              widths={[600, 900, 1300]}
+              sizes="(min-width: 1024px) 40vw, 92vw"
+              class="img-cover"
+              loading="lazy"
+            />
+          </div>
+          <div class="frame reveal aspect-[4/3]" data-delay="140">
+            <Image
+              src={room06}
+              alt="Toàn cảnh sàn tập Panther Fit vào buổi tối"
+              widths={[600, 900, 1300]}
+              sizes="(min-width: 1024px) 40vw, 92vw"
+              class="img-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ BON DIEU GIU NGUYEN ============ -->
   <section class="section border-t border-hair">
     <div class="shell">
@@ -200,12 +200,21 @@ const values = [
           <SectionHeading eyebrow="Ai hay tập ở đây" title="Nhiều khả năng bạn sẽ thấy quen" />
           <div class="prose-pf reveal mt-7" data-delay="100">
             <p>
-              Phần đông hội viên của chúng tôi khoảng ngoài ba mươi tới ngoài bốn mươi. Đi làm cả ngày, có
-              gia đình, và phần lớn đều từng tập rồi bỏ ít nhất một lần.
+              Hội viên ở đây trải từ đôi mươi tới ngoài bốn mươi, và cả hai nhóm đều đông.
             </p>
             <p>
-              Không mấy ai tới đây để thi đấu. Người ta tới để đỡ đau lưng, để leo cầu thang không
-              thở dốc, để tối ngủ ngon hơn, và để có một chỗ ra khỏi nhà vài buổi mỗi tuần.
+              <strong>Nhóm hai mươi tới ba mươi</strong> phần lớn là sinh viên và người mới đi làm.
+              Tới để khoẻ hơn, mạnh hơn, và vì rủ nhau đi cùng thì vui. Nhóm này hay đông vào buổi
+              tối.
+            </p>
+            <p>
+              <strong>Nhóm ngoài ba mươi</strong> thì đi làm cả ngày, có gia đình, và phần lớn từng
+              tập rồi bỏ ít nhất một lần. Họ hay chọn sáng sớm trước giờ làm hoặc lúc phòng vắng.
+            </p>
+            <p>
+              Mục tiêu mỗi người mỗi khác, nhưng không mấy ai tới đây để thi đấu. Người ta tới để đỡ
+              đau lưng, để leo cầu thang không thở dốc, để tối ngủ ngon hơn, và để có một chỗ ra khỏi
+              nhà vài buổi mỗi tuần.
             </p>
           </div>
         </div>

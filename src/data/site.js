@@ -20,7 +20,7 @@ export const SITE = {
   url: 'https://pantherfit.vn',
 
   description:
-    'Panther Fit là phòng tập ở Thái Nguyên với lớp tập nhóm và PT 1 kèm 1. Chỗ dành cho người đi làm bận rộn và người lâu rồi chưa tập lại. Ghé thử một buổi trước khi quyết định.',
+    'Panther Fit là phòng tập ở Thái Nguyên với lớp tập nhóm và PT 1 kèm 1. Chỗ dành cho bạn trẻ mới bắt đầu, người đi làm bận rộn và người lâu rồi chưa tập lại. Ghé thử một buổi trước khi quyết định.',
 
   locale: 'vi-VN',
   language: 'vi',
