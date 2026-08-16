@@ -214,7 +214,7 @@ không chạy, đó là bình thường.
 
 ## Ghi chú kỹ thuật
 
-- **Astro 5** dựng sẵn HTML tĩnh, gần như không có JavaScript chạy trên trình duyệt
+- **Astro 7** dựng sẵn HTML tĩnh, gần như không có JavaScript chạy trên trình duyệt
   ngoài menu điện thoại, hiệu ứng cuộn và kiểm tra form
 - **Tailwind CSS 4** cho phần giao diện, biến màu khai báo trong `src/styles/global.css`
 - Ảnh tự động chuyển sang **WebP** và cắt nhiều kích cỡ khi build
@@ -223,3 +223,20 @@ không chạy, đó là bình thường.
 - Có sẵn dữ liệu `HealthClub` theo chuẩn schema.org để Google hiểu đây là phòng tập
   có địa chỉ thật
 - Hiệu ứng chuyển động tự tắt khi người dùng bật chế độ giảm chuyển động trong máy
+
+### Về cảnh báo bảo mật của Hostinger
+
+Hostinger quét các gói npm trong repo và có thể báo lỗ hổng. Cần hiểu đúng phạm vi:
+`astro`, `sharp`, `esbuild` đều là **công cụ build**, chạy trên máy tính lúc dựng
+website chứ không nằm trên máy chủ. Thứ đưa lên Hostinger chỉ gồm HTML, CSS, ảnh
+và một file PHP.
+
+Dù vậy vẫn nên giữ các gói mới. Cách kiểm tra và cập nhật:
+
+```bash
+npm audit
+npm outdated
+```
+
+Sau khi nâng cấp, luôn chạy `npm run build` rồi `npm run dev` xem lại vài trang
+trước khi push, vì nâng phiên bản lớn có thể đổi cách hoạt động.
