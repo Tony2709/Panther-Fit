@@ -52,8 +52,12 @@ const values = [
     eyebrow="Về chúng tôi"
     title="Một phòng tập nhỏ và những gương mặt thân quen"
     lede={`Panther Fit mở cửa năm ${SITE.established} ở ${CONTACT.address.city}. Từ đó tới giờ, gần như ai tới đây lần đầu đều muốn có một trải nghiệm tốt nhất, và họ đã đạt được điều đó.`}
-    image={teamFive}
-    alt="Đội ngũ huấn luyện viên Panther Fit chụp chung tại phòng tập"
+    image={teamFull}
+    alt="Cả đội ngũ Panther Fit gồm huấn luyện viên và lễ tân chụp chung tại phòng tập"
+    {/* Anh nay nguoi dung o khoang mot phan ba tren, lay dung tam do */}
+    focus="center 35%"
+    {/* Lam sang nua phai de nhin ro ca doi ngu */}
+    scrim="light"
   />
 
   <!-- ============ NGUOI O DAY VA DOI NGU HUAN LUYEN VIEN ============ -->
@@ -62,8 +66,8 @@ const values = [
       <div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
         <div class="frame reveal aspect-[5/4]">
           <Image
-            src={teamFull}
-            alt="Cả đội ngũ Panther Fit gồm huấn luyện viên và lễ tân chụp chung tại phòng tập"
+            src={teamFive}
+            alt="Đội ngũ huấn luyện viên Panther Fit chụp chung tại phòng tập"
             widths={[700, 1100, 1600]}
             sizes="(min-width: 1024px) 48vw, 92vw"
             class="img-cover"

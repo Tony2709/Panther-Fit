@@ -14,9 +14,25 @@ interface Props {
    * Dat lai neu anh nao co bo cuc khac, vi du 'center' hoac 'center 60%'.
    */
   focus?: string;
+  /**
+   * Do dam cua lop phu tren anh.
+   * 'light' lam nua phai sang hon han de nhin ro nguoi trong anh,
+   * bu lai bang cach lam dam dai ben trai la cho dat chu.
+   */
+  scrim?: 'normal' | 'light';
 }
 
-const { eyebrow, title, lede, image, alt, focus = 'center 22%' } = Astro.props;
+const { eyebrow, title, lede, image, alt, focus = 'center 22%', scrim = 'normal' } = Astro.props;
+
+/**
+ * Ba lop phu, do bang mo hinh tinh tuong phan tren tung diem anh.
+ * Ca hai muc deu giu chu trong nguong doc duoc, chi khac o cho
+ * 'light' don phan lam toi vao dai trai thay vi trai deu ca anh.
+ */
+const LOP_PHU = {
+  normal: { nen: 'bg-ink/42', doc: 'from-ink/80 via-ink/42 to-ink/12', ngang: 'from-ink/92 via-ink/62 to-transparent' },
+  light: { nen: 'bg-ink/22', doc: 'from-ink/70 via-ink/28 to-ink/[0.04]', ngang: 'from-ink/[0.96] via-ink/78 to-transparent' },
+}[scrim];
 ---
 
 <section class="relative overflow-hidden bg-night pt-[4.5rem] lg:pt-20">
@@ -31,21 +47,9 @@ const { eyebrow, title, lede, image, alt, focus = 'center 22%' } = Astro.props;
       loading="eager"
       fetchpriority="high"
     />
-    <!-- Lop phu nen giu o muc thap de anh sang, phan lam toi tap trung vao
-         dai ben trai la cho dat chu. Do nay da do bang mo hinh tinh tuong phan:
-         khong con diem nao duoi chuan 4.5:1, trong khi nua phai cua anh
-         gan nhu giu nguyen do sang goc. -->
-    <div class="absolute inset-0 bg-ink/42"></div>
-    <div
-      class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/42 to-ink/12"
-      aria-hidden="true"
-    >
-    </div>
-    <div
-      class="absolute inset-0 bg-gradient-to-r from-ink/92 via-ink/62 to-transparent"
-      aria-hidden="true"
-    >
-    </div>
+    <div class:list={['absolute inset-0', LOP_PHU.nen]}></div>
+    <div class:list={['absolute inset-0 bg-gradient-to-t', LOP_PHU.doc]} aria-hidden="true"></div>
+    <div class:list={['absolute inset-0 bg-gradient-to-r', LOP_PHU.ngang]} aria-hidden="true"></div>
   </div>
 
   <div class="shell relative">
