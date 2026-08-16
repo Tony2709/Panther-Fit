@@ -16,8 +16,7 @@ export const SITE = {
   tagline: 'Phòng tập ở Thái Nguyên, từ 2024',
   established: 2024,
 
-  // CAN DIEN: doi thanh ten mien that sau khi tro ve Hostinger
-  url: 'https://pantherfit.vn',
+  url: 'https://pantherfitt.com',
 
   description:
     'Panther Fit là phòng tập ở Thái Nguyên với lớp tập nhóm và PT 1 kèm 1. Chỗ dành cho bạn trẻ mới bắt đầu, người đi làm bận rộn và người lâu rồi chưa tập lại. Ghé thử một buổi trước khi quyết định.',
@@ -40,7 +39,7 @@ export const CONTACT = {
   tiktok: '',
 
   // CAN DIEN: email nhan tin nhan tu form lien he
-  email: 'lienhe@pantherfit.vn',
+  email: 'lienhe@pantherfitt.com',
 
   address: {
     street: '66 Phan Bội Châu, Khu dân cư số 10',

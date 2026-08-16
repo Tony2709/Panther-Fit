@@ -183,8 +183,8 @@ trên Hostinger. Không dùng dịch vụ bên ngoài, không tốn phí.
 **Cần làm trước khi dùng:** mở `public/gui-lien-he.php`, sửa hai dòng đầu:
 
 ```php
-$NGUOI_NHAN = 'lienhe@pantherfit.vn';   // email nhận lời nhắn
-$NGUOI_GUI  = 'website@pantherfit.vn';  // email gửi đi, phải cùng tên miền
+$NGUOI_NHAN = 'lienhe@pantherfitt.com';   // email nhận lời nhắn
+$NGUOI_GUI  = 'website@pantherfitt.com';  // email gửi đi, phải cùng tên miền
 ```
 
 Tạo hai địa chỉ email này trong hPanel → **Emails**. Email gửi đi bắt buộc phải cùng

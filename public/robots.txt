@@ -4,4 +4,4 @@ Allow: /
 Disallow: /gui-lien-he.php
 Disallow: /*.log$
 
-Sitemap: https://pantherfit.vn/sitemap-index.xml
+Sitemap: https://pantherfitt.com/sitemap-index.xml

@@ -11,14 +11,14 @@
  *  thanh email that cua phong tap.
  *
  *  Luu y: mail() cua Hostinger gui tot nhat khi dia chi gui di
- *  cung ten mien voi website, vi du lienhe@pantherfit.vn
+ *  cung ten mien voi website, vi du lienhe@pantherfitt.com
  */
 
 // ------------------------------------------------------------
 // CAI DAT
 // ------------------------------------------------------------
-$NGUOI_NHAN = 'lienhe@pantherfit.vn';   // CAN DIEN email nhan lien he
-$NGUOI_GUI  = 'website@pantherfit.vn';  // CAN DIEN email gui di, cung ten mien
+$NGUOI_NHAN = 'lienhe@pantherfitt.com';   // CAN DIEN email nhan lien he
+$NGUOI_GUI  = 'website@pantherfitt.com';  // CAN DIEN email gui di, cung ten mien
 $TRANG_VE   = '/lien-he?trang-thai=da-gui';
 
 // ------------------------------------------------------------

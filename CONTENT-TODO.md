@@ -16,18 +16,13 @@ Chỗ nào trong code có ghi chú `CAN DIEN` là chỗ nằm trong danh sách n
 - ~~Danh sách huấn luyện viên~~ đã chốt năm người, đã bỏ Nghị Vũ
 - ~~Toạ độ và link Google Maps~~ đã lấy từ hồ sơ Google thật của phòng tập:
   21.5919531, 105.839786. Số ước lượng cũ lệch gần 900 mét nên đã bỏ
+- ~~Tên miền~~ đã đổi sang `pantherfitt.com` ở tất cả các chỗ
 
 ---
 
 ## Nhóm 1: bắt buộc sửa trước khi đưa lên mạng
 
-### 1.1 Tên miền
-**File:** `src/data/site.js` → `SITE.url`
-**File:** `public/robots.txt` → dòng `Sitemap:`
-
-Đang để `pantherfit.vn`. Sửa thành tên miền thật đã mua.
-
-### 1.2 Email nhận form liên hệ
+### 1.1 Email nhận form liên hệ
 **File:** `public/gui-lien-he.php` → `$NGUOI_NHAN` và `$NGUOI_GUI`
 **File:** `src/data/site.js` → `CONTACT.email`
 
