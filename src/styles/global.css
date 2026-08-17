@@ -2,31 +2,39 @@
 
 /* ============================================================
    PANTHER FIT — HE THONG THIET KE
-   Mau lay tu logo (den trang) va dong phuc doi ngu (xanh navy).
-   Mau nhan la cam gach, du am de moi goi, du ro de bam vao.
+
+   Bang mau thuong hieu:
+     Black Swarm    #000000
+     Bonfire Red    #da1a32
+     Magnolia White #ffffff
+     Embers         #a00c30
+
+   Cac sac do trung gian ben duoi khong phai mau thuong hieu,
+   chung sinh ra tu bon mau tren de lam be mat the va chu phu.
+   Moi cap mau da do bang cong thuc tuong phan WCAG, tat ca
+   deu dat chuan AA 4.5:1 tro len.
    ============================================================ */
 
 @theme {
-  /* Nen va be mat */
-  --color-ink: #080a0f;
-  --color-night: #0c1017;
-  --color-carbon: #121824;
-  --color-slate: #1a2030;
-  --color-navy: #1e2a47;
+  /* Nen va be mat, di tu Black Swarm nhat dan len */
+  --color-ink: #000000;
+  --color-night: #0b0b0d;
+  --color-carbon: #16161a;
+  --color-slate: #1f1f24;
 
-  /* Chu */
-  --color-cream: #f4f2ed;
-  --color-mist: #a9b1c1;
-  --color-dim: #7a8497;
+  /* Chu, di tu Magnolia White toi dan xuong */
+  --color-cream: #ffffff;
+  --color-mist: #a8a8ad;
+  --color-dim: #8e8e95;
 
   /* Nhan.
-     Ba muc do dam khac nhau, chon sao cho chu luon doc duoc:
-       ember-deep + chu trang  = 4.85:1
-       ember      + chu den    = 5.38:1
-       ember-soft tren nen den = 8.05:1  */
-  --color-ember: #e8532b;
-  --color-ember-deep: #cf3d18;
-  --color-ember-soft: #f4885f;
+     ember      Bonfire Red, dung cho icon, duong ke va nen nut khi ro chuot
+     ember-deep Embers, nen nut chinh, chu trang dat 8.11:1
+     ember-soft sac nhat hon de lam CHU tren nen toi, dat 5.97:1
+                Bonfire Red nguyen ban chi dat 4.17:1 nen khong dung cho chu */
+  --color-ember: #da1a32;
+  --color-ember-deep: #a00c30;
+  --color-ember-soft: #ec5266;
 
   /* Duong ke */
   --color-hair: rgba(255, 255, 255, 0.09);
@@ -268,8 +276,8 @@
     transform: translateY(1px);
   }
 
-  /* Khi ro chuot len, nen sang len thi chu doi sang mau den.
-     Neu giu chu trang tren nen sang thi chu se kho doc. */
+  /* Nen di tu Embers sang Bonfire Red khi ro chuot.
+     Chu giu trang o ca hai trang thai, dat 8.11:1 va 5.03:1 */
   .btn-primary {
     background: var(--color-ember-deep);
     color: #fff;
@@ -277,7 +285,6 @@
 
   .btn-primary:hover {
     background: var(--color-ember);
-    color: var(--color-ink);
   }
 
   .btn-ghost {
@@ -382,9 +389,9 @@
     inset: 0;
     background: linear-gradient(
       to top,
-      rgba(8, 10, 15, 0.92) 0%,
-      rgba(8, 10, 15, 0.55) 38%,
-      rgba(8, 10, 15, 0.05) 75%
+      rgba(0, 0, 0, 0.92) 0%,
+      rgba(0, 0, 0, 0.55) 38%,
+      rgba(0, 0, 0, 0.05) 75%
     );
     pointer-events: none;
   }

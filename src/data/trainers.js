@@ -28,7 +28,7 @@ export const TRAINERS = [
     image: katun,
     alt: 'Katun, chủ phòng tập Panther Fit, tại khu vực tập luyện',
     focus: ['PT 1 kèm 1', 'Hội viên nữ'],
-    bio: 'Người dựng nên Panther Fit và vẫn đứng lớp mỗi tuần. Nhiều hội viên nữ lần đầu vào phòng tập chọn tập cùng Katun, đơn giản vì được hỏi han kỹ trước khi bắt đầu và không bị đẩy nhanh.',
+    bio: 'Founder Panther Fit và vẫn đứng lớp mỗi tuần. Nhiều hội viên nữ lần đầu vào phòng tập chọn tập cùng Katun, đơn giản vì được hỏi han kỹ trước khi bắt đầu và không bị đẩy nhanh.',
   },
   {
     slug: 'son-thai',

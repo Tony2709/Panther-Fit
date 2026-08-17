@@ -128,7 +128,7 @@ async function buildLogo() {
       .png({ compressionLevel: 9 });
 
   await flat(255, 255, 255).toFile(resolve(PUBLIC, 'logo-panther-fit.png'));
-  await flat(11, 15, 23).toFile(resolve(PUBLIC, 'logo-panther-fit-dark.png'));
+  await flat(0, 0, 0).toFile(resolve(PUBLIC, 'logo-panther-fit-dark.png'));
 
   // Rieng phan dau bao den, dung cho favicon va icon mang xa hoi.
   const head = await sharp(trimmed)
@@ -166,7 +166,7 @@ async function buildLogo() {
         width: size,
         height: size,
         channels: 4,
-        background: { r: 11, g: 15, b: 23, alpha: 1 },
+        background: { r: 0, g: 0, b: 0, alpha: 1 },
       },
     })
       .composite([{ input: inner, gravity: 'center' }])
@@ -176,7 +176,7 @@ async function buildLogo() {
 
   const favicon = await sharp(headBuffer).resize({ width: 26, fit: 'inside' }).toBuffer();
   await sharp({
-    create: { width: 32, height: 32, channels: 4, background: { r: 11, g: 15, b: 23, alpha: 1 } },
+    create: { width: 32, height: 32, channels: 4, background: { r: 0, g: 0, b: 0, alpha: 1 } },
   })
     .composite([{ input: favicon, gravity: 'center' }])
     .png()

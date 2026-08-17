@@ -97,15 +97,15 @@ export const FIRST_VISIT = [
 /** Cau hoi hay gap, xep theo dung thu tu nguoi ta thuc su lo. */
 export const FAQ = [
   {
-    q: 'Em chưa tập bao giờ, vào có bị lạc lõng không?',
+    q: 'Mình chưa tập bao giờ, vào có bị lạc lõng không?',
     a: 'Gần như ai bước vào lần đầu cũng hỏi câu này. Thật ra không ai nhìn bạn đâu, họ đang bận vật lộn với set của chính họ. Buổi đầu luôn có người đi cùng bạn, và bạn cứ đứng phía sau tập theo cũng được.',
   },
   {
-    q: 'Em chưa đủ khoẻ để bắt đầu thì sao?',
+    q: 'Mình chưa đủ khoẻ để bắt đầu thì sao?',
     a: 'Đó đúng là lý do có huấn luyện viên. Mỗi buổi được chỉnh theo người có mặt hôm đó, không phải theo một giáo án cố định. Bạn không cần khoẻ để bắt đầu, bạn khoẻ lên nhờ việc bắt đầu.',
   },
   {
-    q: 'Một buổi mất bao lâu, em đi làm về muộn thì có kịp không?',
+    q: 'Một buổi mất bao lâu, mình đi làm về muộn thì có kịp không?',
     a: `Một buổi ${FACTS.sessionLength}, tính cả khởi động và giãn cơ. Phòng mở ${CONTACT.hours[0].time} các ngày trong tuần nên tập sáng sớm trước giờ làm hoặc tối muộn sau khi về đều được.`,
   },
   {
@@ -121,7 +121,7 @@ export const FAQ = [
     a: CONTACT.parking,
   },
   {
-    q: 'Em muốn rủ bạn đi cùng có được không?',
+    q: 'Mình muốn rủ bạn đi cùng có được không?',
     a: 'Được, và chúng tôi luôn khuyến khích điều đó. Phần lớn hội viên hiện tại đến đây lần đầu là do một người bạn rủ. Bạn đi hai người, đứng cạnh nhau cả buổi cũng không sao.',
   },
 ];
