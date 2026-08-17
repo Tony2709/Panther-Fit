@@ -5,9 +5,9 @@
 
    Bang mau thuong hieu:
      Black Swarm    #000000
-     Bonfire Red    #da1a32
+     Netflix Red    #e50914
      Magnolia White #ffffff
-     Embers         #a00c30
+     Netflix Dark   #b20710
 
    Cac sac do trung gian ben duoi khong phai mau thuong hieu,
    chung sinh ra tu bon mau tren de lam be mat the va chu phu.
@@ -27,14 +27,14 @@
   --color-mist: #a8a8ad;
   --color-dim: #8e8e95;
 
-  /* Nhan.
-     ember      Bonfire Red, dung cho icon, duong ke va nen nut khi ro chuot
-     ember-deep Embers, nen nut chinh, chu trang dat 8.11:1
-     ember-soft sac nhat hon de lam CHU tren nen toi, dat 5.97:1
-                Bonfire Red nguyen ban chi dat 4.17:1 nen khong dung cho chu */
-  --color-ember: #da1a32;
-  --color-ember-deep: #a00c30;
-  --color-ember-soft: #ec5266;
+  /* Nhan, dung sac do cua Netflix.
+     ember      Netflix Red, dung cho icon, duong ke va nen nut khi ro chuot
+     ember-deep sac dam cua Netflix, nen nut chinh, chu trang dat 7.17:1
+     ember-soft sac nhat hon de lam CHU tren nen toi, dat 6.34:1
+                Netflix Red nguyen ban chi dat 4.38:1 nen khong dung cho chu */
+  --color-ember: #e50914;
+  --color-ember-deep: #b20710;
+  --color-ember-soft: #f5555e;
 
   /* Duong ke */
   --color-hair: rgba(255, 255, 255, 0.09);
@@ -276,8 +276,8 @@
     transform: translateY(1px);
   }
 
-  /* Nen di tu Embers sang Bonfire Red khi ro chuot.
-     Chu giu trang o ca hai trang thai, dat 8.11:1 va 5.03:1 */
+  /* Nen sang len khi ro chuot, chu giu trang o ca hai trang thai,
+     dat 7.17:1 va 4.79:1 */
   .btn-primary {
     background: var(--color-ember-deep);
     color: #fff;

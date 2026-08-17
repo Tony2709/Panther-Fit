@@ -23,6 +23,11 @@ export default defineConfig({
       i18n: { defaultLocale: 'vi', locales: { vi: 'vi-VN' } },
     }),
   ],
+  // Doc cong tu bien moi truong PORT neu co, de cong cu chay thu
+  // tu chon duoc cong trong khi cong mac dinh dang ban
+  server: {
+    port: Number(process.env.PORT) || 4321,
+  },
   vite: {
     plugins: [tailwindcss()],
   },
