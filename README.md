@@ -183,12 +183,23 @@ trên Hostinger. Không dùng dịch vụ bên ngoài, không tốn phí.
 **Cần làm trước khi dùng:** mở `public/gui-lien-he.php`, sửa hai dòng đầu:
 
 ```php
-$NGUOI_NHAN = 'lienhe@pantherfitt.com';   // email nhận lời nhắn
-$NGUOI_GUI  = 'website@pantherfitt.com';  // email gửi đi, phải cùng tên miền
+$NGUOI_NHAN = 'lienhe@pantherfitt.com';   // nơi thư bay tới
+$NGUOI_GUI  = 'website@pantherfitt.com';  // tên người gửi ghi trên thư
 ```
 
-Tạo hai địa chỉ email này trong hPanel → **Emails**. Email gửi đi bắt buộc phải cùng
-tên miền với website, nếu không thư sẽ bị coi là spam.
+Hai dòng này làm hai việc khác nhau:
+
+| Dòng | Là gì | Ràng buộc |
+|---|---|---|
+| `$NGUOI_NHAN` | Nơi thư báo bay tới | Không có. Gmail cá nhân dùng được. Nhiều người thì ngăn cách bằng dấu phẩy |
+| `$NGUOI_GUI` | Tên người gửi ghi trên thư | Bắt buộc là địa chỉ `@pantherfitt.com` |
+
+Lý do chỉ ô gửi đi bị ràng buộc: máy chủ đứng ra gửi là máy của Hostinger. Nếu ghi
+người gửi là một địa chỉ Gmail, bên nhận sẽ thấy thư khai từ gmail.com nhưng lại do
+máy Hostinger gửi, và đẩy nó vào thư rác.
+
+Nên **chỉ cần tạo một hộp thư** trong hPanel → **Emails**, đó là địa chỉ ở dòng
+`$NGUOI_GUI`. Hộp thư này chỉ để đứng tên gửi, không cần đăng nhập vào bao giờ.
 
 Mọi lời nhắn còn được ghi thêm vào file `panther-fit-lien-he.log` nằm **ngoài**
 thư mục `public_html`, để không mất liên hệ nếu email trục trặc. File này người ngoài

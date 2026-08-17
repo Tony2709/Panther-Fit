@@ -6,19 +6,27 @@
  *
  *  File nay chay tren Hostinger (goi shared hosting co san PHP).
  *  Khong can cai dat gi them, khong can dich vu ben ngoai.
- *
- *  CAN LAM MOT LAN: doi dia chi email o dong $NGUOI_NHAN ben duoi
- *  thanh email that cua phong tap.
- *
- *  Luu y: mail() cua Hostinger gui tot nhat khi dia chi gui di
- *  cung ten mien voi website, vi du lienhe@pantherfitt.com
  */
 
 // ------------------------------------------------------------
 // CAI DAT
+//
+// Hai dia chi duoi day lam hai viec khac nhau, dung nham:
+//
+//   NGUOI_NHAN  la noi thu bao bay toi.
+//               Dien gi cung duoc, ke ca Gmail ca nhan.
+//               Muon nhieu nguoi cung nhan thi ngan cach bang dau phay.
+//
+//   NGUOI_GUI   la ten nguoi gui ghi tren thu.
+//               BAT BUOC phai la dia chi @pantherfitt.com, vi may chu
+//               dung ra gui la may cua Hostinger. Neu ghi mot dia chi
+//               Gmail vao day, Gmail ben nhan se thay may gui khong phai
+//               may cua Google va day thu vao thu rac.
+//               Chi can tao hop thu nay trong hPanel muc Emails,
+//               khong can bao gio dang nhap vao no.
 // ------------------------------------------------------------
-$NGUOI_NHAN = 'lienhe@pantherfitt.com';   // CAN DIEN email nhan lien he
-$NGUOI_GUI  = 'website@pantherfitt.com';  // CAN DIEN email gui di, cung ten mien
+$NGUOI_NHAN = 'lienhe@pantherfitt.com';   // CAN DIEN email nhan, Gmail ca nhan cung duoc
+$NGUOI_GUI  = 'website@pantherfitt.com';  // Phai giu duoi @pantherfitt.com
 $TRANG_VE   = '/lien-he?trang-thai=da-gui';
 
 // ------------------------------------------------------------
