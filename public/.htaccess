@@ -33,12 +33,23 @@ ErrorDocument 404 /404.html
   RewriteCond %{REQUEST_URI} ^(.+)/$
   RewriteRule ^ %1 [R=301,L]
 
-  # Tra ve dung file tinh ben trong tung thu muc trang
+  # Tra ve dung file tinh ben trong tung thu muc trang.
+  #
+  # KHONG loc bo thu muc o day. Moi trang la mot thu muc that
+  # (vi du /ve-chung-toi/index.html), nen neu loc bo thi Apache se
+  # tu chuyen huong them dau gach cheo. Nghia la moi lan bam sang
+  # trang khac deu ton mot vong chuyen huong thua.
   RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
   RewriteRule ^(.*)$ /$1/index.html [L]
 </IfModule>
+
+# Tat viec Apache tu them dau gach cheo vao cuoi duong dan thu muc,
+# de quy tac o tren tra thang noi dung ra thay vi chuyen huong
+DirectorySlash Off
+
+# Khong bao gio liet ke noi dung thu muc ra ngoai
+Options -Indexes
 
 # ------------------------------------------------------------
 #  3. Nen file truoc khi gui, trang tai nhanh hon
