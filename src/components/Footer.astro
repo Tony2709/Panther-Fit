@@ -3,9 +3,15 @@ import Icon from './Icon.astro';
 import { SITE, CONTACT, NAV } from '../data/site.js';
 
 const year = new Date().getFullYear();
+/**
+ * Danh sach mang xa hoi. Kenh nao chua co link trong site.js
+ * thi tu dong khong hien ra, khong can sua o day.
+ */
 const socials = [
   { label: 'Facebook', href: CONTACT.facebook, icon: 'facebook' as const },
   { label: 'Zalo', href: CONTACT.zalo, icon: 'message' as const },
+  { label: 'TikTok', href: CONTACT.tiktok, icon: 'tiktok' as const },
+  { label: 'Instagram', href: CONTACT.instagram, icon: 'instagram' as const },
 ].filter((s) => s.href);
 ---
 
