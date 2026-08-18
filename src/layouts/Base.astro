@@ -72,7 +72,10 @@ const businessSchema = {
     {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     <meta name="theme-color" content="#000000" />
-    <link rel="icon" href="/favicon.png" type="image/png" sizes="32x32" />
+    {/* Google chi nhan favicon vuong co canh la boi so cua 48px.
+        Truoc day de 32x32 nen Google bo qua va hien icon qua dat mac dinh. */}
+    <link rel="icon" href="/favicon.png" type="image/png" sizes="192x192" />
+    <link rel="icon" href="/favicon-48.png" type="image/png" sizes="48x48" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
     <meta property="og:type" content="website" />

@@ -157,32 +157,36 @@ async function buildLogo() {
 
   const headBuffer = await headMark.toBuffer();
 
-  for (const size of [180, 512]) {
+  /**
+   * Tao icon vuong nen den, dau bao trang o giua.
+   * `chua` la ty le be ngang cua dau bao so voi khung.
+   */
+  const taoIcon = async (size, ten, chua) => {
     const inner = await sharp(headBuffer)
-      .resize({ width: Math.round(size * 0.72), fit: 'inside' })
+      .resize({ width: Math.round(size * chua), fit: 'inside' })
       .toBuffer();
     await sharp({
-      create: {
-        width: size,
-        height: size,
-        channels: 4,
-        background: { r: 0, g: 0, b: 0, alpha: 1 },
-      },
+      create: { width: size, height: size, channels: 4, background: { r: 0, g: 0, b: 0, alpha: 1 } },
     })
       .composite([{ input: inner, gravity: 'center' }])
-      .png()
-      .toFile(resolve(PUBLIC, size === 180 ? 'apple-touch-icon.png' : 'icon-512.png'));
-  }
+      .png({ compressionLevel: 9 })
+      .toFile(resolve(PUBLIC, ten));
+  };
 
-  const favicon = await sharp(headBuffer).resize({ width: 26, fit: 'inside' }).toBuffer();
-  await sharp({
-    create: { width: 32, height: 32, channels: 4, background: { r: 0, g: 0, b: 0, alpha: 1 } },
-  })
-    .composite([{ input: favicon, gravity: 'center' }])
-    .png()
-    .toFile(resolve(PUBLIC, 'favicon.png'));
+  // Icon cho man hinh dien thoai va mang xa hoi
+  await taoIcon(180, 'apple-touch-icon.png', 0.72);
+  await taoIcon(512, 'icon-512.png', 0.72);
 
-  console.log('  logo, favicon, app icon');
+  /**
+   * Favicon hien canh ten mien tren ket qua tim kiem Google.
+   * Google yeu cau anh vuong co canh la BOI SO CUA 48px, neu khong
+   * se bo qua va hien icon qua dat mac dinh. Vi the co ban 192 va 48.
+   * Chua rong hon mot chut so vi icon nay hien ra rat nho.
+   */
+  await taoIcon(192, 'favicon.png', 0.82);
+  await taoIcon(48, 'favicon-48.png', 0.82);
+
+  console.log('  logo, favicon 192 va 48, app icon');
   return headBuffer;
 }
 
