@@ -77,7 +77,6 @@ const PHOTOS = [
     1400,
     { crop: { left: 0, top: 300, width: 3040, height: 4560 } },
   ],
-  ['Photos/Our team/Liên Hồng Ngọc/710827425_3083018445217357_4759825505894130802_n.jpg', 'pt-hong-ngoc.jpg', 1400],
   // Anh chan dung cua Hai Dang, dung nguyen khung goc khong cat.
   ['Photos/Our team/Nguyễn Hải Đăng/download.jpeg', 'pt-hai-dang.jpg', 1400],
 ];

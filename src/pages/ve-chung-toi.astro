@@ -94,7 +94,8 @@ const values = [
         </div>
       </div>
 
-      <div class="mt-16 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+      {/* Bon nguoi nen xep bon cot, neu de ba cot thi hang duoi con mot the le loi */}
+      <div class="mt-16 grid gap-7 sm:grid-cols-2 lg:grid-cols-4">
         {TRAINERS.map((trainer, index) => <TrainerCard trainer={trainer} index={index} />)}
       </div>
 

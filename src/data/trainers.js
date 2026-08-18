@@ -17,46 +17,36 @@
 import katun from '../assets/pt-katun.jpg';
 import sonThai from '../assets/pt-son-thai.jpg';
 import quyet from '../assets/pt-quyet.jpg';
-import hongNgoc from '../assets/pt-hong-ngoc.jpg';
 import haiDang from '../assets/pt-hai-dang.jpg';
 
 export const TRAINERS = [
   {
-    slug: 'katun',
-    name: 'Katun',
+    slug: 'vu-thu-phuong',
+    name: 'Vũ Thu Phương',
     role: 'Chủ phòng tập và huấn luyện viên',
     image: katun,
-    alt: 'Katun, chủ phòng tập Panther Fit, tại khu vực tập luyện',
+    alt: 'Vũ Thu Phương, chủ phòng tập Panther Fit, tại khu vực tập luyện',
     focus: ['PT 1 kèm 1', 'Hội viên nữ'],
-    bio: 'Founder Panther Fit và vẫn đứng lớp mỗi tuần. Nhiều hội viên nữ lần đầu vào phòng tập chọn tập cùng Katun, đơn giản vì được hỏi han kỹ trước khi bắt đầu và không bị đẩy nhanh.',
+    bio: 'Founder Panther Fit và vẫn đứng lớp mỗi tuần. Nhiều hội viên nữ lần đầu vào phòng tập chọn tập cùng Thu Phương, đơn giản vì được hỏi han kỹ trước khi bắt đầu và không bị đẩy nhanh.',
   },
   {
-    slug: 'son-thai',
-    name: 'Sơn Thái',
+    slug: 'huynh-thai-son',
+    name: 'Huỳnh Thái Sơn',
     // Doc duoc tu bang ten tren dong phuc trong anh doi ngu
     role: 'Quản lý nhân sự và huấn luyện viên',
     image: sonThai,
-    alt: 'Huấn luyện viên Sơn Thái trong đồng phục Panther Fit tại phòng tập',
+    alt: 'Huấn luyện viên Huỳnh Thái Sơn trong đồng phục Panther Fit tại phòng tập',
     focus: ['PT 1 kèm 1', 'Người mới bắt đầu'],
-    bio: 'Buổi đầu tiên của bạn nhiều khả năng sẽ do Sơn Thái dẫn đi một vòng. Cứ nói thật là bạn lâu rồi chưa tập, bài sẽ được hạ xuống đúng mức bạn làm được hôm nay.',
+    bio: 'Buổi đầu tiên của bạn nhiều khả năng sẽ do Thái Sơn dẫn đi một vòng. Cứ nói thật là bạn lâu rồi chưa tập, bài sẽ được hạ xuống đúng mức bạn làm được hôm nay.',
   },
   {
-    slug: 'ha-quyet',
-    name: 'Hà Quyết',
+    slug: 'ha-minh-quyet',
+    name: 'Hà Minh Quyết',
     role: 'Huấn luyện viên',
     image: quyet,
-    alt: 'Huấn luyện viên Hà Quyết đang hỗ trợ hội viên tập tạ tay tại Panther Fit',
+    alt: 'Huấn luyện viên Hà Minh Quyết đang hỗ trợ hội viên tập tạ tay tại Panther Fit',
     focus: ['PT 1 kèm 1', 'Tập nhóm'],
     bio: 'Kiểu kèm sát từng nhịp thở, sửa tư thế ngay khi thấy lệch. Bạn sẽ không phải đoán xem mình đang tập đúng hay sai.',
-  },
-  {
-    slug: 'hong-ngoc',
-    name: 'Liên Hồng Ngọc',
-    role: 'Huấn luyện viên',
-    image: hongNgoc,
-    alt: 'Huấn luyện viên Liên Hồng Ngọc tại phòng tập Panther Fit',
-    focus: ['Tập nhóm', 'Hội viên nữ'],
-    bio: 'Dẫn lớp nhóm theo kiểu ai cũng theo được, người khoẻ có bài của người khoẻ, người mới có bài của người mới, cùng một buổi.',
   },
   {
     slug: 'hai-dang',

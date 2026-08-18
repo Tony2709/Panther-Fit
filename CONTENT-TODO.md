@@ -61,24 +61,23 @@ và phần hỏi đáp.
 **File:** `src/data/trainers.js`
 
 ### 3.1 Danh sách đã chốt
-Năm người, xếp theo thứ tự hiện trên trang. Ba người đầu cũng là ba người
+Bốn người, xếp theo thứ tự hiện trên trang. Ba người đầu cũng là ba người
 hiện ở trang chủ.
 
 | Thứ tự | Tên | Vai trò |
 |---|---|---|
-| 1 | Katun | Chủ phòng tập và huấn luyện viên |
-| 2 | Sơn Thái | Quản lý nhân sự và huấn luyện viên |
-| 3 | Hà Quyết | Huấn luyện viên |
-| 4 | Liên Hồng Ngọc | Huấn luyện viên |
-| 5 | Nguyễn Hải Đăng | Huấn luyện viên và tư vấn |
+| 1 | Vũ Thu Phương | Chủ phòng tập và huấn luyện viên |
+| 2 | Huỳnh Thái Sơn | Quản lý nhân sự và huấn luyện viên |
+| 3 | Hà Minh Quyết | Huấn luyện viên |
+| 4 | Nguyễn Hải Đăng | Huấn luyện viên và tư vấn |
 
 Trong ảnh đội ngũ còn có **lễ tân Quỳnh Chi** và một bạn lễ tân nữa. Nếu muốn đưa
 lễ tân lên trang thì báo mình thêm, vì người đầu tiên khách gặp ở cửa chính là lễ tân.
 
 ### 3.2 Vai trò còn để chung
-Hà Quyết và Liên Hồng Ngọc đang để chung là "Huấn luyện viên" vì chưa có thông tin
-cụ thể. Nếu ai có chứng chỉ hoặc chuyên môn riêng thì ghi vào, phần này giúp tăng
-độ tin cậy đáng kể.
+Hà Minh Quyết đang để chung là "Huấn luyện viên" vì chưa có thông tin cụ thể.
+Nếu có chứng chỉ hoặc chuyên môn riêng thì ghi vào, phần này giúp tăng độ tin
+cậy đáng kể.
 
 ### 3.3 Phần giới thiệu từng người, quan trọng
 Mấy dòng giới thiệu hiện tại **do mình viết dựa trên cách làm việc chung của phòng tập,
@@ -99,10 +98,9 @@ Lời thật của từng người bao giờ cũng đáng tin hơn văn quảng 
 
 | Người | Ảnh đang dùng | Ghi chú |
 |---|---|---|
-| Katun | Ảnh chân dung mới, chụp tại phòng tập | Đã thay, không còn dính thương hiệu khác |
-| Sơn Thái | Ảnh chụp trong đồng phục Panther Fit | Đẹp và đúng nhận diện |
-| Hà Quyết | Ảnh đang kèm khách | Không phải ảnh chân dung |
-| Liên Hồng Ngọc | Ảnh trong thư mục riêng | Mặc đồ **SpartaFit**, không phải Panther Fit |
+| Vũ Thu Phương | Ảnh chân dung mới, chụp tại phòng tập | Tốt |
+| Huỳnh Thái Sơn | Ảnh chụp trong đồng phục Panther Fit | Đẹp và đúng nhận diện |
+| Hà Minh Quyết | Ảnh đang kèm khách | Không phải ảnh chân dung |
 | Nguyễn Hải Đăng | Ảnh chân dung trong đồng phục Panther Fit | Có chữ in sẵn trên ảnh, xem bên dưới |
 
 **Về ảnh của Nguyễn Hải Đăng:** góc trên bên phải có chữ **HAI DANG NGUYEN /
@@ -110,10 +108,9 @@ HLV | SALER / PANTHER FIT** in sẵn lên ảnh. Thẻ huấn luyện viên trê
 tên và vai trò ngay dưới ảnh, nên tên anh ấy xuất hiện hai lần trong cùng một khung.
 Nếu tìm được file gốc chưa gắn chữ thì thay vào là gọn.
 
-**Đề xuất đáng làm nhất:** chụp một buổi ảnh chân dung cho cả năm người, cùng đồng
-phục navy, cùng nền, cùng ánh sáng. Hiện tại năm tấm ảnh đến từ năm nguồn khác nhau
-nên nhìn thiếu đồng bộ, và một tấm còn mặc áo thương hiệu khác. Đây là phần dễ thấy
-nhất trên trang Về chúng tôi.
+**Đề xuất đáng làm nhất:** chụp một buổi ảnh chân dung cho cả bốn người, cùng đồng
+phục navy, cùng nền, cùng ánh sáng. Hiện tại bốn tấm ảnh đến từ bốn nguồn khác nhau
+nên nhìn thiếu đồng bộ. Đây là phần dễ thấy nhất trên trang Về chúng tôi.
 
 ---
 
