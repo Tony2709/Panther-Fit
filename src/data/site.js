@@ -34,6 +34,13 @@ export const CONTACT = {
 
   facebook: 'https://www.facebook.com/pantherfit20/',
 
+  /**
+   * Link mo thang khung chat Messenger cua trang, khong phai trang gioi thieu.
+   * Dang m.me la link chinh thuc cua Facebook, tren dien thoai no mo
+   * ung dung Messenger luon. Phan sau la ten trang trong link facebook.
+   */
+  messenger: 'https://m.me/pantherfit20',
+
   // CAN DIEN: neu co Instagram va TikTok thi dien vao, khong co thi de trong
   instagram: '',
   tiktok: '',

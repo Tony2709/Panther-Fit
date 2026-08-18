@@ -29,8 +29,8 @@ const channels = [
   {
     icon: 'facebook' as const,
     label: 'Facebook',
-    value: 'Nhắn tin cho trang của phòng tập',
-    href: CONTACT.facebook,
+    value: 'Mở thẳng khung chat, không phải trang giới thiệu',
+    href: CONTACT.messenger || CONTACT.facebook,
     external: true,
   },
 ].filter((channel) => channel.href);
