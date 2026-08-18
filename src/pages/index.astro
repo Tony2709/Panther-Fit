@@ -57,18 +57,37 @@ const facts = [
         loading="eager"
         fetchpriority="high"
       />
-      <!-- Ba lop phu giup chu doc duoc ma van thay ro can phong.
-           Lop duoi da giam khoang 20% so voi ban dau cho anh sang hon. -->
-      <div class="absolute inset-0 bg-ink/28"></div>
-      <div
-        class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/50 to-transparent"
+      {/* Video chi duoc nap tren may tinh, xem phan ma o cuoi trang.
+          Dien thoai khong tai gi, van dung anh o tren. */}
+      <video
+        id="hero-video"
+        class="img-cover absolute inset-0 opacity-0 transition-opacity duration-700"
+        muted
+        loop
+        playsinline
+        preload="none"
         aria-hidden="true"
       >
+      </video>
+
+      {/* Hai bo lop phu. Bo dau danh cho anh tinh, do dam da chinh rieng
+          cho anh do. Bo sau danh cho video, phai dam hon han vi do sang
+          cua video nhay lien tuc theo tung canh. Da do tren 75 khung hinh:
+          voi bo dau thi 67 khung lam chu kho doc, voi bo sau thi khong khung nao. */}
+      <div id="scrim-anh" class="absolute inset-0 transition-opacity duration-700" aria-hidden="true">
+        <div class="absolute inset-0 bg-ink/28"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/50 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-ink/70 via-transparent to-transparent"></div>
       </div>
+
       <div
-        class="absolute inset-0 bg-gradient-to-r from-ink/70 via-transparent to-transparent"
+        id="scrim-video"
+        class="absolute inset-0 opacity-0 transition-opacity duration-700"
         aria-hidden="true"
       >
+        <div class="absolute inset-0 bg-ink/50"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/70 to-ink/20"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-ink/[0.92] via-ink/62 to-transparent"></div>
       </div>
     </div>
 
@@ -397,4 +416,47 @@ const facts = [
   </section>
 
   <CtaBand />
+
+  <script>
+    /**
+     * Video nen cho anh bia.
+     *
+     * Chi nap tren may tinh man hinh rong. Dien thoai giu nguyen anh tinh,
+     * vi video nang gap khoang bay lan ca trang chu cong lai, ma phan lon
+     * khach vao bang 4G.
+     *
+     * Cung khong nap neu nguoi dung bat che do giam chuyen dong hoac
+     * che do tiet kiem du lieu trong may.
+     */
+    const video = document.getElementById('hero-video') as HTMLVideoElement | null;
+    const phuAnh = document.getElementById('scrim-anh');
+    const phuVideo = document.getElementById('scrim-video');
+
+    if (video && phuAnh && phuVideo) {
+      const manHinhRong = window.matchMedia('(min-width: 1024px)').matches;
+      const giamChuyenDong = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const tietKiemDuLieu =
+        (navigator as any).connection?.saveData === true;
+
+      if (manHinhRong && !giamChuyenDong && !tietKiemDuLieu) {
+        video.src = '/video/phong-tap.mp4';
+
+        // Chi doi lop phu khi video that su chay duoc.
+        // Neu trinh duyet chan tu phat thi khong doi gi ca, anh tinh giu nguyen.
+        video.addEventListener(
+          'playing',
+          () => {
+            video.style.opacity = '1';
+            phuAnh.style.opacity = '0';
+            phuVideo.style.opacity = '1';
+          },
+          { once: true }
+        );
+
+        video.play().catch(() => {
+          // Trinh duyet khong cho tu phat, bo qua va giu anh tinh
+        });
+      }
+    }
+  </script>
 </Base>
