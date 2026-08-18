@@ -99,7 +99,7 @@ Lời thật của từng người bao giờ cũng đáng tin hơn văn quảng 
 
 | Người | Ảnh đang dùng | Ghi chú |
 |---|---|---|
-| Katun | Ảnh trong thư mục riêng | Mặc đồ **SpartaFit**, không phải Panther Fit |
+| Katun | Ảnh chân dung mới, chụp tại phòng tập | Đã thay, không còn dính thương hiệu khác |
 | Sơn Thái | Ảnh chụp trong đồng phục Panther Fit | Đẹp và đúng nhận diện |
 | Hà Quyết | Ảnh đang kèm khách | Không phải ảnh chân dung |
 | Liên Hồng Ngọc | Ảnh trong thư mục riêng | Mặc đồ **SpartaFit**, không phải Panther Fit |
@@ -112,7 +112,7 @@ Nếu tìm được file gốc chưa gắn chữ thì thay vào là gọn.
 
 **Đề xuất đáng làm nhất:** chụp một buổi ảnh chân dung cho cả năm người, cùng đồng
 phục navy, cùng nền, cùng ánh sáng. Hiện tại năm tấm ảnh đến từ năm nguồn khác nhau
-nên nhìn thiếu đồng bộ, và hai tấm còn mặc áo thương hiệu khác. Đây là phần dễ thấy
+nên nhìn thiếu đồng bộ, và một tấm còn mặc áo thương hiệu khác. Đây là phần dễ thấy
 nhất trên trang Về chúng tôi.
 
 ---

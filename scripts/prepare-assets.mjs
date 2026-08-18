@@ -69,7 +69,14 @@ const PHOTOS = [
   // Chan dung huan luyen vien
   ['Photos/Our team/Group photo/2025_11_27_20_57_IMG_5633.JPG', 'pt-son-thai.jpg', 1400],
   ['Photos/Our team/Anh Quyết/DSC04766.jpg', 'pt-quyet.jpg', 1400],
-  ['Photos/Our team/Katun/768529195_3157630224422845_2941734452001614977_n.jpg', 'pt-katun.jpg', 1400],
+  // Anh goc cao hon khung the 2:3 nen cat bot phan tuong trong o tren
+  // va phan san o duoi, giu dau va than trong khung
+  [
+    'Photos/Our team/Katun/Ảnh mới.jpeg',
+    'pt-katun.jpg',
+    1400,
+    { crop: { left: 0, top: 300, width: 3040, height: 4560 } },
+  ],
   ['Photos/Our team/Liên Hồng Ngọc/710827425_3083018445217357_4759825505894130802_n.jpg', 'pt-hong-ngoc.jpg', 1400],
   // Anh chan dung cua Hai Dang, dung nguyen khung goc khong cat.
   ['Photos/Our team/Nguyễn Hải Đăng/download.jpeg', 'pt-hai-dang.jpg', 1400],
