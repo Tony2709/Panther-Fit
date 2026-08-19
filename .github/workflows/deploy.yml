@@ -61,9 +61,14 @@ jobs:
       - name: Kiem tra da khai bao thong tin FTP chua
         id: ftp
         run: |
-          if [ -z "${{ secrets.FTP_SERVER }}" ]; then
+          THIEU=""
+          [ -z "${{ secrets.FTP_SERVER }}" ]   && THIEU="$THIEU FTP_SERVER"
+          [ -z "${{ secrets.FTP_USERNAME }}" ] && THIEU="$THIEU FTP_USERNAME"
+          [ -z "${{ secrets.FTP_PASSWORD }}" ] && THIEU="$THIEU FTP_PASSWORD"
+
+          if [ -n "$THIEU" ]; then
             echo "san_sang=false" >> $GITHUB_OUTPUT
-            echo "::warning::Chua khai bao FTP_SERVER, FTP_USERNAME, FTP_PASSWORD trong Settings > Secrets and variables > Actions. Buoc build da chay xong, chi bo qua buoc dua len Hostinger."
+            echo "::warning::Con thieu secret:$THIEU. Them tai Settings > Secrets and variables > Actions, muc Repository secrets. Buoc build da chay xong, chi bo qua buoc dua len Hostinger."
           else
             echo "san_sang=true" >> $GITHUB_OUTPUT
           fi
