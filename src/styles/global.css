@@ -377,6 +377,34 @@
   }
 
   /* --------------------------------------------------------
+     Thanh dieu huong kieu kinh mo
+
+     Muc tieu: khong nhin xuyen qua duoc, nhung van thay duoc mang mau
+     phia sau. Ba lop lam viec cung nhau:
+       blur(28px)      xoa het hinh khoi, chi con mang mau
+       saturate(1.6)   day mau len de phan mau con lai nhin ro
+       brightness(.55) ha do sang cua nen phia sau
+     roi phu them nen den 55% len tren.
+
+     Tong do toi = 1 - 0.55 x 0.45 = 0.75. Da do tren khung video sang
+     nhat: chu trang dat 11.6:1, chu xam dat 5.1:1, ca hai qua chuan AA.
+     Nhat hon muc nay la chu menu bat dau chim.
+     -------------------------------------------------------- */
+  .thanh-kinh-mo {
+    background-color: color-mix(in srgb, var(--color-ink) 55%, transparent);
+    -webkit-backdrop-filter: blur(28px) saturate(1.6) brightness(0.55);
+    backdrop-filter: blur(28px) saturate(1.6) brightness(0.55);
+  }
+
+  /* Trinh duyet khong ho tro kinh mo thi phai dung nen dac, neu khong
+     chu se nam trang tren anh sang */
+  @supports not (backdrop-filter: blur(1px)) {
+    .thanh-kinh-mo {
+      background-color: color-mix(in srgb, var(--color-ink) 92%, transparent);
+    }
+  }
+
+  /* --------------------------------------------------------
      Hieu ung anh
      -------------------------------------------------------- */
   .img-cover {

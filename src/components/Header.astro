@@ -10,7 +10,7 @@ const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWi
      Nen de o 95% nen anh bia van hien mo phia sau. -->
 <header
   id="site-header"
-  class="fixed top-0 right-0 left-0 z-50 border-b border-hair bg-ink/95 backdrop-blur-md transition-shadow duration-300"
+  class="thanh-kinh-mo fixed top-0 right-0 left-0 z-50 border-b border-hair transition-shadow duration-300"
 >
   <div class="shell">
     <div class="flex h-[4.5rem] items-center justify-between gap-6 lg:h-20">
@@ -48,7 +48,7 @@ const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWi
                 >
                   {item.label}
                   {isCurrent(item.href) && (
-                    <span class="absolute inset-x-3 -bottom-0.5 h-px bg-ember" aria-hidden="true" />
+                    <span class="absolute inset-x-3 -bottom-0.5 h-px bg-ember-soft" aria-hidden="true" />
                   )}
                 </a>
               </li>
@@ -62,7 +62,7 @@ const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWi
           href={`tel:${CONTACT.phoneRaw}`}
           class="flex items-center gap-2 text-[0.9375rem] font-semibold text-cream transition-colors duration-200 hover:text-ember-soft"
         >
-          <Icon name="phone" size={17} class="text-ember" />
+          <Icon name="phone" size={17} class="text-ember-soft" />
           {CONTACT.phoneDisplay}
         </a>
         <a href="/lien-he" class="btn btn-primary">Ghé thử một buổi</a>
