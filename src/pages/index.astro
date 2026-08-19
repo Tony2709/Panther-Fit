@@ -70,41 +70,9 @@ const facts = [
       >
       </video>
 
-      {/* Hai bo lop phu. Bo dau danh cho anh tinh, do dam da chinh rieng
-          cho anh do. Bo sau danh cho video, phai dam hon han vi do sang
-          cua video nhay lien tuc theo tung canh. Da do tren 75 khung hinh:
-          voi bo dau thi 67 khung lam chu kho doc, voi bo sau thi khong khung nao. */}
-      <div id="scrim-anh" class="absolute inset-0 transition-opacity duration-700" aria-hidden="true">
-        <div class="absolute inset-0 bg-ink/28"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/50 to-transparent"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-ink/70 via-transparent to-transparent"></div>
-      </div>
-
-      {/* Lop phu cho video. Khong co lop nen phu deu ca khung, vi lop do
-          lam toi ca phan khong co chu. Thay vao do dung hai dai chuyen mau
-          giu dam het be ngang dong tieu de roi buong nhanh, de nua phai
-          van thay ro video.
-          Do tren 75 khung hinh: van 0 khung nao lam chu kho doc, ma nua phai
-          sang gap 2.5 lan so voi cach phu deu. */}
-      <div
-        id="scrim-video"
-        class="absolute inset-0 opacity-0 transition-opacity duration-700"
-        aria-hidden="true"
-      >
-        <div
-          class="absolute inset-0"
-          style="background: linear-gradient(to top, rgba(0,0,0,0.93) 0%, rgba(0,0,0,0.70) 42%, rgba(0,0,0,0.05) 100%)"
-        >
-        </div>
-        <div
-          class="absolute inset-0"
-          style="background: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.88) 52%, rgba(0,0,0,0.10) 80%, rgba(0,0,0,0) 100%)"
-        >
-        </div>
-      </div>
     </div>
 
-    <div class="shell relative w-full pb-14 md:pb-20">
+    <div class="shell chu-co-bong relative w-full pb-14 md:pb-20">
       <img
         src="/logo-panther-fit.png"
         alt="Panther Fit"
@@ -131,9 +99,7 @@ const facts = [
         <a href="#phong-tap" class="btn btn-ghost">Xem thử căn phòng</a>
       </div>
 
-      <!-- Dung mau sang hon mau chu phu thong thuong, vi dong nay nam truc
-           tiep tren anh chu khong phai tren nen den dac -->
-      <p class="reveal mt-6 text-sm text-mist" data-delay="260">
+      <p class="reveal mt-6 text-sm text-cream/90" data-delay="260">
         Buổi đầu tiên luôn có người đồng hành từ lúc bước vào cửa.
       </p>
     </div>
@@ -442,10 +408,8 @@ const facts = [
      * che do tiet kiem du lieu trong may.
      */
     const video = document.getElementById('hero-video') as HTMLVideoElement | null;
-    const phuAnh = document.getElementById('scrim-anh');
-    const phuVideo = document.getElementById('scrim-video');
 
-    if (video && phuAnh && phuVideo) {
+    if (video) {
       const manHinhRong = window.matchMedia('(min-width: 1024px)').matches;
       const giamChuyenDong = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const tietKiemDuLieu =
@@ -460,8 +424,6 @@ const facts = [
           'playing',
           () => {
             video.style.opacity = '1';
-            phuAnh.style.opacity = '0';
-            phuVideo.style.opacity = '1';
           },
           { once: true }
         );
