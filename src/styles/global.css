@@ -392,27 +392,40 @@
      qua chuan AA. Muc 50% nay khong con cho chu xam, nen cac muc menu
      deu dung mau trang, muc dang xem nhan biet bang gach chan do.
      -------------------------------------------------------- */
+  /* Mac dinh, gom dien thoai va may tinh bang: nen dac nhu luc dau.
+     Duoi 1024px video khong nap, phia sau thanh chi la anh tinh nen
+     khong co gi dang de lo ra. */
   .thanh-kinh-mo {
-    background-color: color-mix(in srgb, var(--color-ink) 29%, transparent);
-    -webkit-backdrop-filter: blur(28px) saturate(1.6) brightness(0.7);
-    backdrop-filter: blur(28px) saturate(1.6) brightness(0.7);
+    background-color: color-mix(in srgb, var(--color-ink) 95%, transparent);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
   }
 
-  /* Nen chi con toi mot nua nen chu can vien toi sat net de khong bi
-     nhoe vao nhung khung video sang */
-  .thanh-kinh-mo :where(a, span) {
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
-  }
-
-  .thanh-kinh-mo .btn {
-    text-shadow: none;
-  }
-
-  /* Trinh duyet khong ho tro kinh mo thi phai dung nen dac, neu khong
-     chu se nam trang tren anh sang */
-  @supports not (backdrop-filter: blur(1px)) {
+  /* Tu 1024px tro len, dung nguong ma video bat dau nap, thanh moi
+     chuyen sang kinh mo de video hien lo mo phia sau */
+  @media (min-width: 1024px) {
     .thanh-kinh-mo {
-      background-color: color-mix(in srgb, var(--color-ink) 88%, transparent);
+      background-color: color-mix(in srgb, var(--color-ink) 29%, transparent);
+      -webkit-backdrop-filter: blur(28px) saturate(1.6) brightness(0.7);
+      backdrop-filter: blur(28px) saturate(1.6) brightness(0.7);
+    }
+
+    /* Nen chi con toi mot nua nen chu can vien toi sat net de khong bi
+       nhoe vao nhung khung video sang */
+    .thanh-kinh-mo :where(a, span) {
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+    }
+
+    .thanh-kinh-mo .btn {
+      text-shadow: none;
+    }
+
+    /* Trinh duyet khong ho tro kinh mo thi phai dung nen dac, neu khong
+       chu se nam trang tren anh sang */
+    @supports not (backdrop-filter: blur(1px)) {
+      .thanh-kinh-mo {
+        background-color: color-mix(in srgb, var(--color-ink) 88%, transparent);
+      }
     }
   }
 
