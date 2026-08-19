@@ -9,12 +9,11 @@ interface Props {
   title: string;
   description: string;
   /** Header trong suot, dung cho trang co anh bia lon */
-  overlayHeader?: boolean;
   /** Bo qua trang nay khi Google lap chi muc */
   noindex?: boolean;
 }
 
-const { title, description, overlayHeader = false, noindex = false } = Astro.props;
+const { title, description, noindex = false } = Astro.props;
 
 const canonical = new URL(Astro.url.pathname, Astro.site ?? SITE.url).href.replace(/\/$/, '') || SITE.url;
 const ogImage = new URL('/og-image.jpg', Astro.site ?? SITE.url).href;
@@ -113,7 +112,7 @@ const businessSchema = {
       Bỏ qua phần đầu, vào thẳng nội dung
     </a>
 
-    <Header overlay={overlayHeader} />
+    <Header />
 
     <main id="main">
       <slot />

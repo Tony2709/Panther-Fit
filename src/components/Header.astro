@@ -2,24 +2,15 @@
 import Icon from './Icon.astro';
 import { NAV, CONTACT } from '../data/site.js';
 
-interface Props {
-  /** Header trong suot de nam de len anh bia cua trang chu */
-  overlay?: boolean;
-}
-
-const { overlay = false } = Astro.props;
 const path = Astro.url.pathname.replace(/\/$/, '') || '/';
 const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWith(href));
 ---
 
+<!-- Thanh dieu huong hien suot, khong doi nen theo vi tri cuon.
+     Nen de o 95% nen anh bia van hien mo phia sau. -->
 <header
   id="site-header"
-  data-overlay={overlay ? 'true' : 'false'}
-  class:list={[
-    'fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300',
-    'border-b',
-    overlay ? 'border-transparent bg-transparent' : 'border-hair bg-ink/95 backdrop-blur-md',
-  ]}
+  class="fixed top-0 right-0 left-0 z-50 border-b border-hair bg-ink/95 backdrop-blur-md transition-shadow duration-300"
 >
   <div class="shell">
     <div class="flex h-[4.5rem] items-center justify-between gap-6 lg:h-20">
@@ -157,19 +148,13 @@ const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWi
   const wrap = document.getElementById('mobile-nav');
   const panel = document.getElementById('nav-panel');
 
-  // Header doi nen khi cuon xuong
+  // Them mot vach sang rat nhe khi da cuon, de thanh tach khoi noi dung
   if (header) {
-    const isOverlay = header.dataset.overlay === 'true';
-    const solid = ['bg-ink/95', 'backdrop-blur-md', 'border-hair'];
-
     const onScroll = () => {
-      const scrolled = window.scrollY > 24;
-      if (isOverlay) {
-        header.classList.toggle('border-transparent', !scrolled);
-        solid.forEach((c) => header.classList.toggle(c, scrolled));
-      } else {
-        header.classList.toggle('shadow-[0_1px_0_rgba(255,255,255,0.06)]', scrolled);
-      }
+      header.classList.toggle(
+        'shadow-[0_1px_0_rgba(255,255,255,0.06)]',
+        window.scrollY > 24,
+      );
     };
 
     onScroll();
