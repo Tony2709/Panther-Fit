@@ -383,24 +383,36 @@
      phia sau. Ba lop lam viec cung nhau:
        blur(28px)      xoa het hinh khoi, chi con mang mau
        saturate(1.6)   day mau len de phan mau con lai nhin ro
-       brightness(.55) ha do sang cua nen phia sau
-     roi phu them nen den 55% len tren.
+       brightness(.70) ha do sang cua nen phia sau
+     roi phu them nen den 29% len tren.
 
-     Tong do toi = 1 - 0.55 x 0.45 = 0.75. Da do tren khung video sang
-     nhat: chu trang dat 11.6:1, chu xam dat 5.1:1, ca hai qua chuan AA.
-     Nhat hon muc nay la chu menu bat dau chim.
+     Tong do toi = 1 - 0.70 x 0.71 = 0.50.
+
+     Do tren khung video sang nhat nam sau thanh, chu trang dat 5.05:1,
+     qua chuan AA. Muc 50% nay khong con cho chu xam, nen cac muc menu
+     deu dung mau trang, muc dang xem nhan biet bang gach chan do.
      -------------------------------------------------------- */
   .thanh-kinh-mo {
-    background-color: color-mix(in srgb, var(--color-ink) 55%, transparent);
-    -webkit-backdrop-filter: blur(28px) saturate(1.6) brightness(0.55);
-    backdrop-filter: blur(28px) saturate(1.6) brightness(0.55);
+    background-color: color-mix(in srgb, var(--color-ink) 29%, transparent);
+    -webkit-backdrop-filter: blur(28px) saturate(1.6) brightness(0.7);
+    backdrop-filter: blur(28px) saturate(1.6) brightness(0.7);
+  }
+
+  /* Nen chi con toi mot nua nen chu can vien toi sat net de khong bi
+     nhoe vao nhung khung video sang */
+  .thanh-kinh-mo :where(a, span) {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+  }
+
+  .thanh-kinh-mo .btn {
+    text-shadow: none;
   }
 
   /* Trinh duyet khong ho tro kinh mo thi phai dung nen dac, neu khong
      chu se nam trang tren anh sang */
   @supports not (backdrop-filter: blur(1px)) {
     .thanh-kinh-mo {
-      background-color: color-mix(in srgb, var(--color-ink) 92%, transparent);
+      background-color: color-mix(in srgb, var(--color-ink) 88%, transparent);
     }
   }
 
