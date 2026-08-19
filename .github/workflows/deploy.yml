@@ -73,8 +73,12 @@ jobs:
             echo "san_sang=true" >> $GITHUB_OUTPUT
           fi
 
+      # FTP cua Hostinger thinh thoang ngat giua chung, bao 550 o mot
+      # file bat ky. Cho phep lan dau that bai roi thu lai mot lan nua.
       - name: Chep len Hostinger qua FTP
+        id: lan1
         if: steps.ftp.outputs.san_sang == 'true'
+        continue-on-error: true
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -90,6 +94,30 @@ jobs:
           # File nay da bi .htaccess chan khong cho xem tu ngoai.
           state-name: deploy-state.json
           # Giu lai nhat ky lien he va file cua Hostinger tren may chu
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/*.log
+            default.php
+
+      - name: Doi mot phut roi thu lai
+        if: steps.ftp.outputs.san_sang == 'true' && steps.lan1.outcome == 'failure'
+        run: |
+          echo "::warning::Lan chep dau that bai, doi 60 giay roi thu lai."
+          sleep 60
+
+      - name: Chep len Hostinger qua FTP, lan hai
+        if: steps.ftp.outputs.san_sang == 'true' && steps.lan1.outcome == 'failure'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: ./public_html/
+          # Xem giai thich o buoc chep lan dau ben tren
+          state-name: deploy-state.json
           exclude: |
             **/.git*
             **/.git*/**
