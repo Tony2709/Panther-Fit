@@ -82,6 +82,13 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
           server-dir: ./public_html/
+          # Ten mac dinh bat dau bang dau cham, ma FTP cua Hostinger khong
+          # doc duoc file an. Cong cu ghi xong lan sau lai khong thay, nen
+          # moi lan deploy deu tuong la lan dau: tai lai het 123 file mat
+          # gan 3 phut, khong bao gio xoa duoc file cu, va thinh thoang
+          # dut giua chung thanh loi 550. Bo dau cham la het.
+          # File nay da bi .htaccess chan khong cho xem tu ngoai.
+          state-name: deploy-state.json
           # Giu lai nhat ky lien he va file cua Hostinger tren may chu
           exclude: |
             **/.git*
