@@ -21,6 +21,16 @@ export default defineConfig({
   integrations: [
     sitemap({
       i18n: { defaultLocale: 'vi', locales: { vi: 'vi-VN' } },
+      /**
+       * Bo dau gach cheo cuoi dia chi, tru trang chu.
+       * Mac dinh sitemap khai /dich-vu/ trong khi the canonical tren
+       * chinh trang do lai khai /dich-vu. Hai dia chi cung tra ve mot
+       * noi dung nen Google phai tu doan cai nao that. Cho khop lai.
+       */
+      serialize(muc) {
+        muc.url = muc.url.replace(/(.+)\/$/, '$1');
+        return muc;
+      },
     }),
   ],
   // Doc cong tu bien moi truong PORT neu co, de cong cu chay thu
