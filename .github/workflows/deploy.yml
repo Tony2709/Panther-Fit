@@ -92,7 +92,13 @@ jobs:
           # gan 3 phut, khong bao gio xoa duoc file cu, va thinh thoang
           # dut giua chung thanh loi 550. Bo dau cham la het.
           # File nay da bi .htaccess chan khong cho xem tu ngoai.
-          state-name: deploy-state.json
+          #
+          # KHI NAO DOI SO O CUOI TEN: neu mot lan chep dut giua chung,
+          # may chu co the giu ban cu cua vai file trong khi ban ghi
+          # trang thai lai tuong da chep xong. Luc do deploy se bao
+          # "Replacing: 0 B" du trang web van sai. Doi so o cuoi ten la
+          # cong cu coi nhu chua tung chep, tai lai het mot lan cho khop.
+          state-name: deploy-state-v2.json
           # Giu lai nhat ky lien he va file cua Hostinger tren may chu
           exclude: |
             **/.git*
@@ -117,7 +123,7 @@ jobs:
           local-dir: ./dist/
           server-dir: ./public_html/
           # Xem giai thich o buoc chep lan dau ben tren
-          state-name: deploy-state.json
+          state-name: deploy-state-v2.json
           exclude: |
             **/.git*
             **/.git*/**
