@@ -17,16 +17,25 @@ Chỗ nào trong code có ghi chú `CAN DIEN` là chỗ nằm trong danh sách n
 - ~~Toạ độ và link Google Maps~~ đã lấy từ hồ sơ Google thật của phòng tập:
   21.5919531, 105.839786. Số ước lượng cũ lệch gần 900 mét nên đã bỏ
 - ~~Tên miền~~ đã đổi sang `pantherfitt.com` ở tất cả các chỗ
+- ~~Email doanh nghiệp~~ đã chốt `lienhe@pantherfitt.com`, dùng cho cả form liên hệ
+  lẫn phần dữ liệu Google đọc được. Gói chỉ cho một hòm thư nên form gửi và nhận
+  cùng một địa chỉ
+- ~~Xác thực email~~ MX, SPF, DKIM, DMARC đều đã có, DKIM dùng khoá thật ở
+  `hostingermail-a`
+- ~~Video trang chủ~~ đã dựng từ bản gốc 1920px, chỉ nạp trên màn hình từ 1024px
+- ~~Google Business Profile~~ đã lập và đã gắn link website
+- ~~Google Search Console~~ đã xác minh tên miền và đã nộp sitemap
+- ~~Link website trên Facebook~~ đã gắn
 
 ---
 
-## Nhóm 1: bắt buộc sửa trước khi đưa lên mạng
+## Nhóm 1: ba con số đang là phỏng đoán, và đang hiển thị trên web
 
-### 1.1 Email nhận form liên hệ
-**File:** `public/gui-lien-he.php` → `$NGUOI_NHAN` và `$NGUOI_GUI`
-**File:** `src/data/site.js` → `CONTACT.email`
+Đây là nhóm gấp nhất còn lại, nằm ở nhóm 2 bên dưới. Ba chỗ đó mình đặt tạm vì
+không có thông tin thật, nhưng chúng **đang hiện trên bản thật** và khách đọc được.
+Sai thì khách tới nơi mới biết, mất lòng tin ngay buổi đầu.
 
-Tạo email trong hPanel trước, rồi điền vào. Email gửi đi phải cùng tên miền với website.
+Chỉ cần nhắn mình ba câu trả lời, mỗi chỗ sửa một dòng là cả website đổi theo.
 
 ---
 
