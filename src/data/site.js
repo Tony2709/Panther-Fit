@@ -38,7 +38,8 @@ export const CONTACT = {
   instagram: '',
   tiktok: '',
 
-  // CAN DIEN: email nhan tin nhan tu form lien he
+  // Email chinh thuc cua phong tap, dung cho form lien he va cho
+  // phan du lieu Google doc duoc
   email: 'lienhe@pantherfitt.com',
 
   address: {

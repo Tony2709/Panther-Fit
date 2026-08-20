@@ -25,8 +25,11 @@
 //               Chi can tao hop thu nay trong hPanel muc Emails,
 //               khong can bao gio dang nhap vao no.
 // ------------------------------------------------------------
-$NGUOI_NHAN = 'lienhe@pantherfitt.com';   // CAN DIEN email nhan, Gmail ca nhan cung duoc
-$NGUOI_GUI  = 'website@pantherfitt.com';  // Phai giu duoi @pantherfitt.com
+// Ca hai dung chung mot hom thu de chi phai tao mot hop tren Hostinger.
+// Neu dat nguoi gui la mot dia chi chua ton tai thi may chu thu co the
+// tu choi gui di.
+$NGUOI_NHAN = 'lienhe@pantherfitt.com';
+$NGUOI_GUI  = 'lienhe@pantherfitt.com';
 $TRANG_VE   = '/lien-he?trang-thai=da-gui';
 
 // ------------------------------------------------------------
@@ -105,8 +108,9 @@ $dong = [
 $noiDung = implode("\n", $dong);
 $tieuDe  = 'Lien he moi tu website: ' . $ten . ' - ' . $dienThoai;
 
+// Bieu mau chi hoi ten va so dien thoai, khong hoi email cua khach,
+// nen khong dat Reply-To. Tra loi khach bang cach goi hoac nhan Zalo.
 $header  = 'From: Panther Fit Website <' . $NGUOI_GUI . '>' . "\r\n";
-$header .= 'Reply-To: ' . $NGUOI_GUI . "\r\n";
 $header .= 'Content-Type: text/plain; charset=UTF-8' . "\r\n";
 $header .= 'MIME-Version: 1.0' . "\r\n";
 

@@ -33,6 +33,13 @@ const channels = [
     href: CONTACT.facebook,
     external: true,
   },
+  {
+    icon: 'mail' as const,
+    label: CONTACT.email,
+    value: 'Gửi email nếu bạn muốn trao đổi dài',
+    href: `mailto:${CONTACT.email}`,
+    external: false,
+  },
 ].filter((channel) => channel.href);
 ---
 
