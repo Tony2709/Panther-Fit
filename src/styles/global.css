@@ -51,7 +51,64 @@
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* ============================================================
+   HAI CHE DO SANG VA TOI
+
+   Ten bien o tren la VAI TRO, khong phai ten mau:
+     ink night carbon slate   nen, di tu chinh toi phu
+     cream mist dim           chu, di tu ro toi nhat
+   Nen o che do toi la den, o che do sang la trang. Giu nguyen ten
+   de khong phai sua hon 100 cho dang dung chung trong cac trang.
+
+   Mac dinh chay theo cai dat cua may. Nguoi dung bam nut doi thi
+   thuoc tinh data-theme tren the html se de len.
+
+   Hai khoi duoi day cung mot bang mau, sua thi phai sua ca hai.
+   Da do tuong phan tung cap, thap nhat la 4.56:1, deu qua chuan AA.
+   ============================================================ */
 @layer base {
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme='dark']) {
+    --color-ink: #ffffff;
+    --color-night: #f4f4f6;
+    --color-carbon: #fafafa;
+    --color-slate: #eeeef1;
+
+    --color-cream: #0b0b0d;
+    --color-mist: #55555c;
+    --color-dim: #6b6b73;
+
+    /* Sac do nhat #f5555e chi dat 3.31:1 tren nen trang nen khong dung
+       lam chu duoc. O che do sang doi sang sac dam, dat 7.17:1. */
+    --color-ember-soft: #b20710;
+
+    --color-hair: rgba(0, 0, 0, 0.1);
+    --color-hair-strong: rgba(0, 0, 0, 0.18);
+
+    color-scheme: light;
+    }
+  }
+
+  :root[data-theme='light'] {
+    --color-ink: #ffffff;
+    --color-night: #f4f4f6;
+    --color-carbon: #fafafa;
+    --color-slate: #eeeef1;
+
+    --color-cream: #0b0b0d;
+    --color-mist: #55555c;
+    --color-dim: #6b6b73;
+
+    /* Sac do nhat #f5555e chi dat 3.31:1 tren nen trang nen khong dung
+       lam chu duoc. O che do sang doi sang sac dam, dat 7.17:1. */
+    --color-ember-soft: #b20710;
+
+    --color-hair: rgba(0, 0, 0, 0.1);
+    --color-hair-strong: rgba(0, 0, 0, 0.18);
+
+    color-scheme: light;
+  }
+
   :root {
     color-scheme: dark;
     scroll-behavior: smooth;
@@ -348,13 +405,102 @@
     border: 0;
   }
 
-  /* Chu so thu tu 01, 02, 03 */
+  /* Chu so thu tu 01, 02, 03.
+     Dung ember-soft chu khong dung ember: Netflix Red nguyen ban chi dat
+     4.38:1 tren nen den va 4.36:1 tren nen sang, ca hai deu duoi chuan
+     4.5. Ember-soft doi mau theo che do nen dat 6.34:1 o nen toi va
+     7.17:1 o nen sang. */
   .ordinal {
     font-family: var(--font-display);
     font-size: 0.875rem;
     font-weight: 600;
     letter-spacing: 0.12em;
-    color: var(--color-ember);
+    color: var(--color-ember-soft);
+  }
+
+  /* Vach rat nhe duoi thanh dieu huong khi da cuon.
+     Nen toi thi vach sang, nen sang thi vach toi. */
+  .thanh-da-cuon {
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme='dark']) .thanh-da-cuon {
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+    }
+  }
+
+  :root[data-theme='light'] .thanh-da-cuon {
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.08);
+  }
+
+  /* --------------------------------------------------------
+     Hien hoac an tuy theo che do
+
+     Dung cho cap logo va cap bieu tuong mat trang mat troi. Dat ca hai
+     roi an bot mot cai bang CSS, thay vi doi bang JavaScript, de luc
+     trang vua mo khong bi nhay hinh.
+
+     Rieng logo tren anh bia khong dung cap nay, vi cho do luon la anh
+     toi nen luon dung ban net trang.
+     -------------------------------------------------------- */
+  .hien-khi-sang {
+    display: none;
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme='dark']) .hien-khi-toi {
+      display: none;
+    }
+
+    :root:not([data-theme='dark']) .hien-khi-sang {
+      display: revert;
+    }
+  }
+
+  :root[data-theme='light'] .hien-khi-toi {
+    display: none;
+  }
+
+  :root[data-theme='light'] .hien-khi-sang {
+    display: revert;
+  }
+
+  /* --------------------------------------------------------
+     Vung chu nam tren anh toi
+
+     Anh bia va cac dai anh van toi du dang o che do nao. Chu trong
+     nhung vung do phai ghim mau sang, khong duoc chay theo che do,
+     neu khong o che do sang se thanh chu den tren anh toi.
+     -------------------------------------------------------- */
+  .tren-anh-toi {
+    color: #fff;
+  }
+
+  .tren-anh-toi :where(h1, h2, h3, strong) {
+    color: #fff;
+  }
+
+  .tren-anh-toi :where(.lede, .prose-pf, p) {
+    color: rgba(255, 255, 255, 0.88);
+  }
+
+  .tren-anh-toi .eyebrow {
+    color: #f5555e;
+  }
+
+  .tren-anh-toi .eyebrow::before {
+    background: #e50914;
+  }
+
+  .tren-anh-toi .btn-ghost {
+    color: #fff;
+    border-color: rgba(255, 255, 255, 0.28);
+  }
+
+  .tren-anh-toi .btn-ghost:hover {
+    border-color: #fff;
+    background: rgba(255, 255, 255, 0.08);
   }
 
   /* --------------------------------------------------------
@@ -426,6 +572,24 @@
       .thanh-kinh-mo {
         background-color: color-mix(in srgb, var(--color-ink) 88%, transparent);
       }
+    }
+
+    /* Che do sang khong dung kinh mo.
+       Anh bia va video van toi du dang o che do nao, ma chu tren thanh
+       luc nay la chu den. De thanh trong suot thi chu den se nam tren
+       nen video toi, khong doc noi. Nen giu thanh dac. */
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme='dark']) .thanh-kinh-mo {
+        background-color: color-mix(in srgb, var(--color-ink) 96%, transparent);
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+      }
+    }
+
+    :root[data-theme='light'] .thanh-kinh-mo {
+      background-color: color-mix(in srgb, var(--color-ink) 96%, transparent);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
     }
   }
 

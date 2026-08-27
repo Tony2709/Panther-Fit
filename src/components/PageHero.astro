@@ -26,12 +26,16 @@ const { eyebrow, title, lede, image, alt, focus = 'center 22%', scrim = 'normal'
 
 /**
  * Ba lop phu, do bang mo hinh tinh tuong phan tren tung diem anh.
+ *
+ * Dung black chu khong dung ink: anh van toi du dang o che do sang hay
+ * toi, nen lop phu phai luon la mau den. Neu dung ink thi o che do sang
+ * no se lon nguoc thanh man trang phu len anh.
  * Ca hai muc deu giu chu trong nguong doc duoc, chi khac o cho
  * 'light' don phan lam toi vao dai trai thay vi trai deu ca anh.
  */
 const LOP_PHU = {
-  normal: { nen: 'bg-ink/42', doc: 'from-ink/80 via-ink/42 to-ink/12', ngang: 'from-ink/92 via-ink/62 to-transparent' },
-  light: { nen: 'bg-ink/22', doc: 'from-ink/70 via-ink/28 to-ink/[0.04]', ngang: 'from-ink/[0.96] via-ink/78 to-transparent' },
+  normal: { nen: 'bg-black/42', doc: 'from-black/80 via-black/42 to-black/12', ngang: 'from-black/92 via-black/62 to-transparent' },
+  light: { nen: 'bg-black/22', doc: 'from-black/70 via-black/28 to-black/[0.04]', ngang: 'from-black/[0.96] via-black/78 to-transparent' },
 }[scrim];
 ---
 
@@ -53,7 +57,7 @@ const LOP_PHU = {
   </div>
 
   <div class="shell relative">
-    <div class="max-w-3xl py-24 md:py-32 lg:py-40">
+    <div class="tren-anh-toi max-w-3xl py-24 md:py-32 lg:py-40">
       <p class="eyebrow reveal">{eyebrow}</p>
       <h1 class="display-lg reveal mt-5" data-delay="60">{title}</h1>
       {lede && <p class="lede reveal mt-6 max-w-2xl" data-delay="120">{lede}</p>}

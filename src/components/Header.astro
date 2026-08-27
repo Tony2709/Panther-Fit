@@ -24,7 +24,16 @@ const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWi
           alt=""
           width="150"
           height="87"
-          class="h-9 w-auto lg:h-10"
+          class="hien-khi-toi h-9 w-auto lg:h-10"
+          loading="eager"
+          decoding="async"
+        />
+        <img
+          src="/logo-panther-fit-dark.png"
+          alt=""
+          width="150"
+          height="87"
+          class="hien-khi-sang h-9 w-auto lg:h-10"
           loading="eager"
           decoding="async"
         />
@@ -58,6 +67,16 @@ const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWi
       </nav>
 
       <div class="hidden items-center gap-4 lg:flex">
+        <button
+        type="button"
+        class="nut-doi-giao-dien flex h-11 w-11 items-center justify-center rounded-sm text-cream transition-colors duration-200 hover:text-ember-soft"
+        aria-label="Đổi giữa nền sáng và nền tối"
+        title="Đổi giữa nền sáng và nền tối"
+      >
+        <span class="hien-khi-toi"><Icon name="sun" size={19} /></span>
+        <span class="hien-khi-sang"><Icon name="moon" size={19} /></span>
+      </button>
+
         <a
           href={`tel:${CONTACT.phoneRaw}`}
           class="flex items-center gap-2 text-[0.9375rem] font-semibold text-cream transition-colors duration-200 hover:text-ember-soft"
@@ -68,16 +87,28 @@ const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWi
         <a href="/lien-he" class="btn btn-primary">Ghé thử một buổi</a>
       </div>
 
+      <div class="flex items-center lg:hidden">
+        <button
+        type="button"
+        class="nut-doi-giao-dien flex h-11 w-11 items-center justify-center rounded-sm text-cream transition-colors duration-200 hover:text-ember-soft"
+        aria-label="Đổi giữa nền sáng và nền tối"
+        title="Đổi giữa nền sáng và nền tối"
+      >
+        <span class="hien-khi-toi"><Icon name="sun" size={19} /></span>
+        <span class="hien-khi-sang"><Icon name="moon" size={19} /></span>
+      </button>
+
       <button
         type="button"
         id="nav-toggle"
-        class="-mr-2 flex h-12 w-12 items-center justify-center rounded-sm text-cream lg:hidden"
+        class="-mr-2 flex h-12 w-12 items-center justify-center rounded-sm text-cream"
         aria-expanded="false"
         aria-controls="mobile-nav"
       >
         <span class="sr-only-pf">Mở menu</span>
         <Icon name="menu" size={24} />
       </button>
+      </div>
     </div>
   </div>
 </header>
@@ -90,14 +121,15 @@ const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWi
   aria-modal="true"
   aria-label="Menu"
 >
-  <div id="nav-scrim" class="absolute inset-0 bg-ink/80 backdrop-blur-sm"></div>
+  <div id="nav-scrim" class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
 
   <div
     id="nav-panel"
     class="absolute inset-y-0 right-0 flex w-full max-w-sm translate-x-full flex-col border-l border-hair bg-night transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
   >
     <div class="flex h-[4.5rem] items-center justify-between border-b border-hair px-5">
-      <img src="/logo-panther-fit.png" alt="Panther Fit" width="130" height="75" class="h-8 w-auto" />
+      <img src="/logo-panther-fit.png" alt="Panther Fit" width="130" height="75" class="hien-khi-toi h-8 w-auto" />
+      <img src="/logo-panther-fit-dark.png" alt="Panther Fit" width="130" height="75" class="hien-khi-sang h-8 w-auto" />
       <button
         type="button"
         id="nav-close"
@@ -148,18 +180,37 @@ const isCurrent = (href: string) => (href === '/' ? path === '/' : path.startsWi
   const wrap = document.getElementById('mobile-nav');
   const panel = document.getElementById('nav-panel');
 
-  // Them mot vach sang rat nhe khi da cuon, de thanh tach khoi noi dung
+  // Them mot vach rat nhe khi da cuon, de thanh tach khoi noi dung.
+  // Mau cua vach do global.css quyet dinh vi no khac nhau o hai che do.
   if (header) {
     const onScroll = () => {
-      header.classList.toggle(
-        'shadow-[0_1px_0_rgba(255,255,255,0.06)]',
-        window.scrollY > 24,
-      );
+      header.classList.toggle('thanh-da-cuon', window.scrollY > 24);
     };
 
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
   }
+
+  // Nut doi giua nen sang va nen toi. Co hai nut, mot cho man hinh rong
+  // mot cho dien thoai, nen gan cho ca hai.
+  document.querySelectorAll('.nut-doi-giao-dien').forEach((nut) => {
+    nut.addEventListener('click', () => {
+      const goc = document.documentElement;
+      const dangSang = goc.dataset.theme
+        ? goc.dataset.theme === 'light'
+        : window.matchMedia('(prefers-color-scheme: light)').matches;
+
+      const moi = dangSang ? 'dark' : 'light';
+      goc.dataset.theme = moi;
+
+      try {
+        localStorage.setItem('giao-dien', moi === 'light' ? 'sang' : 'toi');
+      } catch (e) {}
+
+      const the = document.querySelector('meta[name="theme-color"]');
+      if (the) the.setAttribute('content', moi === 'light' ? '#ffffff' : '#000000');
+    });
+  });
 
   // Mo va dong menu tren dien thoai
   if (toggle && wrap && panel) {
