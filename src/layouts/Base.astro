@@ -71,28 +71,6 @@ const businessSchema = {
     {noindex && <meta name="robots" content="noindex, nofollow" />}
 
     <meta name="theme-color" content="#000000" />
-    {/* Chay ngay truoc khi trinh duyet ve, neu de xuong duoi thi trang se
-        loe len mot mau roi doi sang mau kia. Khong dung khai bao module vi
-        module bi hoan lai toi sau khi trang dung xong. */}
-    <script is:inline>
-      (function () {
-        var goc = document.documentElement;
-        var luu = null;
-        try {
-          luu = localStorage.getItem('giao-dien');
-        } catch (e) {}
-
-        if (luu === 'sang') goc.dataset.theme = 'light';
-        else if (luu === 'toi') goc.dataset.theme = 'dark';
-
-        var dangSang =
-          luu === 'sang' ||
-          (!luu && window.matchMedia('(prefers-color-scheme: light)').matches);
-
-        var the = document.querySelector('meta[name="theme-color"]');
-        if (the) the.setAttribute('content', dangSang ? '#ffffff' : '#000000');
-      })();
-    </script>
     {/* Google chi nhan favicon vuong co canh la boi so cua 48px.
         Truoc day de 32x32 nen Google bo qua va hien icon qua dat mac dinh. */}
     <link rel="icon" href="/favicon.png" type="image/png" sizes="192x192" />
