@@ -99,6 +99,7 @@ jobs:
           # "Replacing: 0 B" du trang web van sai. Doi so o cuoi ten la
           # cong cu coi nhu chua tung chep, tai lai het mot lan cho khop.
           state-name: deploy-state-v2.json
+          timeout: 120000
           # Giu lai nhat ky lien he va file cua Hostinger tren may chu
           exclude: |
             **/.git*
@@ -107,14 +108,16 @@ jobs:
             **/*.log
             default.php
 
-      - name: Doi mot phut roi thu lai
+      - name: Doi mot phut roi thu lan hai
         if: steps.ftp.outputs.san_sang == 'true' && steps.lan1.outcome == 'failure'
         run: |
           echo "::warning::Lan chep dau that bai, doi 60 giay roi thu lai."
           sleep 60
 
       - name: Chep len Hostinger qua FTP, lan hai
+        id: lan2
         if: steps.ftp.outputs.san_sang == 'true' && steps.lan1.outcome == 'failure'
+        continue-on-error: true
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -124,6 +127,32 @@ jobs:
           server-dir: ./public_html/
           # Xem giai thich o buoc chep lan dau ben tren
           state-name: deploy-state-v2.json
+          timeout: 120000
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/*.log
+            default.php
+
+      - name: Doi hai phut roi thu lan ba
+        if: steps.ftp.outputs.san_sang == 'true' && steps.lan1.outcome == 'failure' && steps.lan2.outcome == 'failure'
+        run: |
+          echo "::warning::Hai lan chep deu that bai, doi 120 giay roi thu lan cuoi."
+          sleep 120
+
+      - name: Chep len Hostinger qua FTP, lan ba
+        if: steps.ftp.outputs.san_sang == 'true' && steps.lan1.outcome == 'failure' && steps.lan2.outcome == 'failure'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./dist/
+          server-dir: ./public_html/
+          # Xem giai thich o buoc chep lan dau ben tren
+          state-name: deploy-state-v2.json
+          timeout: 120000
           exclude: |
             **/.git*
             **/.git*/**
